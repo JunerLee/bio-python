@@ -22,6 +22,7 @@ from sklearn.datasets import load_breast_cancer
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import cross_val_score, train_test_split
 from sklearn.neural_network import MLPClassifier
+from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 
@@ -59,40 +60,37 @@ def exercise_1_nn_vs_rf() -> None:
     data = load_breast_cancer()
     X, y = data.data, data.target
 
-    # 标准化（神经网络对此非常敏感）
-    scaler = StandardScaler()
-    X_scaled = scaler.fit_transform(X)
-
     # --- TODO: 构建两个模型 ---
     # 提示：
     #   MLPClassifier(hidden_layer_sizes=?, max_iter=?, random_state=RANDOM_STATE)
     #   RandomForestClassifier(n_estimators=?, random_state=RANDOM_STATE)
+    #
+    # 将两个模型分别放入字典 models 中，例如：
+    #   models = {
+    #       "Random Forest": RandomForestClassifier(...),
+    #       "Neural Network (MLP)": MLPClassifier(...),
+    #   }
 
-    models = {
-        "Random Forest": RandomForestClassifier(
-            n_estimators=100,
-            random_state=RANDOM_STATE,
-        ),
-        "Neural Network (MLP)": MLPClassifier(
-            hidden_layer_sizes=(64, 32),  # 两层隐藏层：64 -> 32
-            max_iter=1000,                # 充足的迭代次数
-            random_state=RANDOM_STATE,
-        ),
-    }
+    models = {}  # TODO: 在这里填入你的模型
+    pass
 
     # --- TODO: 交叉验证对比 ---
-    # 提示：对每个模型调用 cross_val_score(model, X_scaled, y, cv=5)
-    # 注意：随机森林用原始数据 X 也可以，但为公平对比，这里统一用 X_scaled
+    # 重要：为防止数据泄漏，请使用 Pipeline 封装 StandardScaler 和模型！
+    # 提示：
+    #   from sklearn.pipeline import Pipeline
+    #   pipeline = Pipeline([("scaler", StandardScaler()), ("model", model)])
+    #   scores = cross_val_score(pipeline, X, y, cv=5, scoring="accuracy")
+    #
+    # 注意：不要在 cross_val_score 之前对整个 X 做 fit_transform，
+    #       这会导致验证集信息泄漏到标准化参数中。
 
-    results = {}
-    for name, model in models.items():
-        scores = cross_val_score(model, X_scaled, y, cv=5, scoring="accuracy")
-        results[name] = scores
-        print(f"  {name:<25s}  准确率: {scores.mean():.4f} (+/- {scores.std():.4f})")
+    results = {}  # TODO: 在这里填入交叉验证结果
+    pass
 
     # --- 结论 ---
-    best = max(results, key=lambda k: results[k].mean())
-    print(f"\n  结论: {best} 在本数据集上表现更好")
+    if results:
+        best = max(results, key=lambda k: results[k].mean())
+        print(f"\n  结论: {best} 在本数据集上表现更好")
     print(f"  思考: 对于样本量较小（569例）的结构化数据，")
     print(f"        神经网络不一定比传统方法更优。")
     print(f"        深度学习的优势更多体现在大规模非结构化数据上。")
@@ -129,7 +127,7 @@ def exercise_2_pca_visualization() -> None:
     X, y = data.data, data.target
     target_names = data.target_names
 
-    # 标准化
+    # 标准化（PCA 对特征尺度敏感，标准化是必要的预处理步骤）
     scaler = StandardScaler()
     X_scaled = scaler.fit_transform(X)
 
@@ -138,51 +136,28 @@ def exercise_2_pca_visualization() -> None:
     #   pca = PCA(n_components=2)
     #   X_pca = pca.fit_transform(X_scaled)
     #   pca.explained_variance_ratio_ 可查看每个主成分解释的方差比例
+    #
+    # 完成后打印方差解释比例：
+    #   var_ratio = pca.explained_variance_ratio_
+    #   print(f"  PC1 方差解释比例: {var_ratio[0]:.4f}")
+    #   print(f"  PC2 方差解释比例: {var_ratio[1]:.4f}")
 
-    pca = PCA(n_components=2)
-    X_pca = pca.fit_transform(X_scaled)
-
-    # 打印方差解释比例
-    var_ratio = pca.explained_variance_ratio_
-    print(f"  PC1 方差解释比例: {var_ratio[0]:.4f} ({var_ratio[0]*100:.1f}%)")
-    print(f"  PC2 方差解释比例: {var_ratio[1]:.4f} ({var_ratio[1]*100:.1f}%)")
-    print(f"  前2个主成分累计: {var_ratio.sum():.4f} ({var_ratio.sum()*100:.1f}%)")
+    X_pca = None  # TODO: 在这里完成 PCA 降维
+    pass
 
     # --- TODO: 绘制散点图 ---
     # 提示：
     #   - 用 plt.scatter 分别绘制 y==0（恶性）和 y==1（良性）
     #   - X_pca[:, 0] 是 PC1，X_pca[:, 1] 是 PC2
-    #   - 用不同颜色区分两类
+    #   - 用不同颜色区分两类，如红色=恶性，绿色=良性
+    #   - plt.xlabel / plt.ylabel 标注坐标轴
+    #   - plt.title 添加标题
+    #   - plt.legend 添加图例
+    #   - 保存到 OUTPUT_DIR / "pca_visualization.png"
 
-    plt.figure(figsize=(9, 7))
+    pass  # TODO: 在这里绘制散点图并保存
 
-    colors = ["#e74c3c", "#2ecc71"]  # 红色=恶性，绿色=良性
-    for label in [0, 1]:
-        mask = y == label
-        plt.scatter(
-            X_pca[mask, 0],
-            X_pca[mask, 1],
-            c=colors[label],
-            label=target_names[label],
-            alpha=0.6,
-            edgecolors="white",
-            linewidth=0.5,
-            s=50,
-        )
-
-    plt.xlabel(f"PC1 ({var_ratio[0]*100:.1f}% variance)", fontsize=12)
-    plt.ylabel(f"PC2 ({var_ratio[1]*100:.1f}% variance)", fontsize=12)
-    plt.title("PCA: Breast Cancer Samples in 2D Space", fontsize=14)
-    plt.legend(fontsize=11, loc="best")
-    plt.grid(alpha=0.3)
-    plt.tight_layout()
-
-    save_path = OUTPUT_DIR / "pca_visualization.png"
-    plt.savefig(save_path, dpi=150)
-    plt.close()
-
-    print(f"\n  [已保存] PCA 可视化 -> {save_path}")
-    print(f"  观察: 两类样本在 PC1 方向上有明显分离，")
+    print(f"\n  观察: 两类样本在 PC1 方向上有明显分离，")
     print(f"        说明线性方法（如逻辑回归）就能取得不错的分类效果。")
 
 

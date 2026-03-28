@@ -97,13 +97,10 @@ uv 0.6.12 (be2facaa7 2025-04-09)
 cd ~/Desktop
 
 # 2. 创建一个新项目
-uv init bio-python-learn
+uv init bio-python
 
 # 3. 进入项目文件夹
-cd bio-python-learn
-
-# 4. 安装一个包试试（以 biopython 为例）
-uv add biopython
+cd bio-python
 ```
 
 **逐行解释：**
@@ -111,20 +108,20 @@ uv add biopython
 | 命令 | 做了什么 |
 |------|---------|
 | `cd ~/Desktop` | `cd` = **c**hange **d**irectory（切换目录），`~` 代表你的用户主文件夹，`Desktop` 就是桌面。合起来：**去到桌面** |
-| `uv init bio-python-learn` | 在桌面上创建一个名为 `bio-python-learn` 的新项目文件夹 |
-| `cd bio-python-learn` | 进入刚创建的项目文件夹 |
-| `uv add biopython` | 安装 biopython 包（生物信息学常用工具库） |
+| `uv init bio-python` | 在桌面上创建一个名为 `bio-python` 的新项目文件夹 |
+| `cd bio-python` | 进入刚创建的项目文件夹 |
 
 > **小贴士**：`uv init` 会自动帮你安装合适的 Python 版本，不需要你自己去官网下载。
+>
+> **如果你已经下载了本教程的代码仓库**，可以跳过 `uv init` 步骤，直接在终端中用 `cd` 进入已下载的 `bio-python` 文件夹即可。
 
 **执行 `uv init` 后，项目文件夹里会自动生成这些文件：**
 
 ```
-bio-python-learn/
+bio-python/
 ├── .python-version   ← 记录使用的 Python 版本
 ├── pyproject.toml    ← 项目配置文件（相当于实验的"总方案"）
-├── README.md         ← 项目说明文档
-└── hello.py          ← 自动生成的示例代码文件
+└── README.md         ← 项目说明文档
 ```
 
 > 现在不需要理解每个文件的作用，后面会逐步接触。你只要知道 `uv init` 帮你把"实验室"搭好了。
@@ -143,7 +140,7 @@ bio-python-learn/
 
 **打开项目：**
 
-菜单栏 → 文件 → 打开文件夹 → 选择刚才创建的 `bio-python-learn` 文件夹。
+菜单栏 → 文件 → 打开文件夹 → 选择刚才创建的 `bio-python` 文件夹。
 
 **打开后你会看到什么？**
 

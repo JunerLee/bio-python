@@ -37,6 +37,7 @@ from sklearn.metrics import (
     classification_report,
 )
 from sklearn.model_selection import cross_val_score, train_test_split
+from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
 
@@ -124,14 +125,17 @@ def plot_correlation_heatmap(df: pd.DataFrame, target: pd.Series) -> None:
 
 
 def select_features(
-    df: pd.DataFrame, target: pd.Series, top_n: int = 15
+    train_df: pd.DataFrame, train_target: pd.Series, top_n: int = 15
 ) -> list[str]:
-    """基于与目标变量的相关性绝对值，选择 top_n 个最重要特征。"""
-    correlations = df.corrwith(target).abs().sort_values(ascending=False)
+    """基于与目标变量的相关性绝对值，选择 top_n 个最重要特征。
+
+    注意：只使用训练集数据进行特征选择，防止数据泄漏。
+    """
+    correlations = train_df.corrwith(train_target).abs().sort_values(ascending=False)
 
     selected = correlations.head(top_n).index.tolist()
 
-    print(f"\n选择与目标相关性最高的 {top_n} 个特征:")
+    print(f"\n选择与目标相关性最高的 {top_n} 个特征（仅基于训练集）:")
     for i, feat in enumerate(selected, 1):
         print(f"  {i:2d}. {feat:<30s}  |r| = {correlations[feat]:.4f}")
 
@@ -142,28 +146,15 @@ def select_features(
 # 第3步：数据预处理
 # ============================================================
 def preprocess_data(
-    df: pd.DataFrame,
-    target: pd.Series,
-    selected_features: list[str],
-) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
-    """数据划分（80/20）+ 标准化。返回 X_train, X_test, y_train, y_test。"""
-    X = df[selected_features].values
-    y = target.values
-
-    # 划分训练集和测试集
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.2, random_state=RANDOM_STATE, stratify=y
-    )
-
-    # 标准化：只在训练集上 fit，防止数据泄漏
+    X_train_raw: np.ndarray,
+    X_test_raw: np.ndarray,
+) -> tuple[np.ndarray, np.ndarray]:
+    """特征标准化。只在训练集上 fit，防止数据泄漏。"""
     scaler = StandardScaler()
-    X_train = scaler.fit_transform(X_train)
-    X_test = scaler.transform(X_test)
+    X_train = scaler.fit_transform(X_train_raw)
+    X_test = scaler.transform(X_test_raw)
 
-    print(f"\n训练集: {X_train.shape[0]} 例")
-    print(f"测试集: {X_test.shape[0]} 例")
-
-    return X_train, X_test, y_train, y_test
+    return X_train, X_test
 
 
 # ============================================================
@@ -187,14 +178,22 @@ def cross_validate_models(
     X_train: np.ndarray,
     y_train: np.ndarray,
 ) -> dict[str, float]:
-    """对每个模型进行 5 折交叉验证，返回各模型平均准确率。"""
+    """对每个模型进行 5 折交叉验证，返回各模型平均准确率。
+
+    使用 Pipeline 将标准化和模型封装在一起，确保每一折的标准化
+    只在该折的训练部分上 fit，防止验证数据泄漏到 scaler 中。
+    """
     print("\n" + "=" * 60)
-    print("5 折交叉验证结果")
+    print("5 折交叉验证结果（Pipeline: StandardScaler + Model）")
     print("=" * 60)
 
     cv_results = {}
     for name, model in models.items():
-        scores = cross_val_score(model, X_train, y_train, cv=5, scoring="accuracy")
+        pipeline = Pipeline([
+            ("scaler", StandardScaler()),
+            ("model", model),
+        ])
+        scores = cross_val_score(pipeline, X_train, y_train, cv=5, scoring="accuracy")
         mean_score = scores.mean()
         cv_results[name] = mean_score
         print(f"  {name:<25s}  准确率: {mean_score:.4f} (+/- {scores.std():.4f})")
@@ -297,41 +296,59 @@ def plot_feature_importance(
 def main() -> None:
     """毕业项目完整流程。"""
     print("*" * 60)
-    print("  毕业项目：乳腺癌基因表达分类")
+    print("  毕业项目：乳腺癌肿瘤诊断分类")
     print("*" * 60)
 
     # 1. 数据加载与探索
     df, target, feature_names, target_names = load_data()
     explore_data(df)
 
-    # 2. 特征分析与选择
+    # 2. 特征相关性热图（仅用于可视化，不参与建模决策）
     plot_correlation_heatmap(df, target)
-    selected_features = select_features(df, target, top_n=15)
 
-    # 3. 数据预处理
-    X_train, X_test, y_train, y_test = preprocess_data(df, target, selected_features)
+    # 3. 先划分训练集/测试集，再做特征选择——防止数据泄漏
+    X_all = df.values
+    y_all = target.values
+    X_train_raw, X_test_raw, y_train, y_test = train_test_split(
+        X_all, y_all, test_size=0.2, random_state=RANDOM_STATE, stratify=y_all
+    )
+    print(f"\n训练集: {X_train_raw.shape[0]} 例")
+    print(f"测试集: {X_test_raw.shape[0]} 例")
 
-    # 4. 模型训练与交叉验证
+    # 用训练集 DataFrame 做特征选择（测试集标签完全不参与）
+    train_df = pd.DataFrame(X_train_raw, columns=feature_names)
+    selected_features = select_features(train_df, pd.Series(y_train), top_n=15)
+
+    # 提取选中特征的列索引，用于从 numpy 数组中选列
+    selected_indices = [feature_names.index(f) for f in selected_features]
+    X_train_selected = X_train_raw[:, selected_indices]
+    X_test_selected = X_test_raw[:, selected_indices]
+
+    # 4. 标准化（只在训练集上 fit）
+    X_train_scaled, X_test_scaled = preprocess_data(X_train_selected, X_test_selected)
+
+    # 5. 模型训练与交叉验证（使用 Pipeline 防止 CV 内标准化泄漏）
     models = build_models()
-    cv_results = cross_validate_models(models, X_train, y_train)
+    cv_results = cross_validate_models(models, X_train_selected, y_train)
 
-    # 5. 最佳模型评估
+    # 6. 最佳模型评估（在已标准化的数据上训练和测试）
     best_name, best_model = evaluate_best_model(
-        models, cv_results, X_train, X_test, y_train, y_test, target_names
+        models, cv_results,
+        X_train_scaled, X_test_scaled, y_train, y_test, target_names
     )
 
-    # 6. 特征重要性可视化
-    plot_feature_importance(models, selected_features, X_train, y_train)
+    # 7. 特征重要性可视化
+    plot_feature_importance(models, selected_features, X_train_scaled, y_train)
 
     # 最终总结
     print("\n" + "*" * 60)
     print("  项目总结")
     print("*" * 60)
     print(f"  数据集:     Breast Cancer Wisconsin (569 例，形态学特征)")
-    print(f"  选用特征:   {len(selected_features)} 个（基于相关性选择）")
+    print(f"  选用特征:   {len(selected_features)} 个（基于训练集相关性选择）")
     print(f"  最佳模型:   {best_name}")
     print(f"  交叉验证:   {cv_results[best_name]:.4f}")
-    print(f"  测试准确率: {accuracy_score(y_test, best_model.predict(X_test)):.4f}")
+    print(f"  测试准确率: {accuracy_score(y_test, best_model.predict(X_test_scaled)):.4f}")
     print(f"\n  生成图表:")
     print(f"    - correlation_heatmap.png  （特征相关性热图）")
     print(f"    - confusion_matrix.png     （混淆矩阵）")

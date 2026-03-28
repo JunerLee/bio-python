@@ -63,14 +63,12 @@
   <rect x="54" y="46" width="155" height="28" fill="#252526"/>
   <text x="64" y="64" font-size="11" fill="#bbbbbb" font-weight="bold" letter-spacing="1">资源管理器</text>
   <!-- 文件树 -->
-  <text x="62" y="90" font-size="12" fill="#4CAF50">▾ 📁 bio-python-learn</text>
-  <rect x="66" y="95" width="2" height="100" fill="#444" rx="1"/>
+  <text x="62" y="90" font-size="12" fill="#4CAF50">▾ 📁 bio-python</text>
+  <rect x="66" y="95" width="2" height="82" fill="#444" rx="1"/>
   <text x="80" y="110" font-size="11" fill="#569cd6">📄 hello.py</text>
   <text x="80" y="128" font-size="11" fill="#cccccc">📄 pyproject.toml</text>
   <text x="80" y="146" font-size="11" fill="#cccccc">📄 README.md</text>
-  <text x="80" y="164" font-size="11" fill="#cccccc">📁 ch01_hello_python</text>
-  <text x="80" y="182" font-size="11" fill="#aaaaaa">📁 ch02_data_types</text>
-  <text x="80" y="200" font-size="11" fill="#aaaaaa">📁 assets</text>
+  <text x="80" y="164" font-size="11" fill="#cccccc">📄 .python-version</text>
   <rect x="54" y="101" width="155" height="16" fill="#37373d" opacity="0.8" rx="2"/>
 
   <!-- ④ 编辑区 -->
@@ -94,8 +92,8 @@
   <rect x="248" y="132" width="300" height="18" fill="#264f78" opacity="0.4" rx="2"/>
   <text x="255" y="147" font-size="13" fill="#dcdcaa" font-family="monospace">print</text>
   <text x="293" y="147" font-size="13" fill="#d4d4d4" font-family="monospace">(</text>
-  <text x="302" y="147" font-size="13" fill="#ce9178" font-family="monospace">"Hello, Biology!"</text>
-  <text x="430" y="147" font-size="13" fill="#d4d4d4" font-family="monospace">)</text>
+  <text x="302" y="147" font-size="13" fill="#ce9178" font-family="monospace">"Hello, Bioinformatics!"</text>
+  <text x="492" y="147" font-size="13" fill="#d4d4d4" font-family="monospace">)</text>
   <text x="255" y="168" font-size="13" fill="#dcdcaa" font-family="monospace">print</text>
   <text x="293" y="168" font-size="13" fill="#d4d4d4" font-family="monospace">(</text>
   <text x="302" y="168" font-size="13" fill="#ce9178" font-family="monospace">"基因名:"</text>
@@ -128,12 +126,12 @@
   <text x="640" y="357" font-size="12" fill="#888">＋</text>
   <!-- 终端内容 -->
   <text x="222" y="378" font-size="12" fill="#4CAF50" font-family="monospace">PS</text>
-  <text x="238" y="378" font-size="12" fill="#569cd6" font-family="monospace"> C:\bio-python-learn</text>
+  <text x="238" y="378" font-size="12" fill="#569cd6" font-family="monospace"> C:\bio-python</text>
   <text x="222" y="396" font-size="12" fill="#888" font-family="monospace">$</text>
   <text x="233" y="396" font-size="12" fill="#d4d4d4" font-family="monospace"> uv run hello.py</text>
-  <text x="222" y="414" font-size="12" fill="#ce9178" font-family="monospace">Hello, Biology!</text>
+  <text x="222" y="414" font-size="12" fill="#ce9178" font-family="monospace">Hello, Bioinformatics!</text>
   <text x="222" y="430" font-size="12" fill="#4CAF50" font-family="monospace">PS</text>
-  <text x="238" y="430" font-size="12" fill="#569cd6" font-family="monospace"> C:\bio-python-learn</text>
+  <text x="238" y="430" font-size="12" fill="#569cd6" font-family="monospace"> C:\bio-python</text>
   <text x="400" y="430" font-size="12" fill="#d4d4d4" font-family="monospace"> █</text>
 
   <!-- 状态栏 -->

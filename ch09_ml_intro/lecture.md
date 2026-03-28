@@ -179,6 +179,8 @@ from sklearn.metrics import confusion_matrix
 cm = confusion_matrix(y_test, y_pred)
 ```
 
+> **图示 vs 代码**：上面的 SVG 用二分类（癌症诊断）来讲解 TP/FP/TN/FN 的概念，因为二分类是理解混淆矩阵最直观的方式。而 `demo.py` 中使用的是 Iris 三分类数据集，它的混淆矩阵是 3×3 的——每个格子表示"真实类别 i 被预测为类别 j 的样本数"。概念完全相同，只是从 2×2 推广到了 N×N。
+
 ### 分类报告（Classification Report）
 
 一次性输出每个类别的精确率、召回率和 F1 分数。

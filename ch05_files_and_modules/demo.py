@@ -4,7 +4,7 @@
 本文件演示如何读写文件、解析 FASTA 格式、输出 CSV，以及异常处理。
 所有示例均围绕生物学场景展开。
 
-运行方式：在终端中执行 python demo.py
+运行方式：在终端中执行 uv run python ch05_files_and_modules/demo.py
 """
 
 import os
