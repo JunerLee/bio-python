@@ -8,14 +8,15 @@
   <line x1="60" y1="46" x2="640" y2="46" stroke="#c5cae9" stroke-width="1.5"/>
 
   <!-- ═══════ 缩进标尺 ═══════ -->
-  <text x="36" y="74" font-size="11" fill="#616161" font-weight="600">缩进标尺</text>
+  <text x="36" y="64" font-size="11" fill="#616161" font-weight="600">缩进标尺</text>
+  <!-- "4个空格"标注 —— 放在标尺横线上方 -->
+  <text x="53" y="80" text-anchor="middle" font-size="9" fill="#616161" font-weight="600">4个空格</text>
   <!-- 标尺刻度 -->
-  <line x1="36" y1="82" x2="36" y2="96" stroke="#9e9e9e" stroke-width="1.2"/>
-  <line x1="70" y1="82" x2="70" y2="96" stroke="#9e9e9e" stroke-width="1.2"/>
-  <line x1="36" y1="89" x2="70" y2="89" stroke="#9e9e9e" stroke-width="1.2"/>
-  <text x="36" y="106" text-anchor="middle" font-size="9" fill="#9e9e9e">0</text>
-  <text x="70" y="106" text-anchor="middle" font-size="9" fill="#9e9e9e">4</text>
-  <text x="53" y="81" text-anchor="middle" font-size="9" fill="#616161" font-weight="600">4个空格</text>
+  <line x1="36" y1="86" x2="36" y2="100" stroke="#9e9e9e" stroke-width="1.2"/>
+  <line x1="70" y1="86" x2="70" y2="100" stroke="#9e9e9e" stroke-width="1.2"/>
+  <line x1="36" y1="93" x2="70" y2="93" stroke="#9e9e9e" stroke-width="1.2"/>
+  <text x="36" y="110" text-anchor="middle" font-size="9" fill="#9e9e9e">0</text>
+  <text x="70" y="110" text-anchor="middle" font-size="9" fill="#9e9e9e">4</text>
 
   <!-- ═══════ 缩进辅助竖线 ═══════ -->
   <line x1="36" y1="112" x2="36" y2="416" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="3,5"/>
