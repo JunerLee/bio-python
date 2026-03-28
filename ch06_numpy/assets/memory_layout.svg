@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="500" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrowRed" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#e53935"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2e7d32"/>
+    </marker>
+    <filter id="shadow">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-color="#00000022"/>
+    </filter>
+  </defs>
+
+  <!-- 总背景 -->
+  <rect width="680" height="500" fill="#f8f9fa" rx="12"/>
+
+  <!-- 标题 -->
+  <text x="340" y="36" text-anchor="middle" font-size="19" font-weight="700" fill="#1a237e">Python list vs NumPy array — 内存布局对比</text>
+  <line x1="60" y1="46" x2="620" y2="46" stroke="#c5cae9" stroke-width="1.5"/>
+
+  <!-- ══════════════ 左侧：Python list ══════════════ -->
+  <rect x="20" y="58" width="305" height="410" rx="10" fill="#fff8f8" stroke="#ffcdd2" stroke-width="2" filter="url(#shadow)"/>
+
+  <!-- 标题标签 -->
+  <rect x="30" y="68" width="285" height="36" rx="8" fill="#ffebee"/>
+  <text x="172" y="91" text-anchor="middle" font-size="16" font-weight="700" fill="#c62828">❌  Python list — 慢</text>
+
+  <!-- list 对象框（指针数组） -->
+  <rect x="44" y="118" width="175" height="26" rx="5" fill="#fff" stroke="#e53935" stroke-width="1.8"/>
+  <text x="51" y="131" font-size="10" fill="#b71c1c" font-weight="700">list 指针数组</text>
+
+  <!-- 5个指针格子，水平排列 -->
+  <rect x="44" y="148" width="31" height="22" rx="3" fill="#ef9a9a" stroke="#e53935" stroke-width="1"/>
+  <text x="59" y="163" text-anchor="middle" font-size="9" fill="#b71c1c" font-weight="700">ptr</text>
+
+  <rect x="79" y="148" width="31" height="22" rx="3" fill="#ef9a9a" stroke="#e53935" stroke-width="1"/>
+  <text x="94" y="163" text-anchor="middle" font-size="9" fill="#b71c1c" font-weight="700">ptr</text>
+
+  <rect x="114" y="148" width="31" height="22" rx="3" fill="#ef9a9a" stroke="#e53935" stroke-width="1"/>
+  <text x="129" y="163" text-anchor="middle" font-size="9" fill="#b71c1c" font-weight="700">ptr</text>
+
+  <rect x="149" y="148" width="31" height="22" rx="3" fill="#ef9a9a" stroke="#e53935" stroke-width="1"/>
+  <text x="164" y="163" text-anchor="middle" font-size="9" fill="#b71c1c" font-weight="700">ptr</text>
+
+  <rect x="184" y="148" width="31" height="22" rx="3" fill="#ef9a9a" stroke="#e53935" stroke-width="1"/>
+  <text x="199" y="163" text-anchor="middle" font-size="9" fill="#b71c1c" font-weight="700">ptr</text>
+
+  <!-- ═════ 5个散落的独立 float 对象 ═════ -->
+  <!-- 对象1：左上角附近 (值 2.1) -->
+  <rect x="36" y="200" width="68" height="38" rx="6" fill="#fff" stroke="#9e9e9e" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="70" y="214" text-anchor="middle" font-size="9" fill="#757575">float 对象</text>
+  <text x="70" y="231" text-anchor="middle" font-size="14" font-weight="700" fill="#424242">2.1</text>
+
+  <!-- 对象2：右下角附近 (值 5.3) -->
+  <rect x="230" y="330" width="68" height="38" rx="6" fill="#fff" stroke="#9e9e9e" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="264" y="344" text-anchor="middle" font-size="9" fill="#757575">float 对象</text>
+  <text x="264" y="361" text-anchor="middle" font-size="14" font-weight="700" fill="#424242">5.3</text>
+
+  <!-- 对象3：中间偏左 (值 3.7) -->
+  <rect x="50" y="285" width="68" height="38" rx="6" fill="#fff" stroke="#9e9e9e" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="84" y="299" text-anchor="middle" font-size="9" fill="#757575">float 对象</text>
+  <text x="84" y="316" text-anchor="middle" font-size="14" font-weight="700" fill="#424242">3.7</text>
+
+  <!-- 对象4：左下角附近 (值 8.0) -->
+  <rect x="148" y="350" width="68" height="38" rx="6" fill="#fff" stroke="#9e9e9e" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="182" y="364" text-anchor="middle" font-size="9" fill="#757575">float 对象</text>
+  <text x="182" y="381" text-anchor="middle" font-size="14" font-weight="700" fill="#424242">8.0</text>
+
+  <!-- 对象5：右上角附近 (值 1.2) -->
+  <rect x="228" y="198" width="68" height="38" rx="6" fill="#fff" stroke="#9e9e9e" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="262" y="212" text-anchor="middle" font-size="9" fill="#757575">float 对象</text>
+  <text x="262" y="229" text-anchor="middle" font-size="14" font-weight="700" fill="#424242">1.2</text>
+
+  <!-- ═════ 虚线箭头：从各 ptr 分别指向对应散落对象 ═════ -->
+  <!-- ptr1 (x=59, y=159) → 对象1 左上 (x=36+68=104中心≈70, y=219) -->
+  <line x1="59" y1="170" x2="66" y2="198" stroke="#e53935" stroke-width="1.3" stroke-dasharray="4,3" marker-end="url(#arrowRed)"/>
+
+  <!-- ptr2 (x=94, y=159) → 对象2 右下 (x=264, y=330) -->
+  <line x1="94" y1="170" x2="250" y2="328" stroke="#e53935" stroke-width="1.3" stroke-dasharray="4,3" marker-end="url(#arrowRed)"/>
+
+  <!-- ptr3 (x=129, y=159) → 对象3 中间偏左 (x=84, y=285) -->
+  <line x1="129" y1="170" x2="92" y2="283" stroke="#e53935" stroke-width="1.3" stroke-dasharray="4,3" marker-end="url(#arrowRed)"/>
+
+  <!-- ptr4 (x=164, y=159) → 对象4 左下 (x=182, y=350) -->
+  <line x1="164" y1="170" x2="176" y2="348" stroke="#e53935" stroke-width="1.3" stroke-dasharray="4,3" marker-end="url(#arrowRed)"/>
+
+  <!-- ptr5 (x=199, y=159) → 对象5 右上 (x=262, y=198) -->
+  <line x1="199" y1="170" x2="254" y2="196" stroke="#e53935" stroke-width="1.3" stroke-dasharray="4,3" marker-end="url(#arrowRed)"/>
+
+  <!-- 说明注释 -->
+  <rect x="30" y="430" width="285" height="30" rx="6" fill="#ffebee" stroke="#ef9a9a" stroke-width="1"/>
+  <text x="40" y="444" font-size="11" fill="#c62828" font-weight="600">分散存储，每个元素独立</text>
+  <text x="40" y="457" font-size="10" fill="#b71c1c">• 额外 ~28B 头信息，内存地址各不相同</text>
+
+  <!-- "内存地址" 示意 -->
+  <text x="36" y="483" font-size="9" fill="#9e9e9e">地址: 0x1a4…  0x5b1…  0x2f0…  0x0e7…  0x3c8…</text>
+
+  <!-- ══════════════ 右侧：NumPy array ══════════════ -->
+  <rect x="355" y="58" width="305" height="410" rx="10" fill="#f1f8e9" stroke="#c8e6c9" stroke-width="2" filter="url(#shadow)"/>
+
+  <!-- 标题标签 -->
+  <rect x="365" y="68" width="285" height="36" rx="8" fill="#e8f5e9"/>
+  <text x="507" y="91" text-anchor="middle" font-size="16" font-weight="700" fill="#2e7d32">✅  NumPy array — 快</text>
+
+  <!-- array 主体：连续内存块 -->
+  <text x="440" y="130" font-size="11" fill="#2e7d32" font-weight="600">连续内存块（C 原生数组）</text>
+
+  <!-- 5个紧密排列的格子，纵向堆叠（宽度缩短为210，给左侧标注留出空间） -->
+  <rect x="390" y="140" width="210" height="40" rx="5" fill="#a5d6a7" stroke="#43a047" stroke-width="1.5"/>
+  <text x="420" y="157" font-size="10" fill="#1b5e20">地址 +0</text>
+  <text x="490" y="165" text-anchor="middle" font-size="17" font-weight="700" fill="#1b5e20">2.1</text>
+
+  <rect x="390" y="182" width="210" height="40" rx="5" fill="#81c784" stroke="#43a047" stroke-width="1.5"/>
+  <text x="420" y="199" font-size="10" fill="#1b5e20">地址 +8</text>
+  <text x="490" y="207" text-anchor="middle" font-size="17" font-weight="700" fill="#1b5e20">5.3</text>
+
+  <rect x="390" y="224" width="210" height="40" rx="5" fill="#a5d6a7" stroke="#43a047" stroke-width="1.5"/>
+  <text x="420" y="241" font-size="10" fill="#1b5e20">地址 +16</text>
+  <text x="490" y="249" text-anchor="middle" font-size="17" font-weight="700" fill="#1b5e20">3.7</text>
+
+  <rect x="390" y="266" width="210" height="40" rx="5" fill="#81c784" stroke="#43a047" stroke-width="1.5"/>
+  <text x="420" y="283" font-size="10" fill="#1b5e20">地址 +24</text>
+  <text x="490" y="291" text-anchor="middle" font-size="17" font-weight="700" fill="#1b5e20">8.0</text>
+
+  <rect x="390" y="308" width="210" height="40" rx="5" fill="#a5d6a7" stroke="#43a047" stroke-width="1.5"/>
+  <text x="420" y="325" font-size="10" fill="#1b5e20">地址 +32</text>
+  <text x="490" y="333" text-anchor="middle" font-size="17" font-weight="700" fill="#1b5e20">1.2</text>
+
+  <!-- 整体外框强调连续 -->
+  <rect x="390" y="140" width="210" height="208" rx="5" fill="none" stroke="#2e7d32" stroke-width="2.5"/>
+
+  <!-- 标注每格 8 字节（移到格子左侧） -->
+  <line x1="384" y1="140" x2="372" y2="140" stroke="#9e9e9e" stroke-width="1"/>
+  <line x1="384" y1="180" x2="372" y2="180" stroke="#9e9e9e" stroke-width="1"/>
+  <line x1="378" y1="140" x2="378" y2="180" stroke="#9e9e9e" stroke-width="1"/>
+  <text x="370" y="158" text-anchor="end" font-size="9" fill="#1b5e20" font-weight="700">8B</text>
+  <text x="370" y="169" text-anchor="end" font-size="9" fill="#1b5e20" font-weight="700">float64</text>
+
+  <!-- 说明注释 -->
+  <rect x="365" y="364" width="285" height="56" rx="6" fill="#e8f5e9" stroke="#a5d6a7" stroke-width="1"/>
+  <text x="375" y="381" font-size="11" fill="#2e7d32" font-weight="600">连续存储，类型统一</text>
+  <text x="375" y="397" font-size="10" fill="#1b5e20">• 纯 C 数组，无对象头信息开销</text>
+  <text x="375" y="411" font-size="10" fill="#1b5e20">• 内存连续，CPU 缓存命中率极高</text>
+
+  <!-- 连续内存地址示意 -->
+  <text x="370" y="438" font-size="9" fill="#9e9e9e">地址: 0x2000  0x2008  0x2010  0x2018  0x2020</text>
+  <text x="370" y="452" font-size="9" fill="#bdbdbd">（所有元素紧密排列，间隔固定 8 字节）</text>
+
+  <!-- 中间分隔线与对比标签 -->
+  <line x1="340" y1="58" x2="340" y2="468" stroke="#e0e0e0" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="340" y="490" text-anchor="middle" font-size="12" fill="#757575">← 慢 10~100×                  快 10~100× →</text>
+</svg>

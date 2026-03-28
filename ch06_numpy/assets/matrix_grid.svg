@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="380" font-family="system-ui, -apple-system, sans-serif">
+
+  <!-- 总背景 -->
+  <rect width="680" height="380" fill="#f8f9fa" rx="12"/>
+
+  <!--
+    布局规划（居中，紧凑）：
+      整体表格区域水平居中于680px
+      左侧 axis=0 括号区：x=14~44（30px宽）
+      行标签列：x=44, width=58  → 44~102
+      4列数据：每列 width=112
+        列0: 102~214  列1: 214~326  列2: 326~438  列3: 438~550
+      表格总宽: 102+4*112=550，表格左102，右550
+      顶部 axis=1 括号区：y=38~58（20px高）
+      列标题行：y=58, height=36  → 58~94
+      数据行3行：每行 height=52
+        行0: 94~146  行1: 146~198  行2: 198~250
+      表格底部: y=250
+      底部 shape 标注: y=268~
+  -->
+
+  <!-- ── axis=1 顶部括号（列方向，覆盖4列数据区：102~550） ── -->
+  <!-- 括号左竖 -->
+  <line x1="102" y1="42" x2="102" y2="52" stroke="#1565c0" stroke-width="2"/>
+  <!-- 括号水平线 -->
+  <line x1="102" y1="52" x2="550" y2="52" stroke="#1565c0" stroke-width="2"/>
+  <!-- 括号右竖 -->
+  <line x1="550" y1="42" x2="550" y2="52" stroke="#1565c0" stroke-width="2"/>
+  <!-- 箭头：从中点向右 -->
+  <line x1="326" y1="52" x2="326" y2="57" stroke="#1565c0" stroke-width="2"/>
+  <!-- 标签（在括号上方） -->
+  <text x="326" y="38" text-anchor="middle" font-size="12" font-weight="700" fill="#1565c0">axis=1  列（样本）→</text>
+
+  <!-- ── 列标题行 ── -->
+  <!-- 空白角格 -->
+  <rect x="44" y="58" width="58" height="36" fill="#eceff1" stroke="#b0bec5" stroke-width="1"/>
+
+  <!-- 样本1~4 列标题（浅蓝色） -->
+  <rect x="102" y="58" width="112" height="36" rx="0" fill="#E3F2FD" stroke="#90caf9" stroke-width="1.5"/>
+  <text x="158" y="81" text-anchor="middle" font-size="13" font-weight="700" fill="#1565c0">样本1</text>
+
+  <rect x="214" y="58" width="112" height="36" rx="0" fill="#E3F2FD" stroke="#90caf9" stroke-width="1.5"/>
+  <text x="270" y="81" text-anchor="middle" font-size="13" font-weight="700" fill="#1565c0">样本2</text>
+
+  <rect x="326" y="58" width="112" height="36" rx="0" fill="#E3F2FD" stroke="#90caf9" stroke-width="1.5"/>
+  <text x="382" y="81" text-anchor="middle" font-size="13" font-weight="700" fill="#1565c0">样本3</text>
+
+  <rect x="438" y="58" width="112" height="36" rx="0" fill="#E3F2FD" stroke="#90caf9" stroke-width="1.5"/>
+  <text x="494" y="81" text-anchor="middle" font-size="13" font-weight="700" fill="#1565c0">样本4</text>
+
+  <!-- ── 行0：基因A ── -->
+  <rect x="44" y="94" width="58" height="52" fill="#E8F5E9" stroke="#81c784" stroke-width="1.5"/>
+  <text x="73" y="125" text-anchor="middle" font-size="13" font-weight="700" fill="#2e7d32">基因A</text>
+
+  <rect x="102" y="94" width="112" height="52" fill="#ffffff" stroke="#90caf9" stroke-width="1"/>
+  <text x="158" y="126" text-anchor="middle" font-size="16" font-weight="700" fill="#1565c0">5.2</text>
+
+  <rect x="214" y="94" width="112" height="52" fill="#f5f5f5" stroke="#90caf9" stroke-width="1"/>
+  <text x="270" y="126" text-anchor="middle" font-size="16" font-weight="700" fill="#1565c0">3.1</text>
+
+  <rect x="326" y="94" width="112" height="52" fill="#ffffff" stroke="#90caf9" stroke-width="1"/>
+  <text x="382" y="126" text-anchor="middle" font-size="16" font-weight="700" fill="#1565c0">7.8</text>
+
+  <rect x="438" y="94" width="112" height="52" fill="#f5f5f5" stroke="#90caf9" stroke-width="1"/>
+  <text x="494" y="126" text-anchor="middle" font-size="16" font-weight="700" fill="#1565c0">4.5</text>
+
+  <!-- ── 行1：基因B ── -->
+  <rect x="44" y="146" width="58" height="52" fill="#E8F5E9" stroke="#81c784" stroke-width="1.5"/>
+  <text x="73" y="177" text-anchor="middle" font-size="13" font-weight="700" fill="#2e7d32">基因B</text>
+
+  <rect x="102" y="146" width="112" height="52" fill="#ffffff" stroke="#90caf9" stroke-width="1"/>
+  <text x="158" y="178" text-anchor="middle" font-size="16" font-weight="700" fill="#1565c0">1.0</text>
+
+  <rect x="214" y="146" width="112" height="52" fill="#f5f5f5" stroke="#90caf9" stroke-width="1"/>
+  <text x="270" y="178" text-anchor="middle" font-size="16" font-weight="700" fill="#1565c0">0.5</text>
+
+  <rect x="326" y="146" width="112" height="52" fill="#ffffff" stroke="#90caf9" stroke-width="1"/>
+  <text x="382" y="178" text-anchor="middle" font-size="16" font-weight="700" fill="#1565c0">2.3</text>
+
+  <rect x="438" y="146" width="112" height="52" fill="#f5f5f5" stroke="#90caf9" stroke-width="1"/>
+  <text x="494" y="178" text-anchor="middle" font-size="16" font-weight="700" fill="#1565c0">1.8</text>
+
+  <!-- ── 行2：基因C ── -->
+  <rect x="44" y="198" width="58" height="52" fill="#E8F5E9" stroke="#81c784" stroke-width="1.5"/>
+  <text x="73" y="229" text-anchor="middle" font-size="13" font-weight="700" fill="#2e7d32">基因C</text>
+
+  <rect x="102" y="198" width="112" height="52" fill="#ffffff" stroke="#90caf9" stroke-width="1"/>
+  <text x="158" y="230" text-anchor="middle" font-size="16" font-weight="700" fill="#1565c0">9.1</text>
+
+  <rect x="214" y="198" width="112" height="52" fill="#f5f5f5" stroke="#90caf9" stroke-width="1"/>
+  <text x="270" y="230" text-anchor="middle" font-size="16" font-weight="700" fill="#1565c0">8.7</text>
+
+  <rect x="326" y="198" width="112" height="52" fill="#ffffff" stroke="#90caf9" stroke-width="1"/>
+  <text x="382" y="230" text-anchor="middle" font-size="16" font-weight="700" fill="#1565c0">6.5</text>
+
+  <rect x="438" y="198" width="112" height="52" fill="#f5f5f5" stroke="#90caf9" stroke-width="1"/>
+  <text x="494" y="230" text-anchor="middle" font-size="16" font-weight="700" fill="#1565c0">7.2</text>
+
+  <!-- 外框 -->
+  <rect x="44" y="58" width="506" height="192" fill="none" stroke="#37474f" stroke-width="2" rx="2"/>
+
+  <!-- ── axis=0 左侧括号（行方向，覆盖3行数据区: y=94~250） ── -->
+  <!-- 括号右竖上 -->
+  <line x1="36" y1="94"  x2="42" y2="94"  stroke="#2e7d32" stroke-width="2"/>
+  <!-- 括号竖线 -->
+  <line x1="36" y1="94"  x2="36" y2="250" stroke="#2e7d32" stroke-width="2"/>
+  <!-- 括号右竖下 -->
+  <line x1="36" y1="250" x2="42" y2="250" stroke="#2e7d32" stroke-width="2"/>
+  <!-- 中点连线 -->
+  <line x1="36" y1="172" x2="32" y2="172" stroke="#2e7d32" stroke-width="2"/>
+  <!-- 竖向文字标签：旋转放在括号左侧 -->
+  <text x="22" y="172" text-anchor="middle" font-size="11" font-weight="700" fill="#2e7d32"
+        transform="rotate(-90, 22, 172)">axis=0  行（基因）↓</text>
+
+  <!-- ── 底部 shape 标注 ── -->
+  <rect x="216" y="268" width="248" height="28" rx="8" fill="#E8F5E9" stroke="#66bb6a" stroke-width="1.5"/>
+  <text x="340" y="287" text-anchor="middle" font-size="13" font-weight="700" fill="#2e7d32">shape = (3, 4)  — 3行 × 4列</text>
+
+  <!-- 图例说明 -->
+  <rect x="44" y="312" width="14" height="14" rx="3" fill="#E8F5E9" stroke="#81c784" stroke-width="1.5"/>
+  <text x="64" y="323" font-size="11" fill="#2e7d32" font-weight="600">行标题（绿色）= 基因</text>
+
+  <rect x="260" y="312" width="14" height="14" rx="3" fill="#E3F2FD" stroke="#90caf9" stroke-width="1.5"/>
+  <text x="280" y="323" font-size="11" fill="#1565c0" font-weight="600">列标题（蓝色）= 样本</text>
+
+  <rect x="476" y="312" width="14" height="14" rx="3" fill="#ffffff" stroke="#90caf9" stroke-width="1.5"/>
+  <text x="496" y="323" font-size="11" fill="#546e7a">数据格</text>
+
+</svg>

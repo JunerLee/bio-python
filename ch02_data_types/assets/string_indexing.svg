@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="400" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-color="#00000018"/>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="680" height="400" rx="12" fill="#f8fffe" stroke="#b2dfdb" stroke-width="1.5"/>
+
+  <!-- 标题 -->
+  <rect x="165" y="12" width="350" height="34" rx="17" fill="#1976D2"/>
+  <text x="340" y="34" font-size="14" font-weight="bold" fill="white" text-anchor="middle">字符串索引 &amp; 切片 —— DNA 序列 "ATCGATCG"</text>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- 负索引标签（上方，y=62） -->
+  <!-- ══════════════════════════════════════════ -->
+  <text x="340" y="59" font-size="10" fill="#7B1FA2" text-anchor="middle" font-weight="bold">← 负索引（从末尾倒数）</text>
+
+  <!-- 负索引数字，居中对齐每个方框 -->
+  <!-- 方框中心 x: 86, 149, 212, 275, 338, 401, 464, 527  (起点55, 宽63) -->
+  <text x="86"  y="75" font-size="12" fill="#8E24AA" text-anchor="middle" font-weight="bold">-8</text>
+  <text x="149" y="75" font-size="12" fill="#8E24AA" text-anchor="middle" font-weight="bold">-7</text>
+  <text x="212" y="75" font-size="12" fill="#8E24AA" text-anchor="middle" font-weight="bold">-6</text>
+  <text x="275" y="75" font-size="12" fill="#8E24AA" text-anchor="middle" font-weight="bold">-5</text>
+  <text x="338" y="75" font-size="12" fill="#8E24AA" text-anchor="middle" font-weight="bold">-4</text>
+  <text x="401" y="75" font-size="12" fill="#8E24AA" text-anchor="middle" font-weight="bold">-3</text>
+  <text x="464" y="75" font-size="12" fill="#8E24AA" text-anchor="middle" font-weight="bold">-2</text>
+  <text x="527" y="75" font-size="12" fill="#8E24AA" text-anchor="middle" font-weight="bold">-1</text>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- 8 个碱基方框（y=82, 高60, 宽63, 间距0） -->
+  <!-- 起始x=55, 各框左边: 55,118,181,244,307,370,433,496 -->
+  <!-- ══════════════════════════════════════════ -->
+
+  <!-- A: index 0 (绿色) -->
+  <rect x="55"  y="82" width="63" height="60" rx="8" fill="#4CAF50" stroke="#2E7D32" stroke-width="2" filter="url(#shadow)"/>
+  <text x="86"  y="121" font-size="30" font-weight="bold" fill="white" text-anchor="middle" font-family="monospace">A</text>
+
+  <!-- T: index 1 (红色) -->
+  <rect x="118" y="82" width="63" height="60" rx="8" fill="#EF5350" stroke="#B71C1C" stroke-width="2" filter="url(#shadow)"/>
+  <text x="149" y="121" font-size="30" font-weight="bold" fill="white" text-anchor="middle" font-family="monospace">T</text>
+
+  <!-- C: index 2 (蓝色) -->
+  <rect x="181" y="82" width="63" height="60" rx="8" fill="#2196F3" stroke="#0D47A1" stroke-width="2" filter="url(#shadow)"/>
+  <text x="212" y="121" font-size="30" font-weight="bold" fill="white" text-anchor="middle" font-family="monospace">C</text>
+
+  <!-- G: index 3 (金色) -->
+  <rect x="244" y="82" width="63" height="60" rx="8" fill="#FFC107" stroke="#E65100" stroke-width="2" filter="url(#shadow)"/>
+  <text x="275" y="121" font-size="30" font-weight="bold" fill="#333" text-anchor="middle" font-family="monospace">G</text>
+
+  <!-- A: index 4 (绿色) -->
+  <rect x="307" y="82" width="63" height="60" rx="8" fill="#4CAF50" stroke="#2E7D32" stroke-width="2" filter="url(#shadow)"/>
+  <text x="338" y="121" font-size="30" font-weight="bold" fill="white" text-anchor="middle" font-family="monospace">A</text>
+
+  <!-- T: index 5 (红色) -->
+  <rect x="370" y="82" width="63" height="60" rx="8" fill="#EF5350" stroke="#B71C1C" stroke-width="2" filter="url(#shadow)"/>
+  <text x="401" y="121" font-size="30" font-weight="bold" fill="white" text-anchor="middle" font-family="monospace">T</text>
+
+  <!-- C: index 6 (蓝色) -->
+  <rect x="433" y="82" width="63" height="60" rx="8" fill="#2196F3" stroke="#0D47A1" stroke-width="2" filter="url(#shadow)"/>
+  <text x="464" y="121" font-size="30" font-weight="bold" fill="white" text-anchor="middle" font-family="monospace">C</text>
+
+  <!-- G: index 7 (金色) -->
+  <rect x="496" y="82" width="63" height="60" rx="8" fill="#FFC107" stroke="#E65100" stroke-width="2" filter="url(#shadow)"/>
+  <text x="527" y="121" font-size="30" font-weight="bold" fill="#333" text-anchor="middle" font-family="monospace">G</text>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- 正索引标签（下方，y=158） -->
+  <!-- ══════════════════════════════════════════ -->
+  <text x="86"  y="158" font-size="12" fill="#1565C0" text-anchor="middle" font-weight="bold">0</text>
+  <text x="149" y="158" font-size="12" fill="#1565C0" text-anchor="middle" font-weight="bold">1</text>
+  <text x="212" y="158" font-size="12" fill="#1565C0" text-anchor="middle" font-weight="bold">2</text>
+  <text x="275" y="158" font-size="12" fill="#1565C0" text-anchor="middle" font-weight="bold">3</text>
+  <text x="338" y="158" font-size="12" fill="#1565C0" text-anchor="middle" font-weight="bold">4</text>
+  <text x="401" y="158" font-size="12" fill="#1565C0" text-anchor="middle" font-weight="bold">5</text>
+  <text x="464" y="158" font-size="12" fill="#1565C0" text-anchor="middle" font-weight="bold">6</text>
+  <text x="527" y="158" font-size="12" fill="#1565C0" text-anchor="middle" font-weight="bold">7</text>
+  <text x="340" y="170" font-size="10" fill="#1565C0" text-anchor="middle" font-weight="bold">正索引（从头开始）→</text>
+
+  <!-- 碱基配色图例（y=180） -->
+  <rect x="55"  y="179" width="14" height="10" rx="2" fill="#4CAF50"/>
+  <text x="73"  y="188" font-size="10" fill="#2E7D32">A 腺嘌呤</text>
+  <rect x="165" y="179" width="14" height="10" rx="2" fill="#EF5350"/>
+  <text x="183" y="188" font-size="10" fill="#B71C1C">T 胸腺嘧啶</text>
+  <rect x="285" y="179" width="14" height="10" rx="2" fill="#2196F3"/>
+  <text x="303" y="188" font-size="10" fill="#0D47A1">C 胞嘧啶</text>
+  <rect x="400" y="179" width="14" height="10" rx="2" fill="#FFC107"/>
+  <text x="418" y="188" font-size="10" fill="#E65100">G 鸟嘌呤</text>
+
+  <!-- ══════════════════════════════════════════════════════════════ -->
+  <!-- 切片示例区域（y=200以下） -->
+  <!-- 方框x左边: C=181, G=244, A=307, T=370, C=433, G=496 -->
+  <!-- ══════════════════════════════════════════════════════════════ -->
+
+  <!-- ─── 切片1: dna[2:5] → "CGA"，覆盖 index 2,3,4 ─── -->
+  <!-- 高亮底色: x从181到370, y=82到142 -->
+  <rect x="181" y="198" width="189" height="52" rx="6"
+        fill="#E3F2FD" stroke="#1976D2" stroke-width="1.5"/>
+
+  <!-- 括号线：左竖 + 底横 + 右竖，精确贴合index2~4范围 -->
+  <!-- 左竖: x=181, 从y=203到215 -->
+  <line x1="185" y1="204" x2="185" y2="214" stroke="#1976D2" stroke-width="2"/>
+  <!-- 底横: x从185到369, y=214 -->
+  <line x1="185" y1="214" x2="369" y2="214" stroke="#1976D2" stroke-width="2"/>
+  <!-- 右竖: x=369, 从y=203到215 -->
+  <line x1="369" y1="204" x2="369" y2="214" stroke="#1976D2" stroke-width="2"/>
+
+  <!-- 标签 -->
+  <text x="277" y="228" font-size="13" font-weight="bold" fill="#1565C0" text-anchor="middle" font-family="monospace">dna[2:5]</text>
+  <text x="277" y="243" font-size="11" fill="#1976D2" text-anchor="middle">→ "CGA" （索引 2、3、4）</text>
+
+  <!-- ─── 切片2: dna[:4] → "ATCG"，覆盖 index 0,1,2,3 ─── -->
+  <rect x="55" y="262" width="252" height="52" rx="6"
+        fill="#E8F5E9" stroke="#388E3C" stroke-width="1.5"/>
+
+  <line x1="59"  y1="268" x2="59"  y2="278" stroke="#388E3C" stroke-width="2"/>
+  <line x1="59"  y1="278" x2="306" y2="278" stroke="#388E3C" stroke-width="2"/>
+  <line x1="306" y1="268" x2="306" y2="278" stroke="#388E3C" stroke-width="2"/>
+
+  <text x="180" y="292" font-size="13" font-weight="bold" fill="#2E7D32" text-anchor="middle" font-family="monospace">dna[:4]</text>
+  <text x="180" y="307" font-size="11" fill="#388E3C" text-anchor="middle">→ "ATCG" （索引 0、1、2、3）</text>
+
+  <!-- ─── 切片3: dna[-3:] → "TCG"，覆盖 index 5,6,7 ─── -->
+  <rect x="370" y="262" width="189" height="52" rx="6"
+        fill="#FFF3E0" stroke="#E65100" stroke-width="1.5"/>
+
+  <line x1="374" y1="268" x2="374" y2="278" stroke="#E65100" stroke-width="2"/>
+  <line x1="374" y1="278" x2="558" y2="278" stroke="#E65100" stroke-width="2"/>
+  <line x1="558" y1="268" x2="558" y2="278" stroke="#E65100" stroke-width="2"/>
+
+  <text x="464" y="292" font-size="13" font-weight="bold" fill="#E65100" text-anchor="middle" font-family="monospace">dna[-3:]</text>
+  <text x="464" y="307" font-size="11" fill="#E65100" text-anchor="middle">→ "TCG" （索引 5、6、7）</text>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- 底部规则说明框 -->
+  <!-- ══════════════════════════════════════════ -->
+  <rect x="30" y="328" width="620" height="58" rx="8" fill="white" stroke="#CFD8DC" stroke-width="1.5"/>
+
+  <rect x="44" y="338" width="8" height="8" rx="2" fill="#4CAF50"/>
+  <text x="58" y="347" font-size="11" fill="#333">切片语法：</text>
+  <text x="116" y="347" font-size="11" fill="#1565C0" font-family="monospace" font-weight="bold">s[ 起始 : 终止 ]</text>
+  <text x="236" y="347" font-size="11" fill="#555">　← 包含起始，不含终止（左闭右开）</text>
+
+  <rect x="44" y="355" width="8" height="8" rx="2" fill="#8E24AA"/>
+  <text x="58" y="364" font-size="11" fill="#333">负索引：从末尾倒数，</text>
+  <text x="178" y="364" font-size="11" fill="#8E24AA" font-family="monospace" font-weight="bold">-1</text>
+  <text x="196" y="364" font-size="11" fill="#333"> = 最后一个，</text>
+  <text x="272" y="364" font-size="11" fill="#8E24AA" font-family="monospace" font-weight="bold">-8</text>
+  <text x="291" y="364" font-size="11" fill="#333"> = 第一个　</text>
+
+  <rect x="44" y="373" width="8" height="8" rx="2" fill="#FF9800"/>
+  <text x="58" y="381" font-size="11" fill="#333">步长示例：</text>
+  <text x="116" y="381" font-size="11" fill="#FF9800" font-family="monospace" font-weight="bold">dna[::2]</text>
+  <text x="178" y="381" font-size="11" fill="#555"> → "ACAC"（每隔一个取一个）　</text>
+  <text x="360" y="381" font-size="11" fill="#FF9800" font-family="monospace" font-weight="bold">dna[::-1]</text>
+  <text x="430" y="381" font-size="11" fill="#555"> → 反转序列</text>
+</svg>

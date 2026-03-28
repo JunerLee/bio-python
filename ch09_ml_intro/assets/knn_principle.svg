@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="500" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0f8f0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e8f4fd;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="plotBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fafffe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5f9ff;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="classAGrad" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" style="stop-color:#66BB6A" />
+      <stop offset="100%" style="stop-color:#2E7D32" />
+    </radialGradient>
+    <radialGradient id="classBGrad" cx="35%" cy="30%" r="65%">
+      <stop offset="0%" style="stop-color:#FF8A65" />
+      <stop offset="100%" style="stop-color:#BF360C" />
+    </radialGradient>
+    <radialGradient id="targetGrad" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" style="stop-color:#FFF176" />
+      <stop offset="100%" style="stop-color:#F9A825" />
+    </radialGradient>
+    <filter id="shadow">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-color="#00000022" />
+    </filter>
+  </defs>
+
+  <!-- 整体背景 -->
+  <rect width="680" height="500" rx="12" fill="url(#bgGrad)" />
+  <rect width="680" height="500" rx="12" fill="none" stroke="#C8E6C9" stroke-width="1.5"/>
+
+  <!-- 标题 -->
+  <rect x="20" y="14" width="640" height="44" rx="8" fill="#2196F3" filter="url(#shadow)"/>
+  <text x="340" y="42" text-anchor="middle" font-size="19" font-weight="bold" fill="white" letter-spacing="1">KNN 工作原理示意（K = 5）</text>
+
+  <!-- ========== 绘图区域 ==========
+       Y轴标签区域: x=20~45 (25px宽)
+       Y轴线: x=70
+       绘图区: x=70 ~ x=430, y=72 ~ y=370
+       X轴线: y=370
+       X轴下方留白: y=370~420 (50px, 包含轴标签)
+  -->
+
+  <!-- 绘图区背景 -->
+  <rect x="70" y="72" width="360" height="298" rx="6" fill="url(#plotBg)" stroke="#BBDEFB" stroke-width="1.5"/>
+
+  <!-- 网格线（淡色） -->
+  <g stroke="#E3F2FD" stroke-width="1">
+    <line x1="70"  y1="132" x2="430" y2="132"/>
+    <line x1="70"  y1="192" x2="430" y2="192"/>
+    <line x1="70"  y1="252" x2="430" y2="252"/>
+    <line x1="70"  y1="312" x2="430" y2="312"/>
+    <line x1="130" y1="72"  x2="130" y2="370"/>
+    <line x1="190" y1="72"  x2="190" y2="370"/>
+    <line x1="250" y1="72"  x2="250" y2="370"/>
+    <line x1="310" y1="72"  x2="310" y2="370"/>
+    <line x1="370" y1="72"  x2="370" y2="370"/>
+  </g>
+
+  <!-- X 轴 -->
+  <line x1="70" y1="370" x2="428" y2="370" stroke="#78909C" stroke-width="2"/>
+  <polygon points="428,366 436,370 428,374" fill="#78909C"/>
+
+  <!-- Y 轴 -->
+  <line x1="70" y1="370" x2="70" y2="74" stroke="#78909C" stroke-width="2"/>
+  <polygon points="66,74 70,66 74,74" fill="#78909C"/>
+
+  <!-- X 轴标签: "特征1" — 在轴末端正下方，距轴线30px -->
+  <text x="340" y="415" text-anchor="middle" font-size="14" font-weight="bold" fill="#546E7A">特征1（花萼长度）</text>
+
+  <!-- Y 轴标签: "特征2" — 旋转文字，放在轴线左侧35px处，文字中心对齐绘图区中心y -->
+  <text
+    x="32" y="221"
+    text-anchor="middle"
+    font-size="14" font-weight="bold" fill="#546E7A"
+    transform="rotate(-90, 32, 221)">特征2（花瓣宽度）</text>
+
+  <!-- ========== 类别A：山鸢尾（绿色圆圈），左上聚集 ========== -->
+  <!-- 普通A点 -->
+  <circle cx="108" cy="108" r="8" fill="url(#classAGrad)" filter="url(#shadow)"/>
+  <circle cx="145" cy="88"  r="8" fill="url(#classAGrad)" filter="url(#shadow)"/>
+  <circle cx="120" cy="145" r="8" fill="url(#classAGrad)" filter="url(#shadow)"/>
+  <circle cx="165" cy="112" r="8" fill="url(#classAGrad)" filter="url(#shadow)"/>
+  <circle cx="98"  cy="170" r="8" fill="url(#classAGrad)" filter="url(#shadow)"/>
+  <circle cx="158" cy="155" r="8" fill="url(#classAGrad)" filter="url(#shadow)"/>
+  <!-- A点（邻居，在K圆内，带金色高亮边框） -->
+  <circle cx="200" cy="198" r="9" fill="url(#classAGrad)" stroke="#FFD600" stroke-width="2.5" filter="url(#shadow)"/>
+  <circle cx="232" cy="218" r="9" fill="url(#classAGrad)" stroke="#FFD600" stroke-width="2.5" filter="url(#shadow)"/>
+  <circle cx="212" cy="248" r="9" fill="url(#classAGrad)" stroke="#FFD600" stroke-width="2.5" filter="url(#shadow)"/>
+  <!-- A点邻居标注 -->
+  <text x="200" y="202" text-anchor="middle" font-size="9" font-weight="bold" fill="white">A</text>
+  <text x="232" y="222" text-anchor="middle" font-size="9" font-weight="bold" fill="white">A</text>
+  <text x="212" y="252" text-anchor="middle" font-size="9" font-weight="bold" fill="white">A</text>
+
+  <!-- ========== 类别B：变色鸢尾（橙色方块），右下聚集 ========== -->
+  <!-- 普通B点 -->
+  <rect x="288" y="262" width="16" height="16" rx="2" fill="url(#classBGrad)" filter="url(#shadow)"/>
+  <rect x="328" y="240" width="16" height="16" rx="2" fill="url(#classBGrad)" filter="url(#shadow)"/>
+  <rect x="355" y="278" width="16" height="16" rx="2" fill="url(#classBGrad)" filter="url(#shadow)"/>
+  <rect x="308" y="308" width="16" height="16" rx="2" fill="url(#classBGrad)" filter="url(#shadow)"/>
+  <rect x="358" y="320" width="16" height="16" rx="2" fill="url(#classBGrad)" filter="url(#shadow)"/>
+  <rect x="390" y="258" width="16" height="16" rx="2" fill="url(#classBGrad)" filter="url(#shadow)"/>
+  <!-- B点（邻居，在K圆内，带金色高亮边框） -->
+  <rect x="252" y="244" width="16" height="16" rx="2" fill="url(#classBGrad)" stroke="#FFD600" stroke-width="2.5" filter="url(#shadow)"/>
+  <rect x="268" y="220" width="16" height="16" rx="2" fill="url(#classBGrad)" stroke="#FFD600" stroke-width="2.5" filter="url(#shadow)"/>
+  <!-- B点邻居标注 -->
+  <text x="260" y="256" text-anchor="middle" font-size="9" font-weight="bold" fill="white">B</text>
+  <text x="276" y="232" text-anchor="middle" font-size="9" font-weight="bold" fill="white">B</text>
+
+  <!-- ========== K=5 虚线邻居连线 ========== -->
+  <g stroke="#FFC107" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.75">
+    <line x1="240" y1="235" x2="200" y2="198"/>
+    <line x1="240" y1="235" x2="232" y2="218"/>
+    <line x1="240" y1="235" x2="212" y2="248"/>
+    <line x1="240" y1="235" x2="260" y2="252"/>
+    <line x1="240" y1="235" x2="276" y2="228"/>
+  </g>
+
+  <!-- K=5 虚线圆圈 -->
+  <circle cx="240" cy="235" r="72" fill="rgba(255,214,0,0.06)" stroke="#FFC107" stroke-width="2" stroke-dasharray="10,6"/>
+
+  <!-- 待分类的"?"目标点 -->
+  <circle cx="240" cy="235" r="16" fill="url(#targetGrad)" stroke="#F57F17" stroke-width="2" filter="url(#shadow)"/>
+  <text x="240" y="241" text-anchor="middle" font-size="18" font-weight="bold" fill="#4E342E">?</text>
+
+  <!-- ========== 右侧信息区 ========== -->
+  <!-- 图例框 -->
+  <rect x="448" y="72" width="214" height="120" rx="8" fill="white" stroke="#E0E0E0" stroke-width="1" filter="url(#shadow)"/>
+  <rect x="448" y="72" width="214" height="32" rx="8" fill="#4CAF50"/>
+  <rect x="448" y="92" width="214" height="12" fill="#4CAF50"/>
+  <text x="555" y="93" text-anchor="middle" font-size="13" font-weight="bold" fill="white">图例</text>
+
+  <!-- 类别A图例 -->
+  <circle cx="466" cy="122" r="8" fill="url(#classAGrad)"/>
+  <text x="480" y="127" font-size="12" fill="#2E7D32" font-weight="bold">类别A</text>
+  <text x="480" y="142" font-size="11" fill="#555">鸢尾花-山鸢尾</text>
+
+  <!-- 类别B图例 -->
+  <rect x="458" y="154" width="14" height="14" rx="2" fill="url(#classBGrad)"/>
+  <text x="480" y="164" font-size="12" fill="#BF360C" font-weight="bold">类别B</text>
+  <text x="480" y="179" font-size="11" fill="#555">鸢尾花-变色鸢尾</text>
+
+  <!-- 投票结果框 -->
+  <rect x="448" y="206" width="214" height="130" rx="8" fill="white" stroke="#E0E0E0" stroke-width="1" filter="url(#shadow)"/>
+  <rect x="448" y="206" width="214" height="32" rx="8" fill="#3F51B5"/>
+  <rect x="448" y="226" width="214" height="12" fill="#3F51B5"/>
+  <text x="555" y="227" text-anchor="middle" font-size="13" font-weight="bold" fill="white">🔍 K=5 投票统计</text>
+
+  <!-- A类票数 -->
+  <rect x="458" y="248" width="194" height="34" rx="6" fill="#E8F5E9" stroke="#A5D6A7" stroke-width="1"/>
+  <circle cx="472" cy="265" r="7" fill="url(#classAGrad)"/>
+  <text x="484" y="262" font-size="12" font-weight="bold" fill="#2E7D32">类别A（山鸢尾）</text>
+  <text x="484" y="277" font-size="13" font-weight="bold" fill="#1B5E20">3 票  ✓ 多数</text>
+
+  <!-- B类票数：图标和文字左移，确保内容在背景框(x=458~652)范围内 -->
+  <rect x="458" y="290" width="194" height="34" rx="6" fill="#FFF3E0" stroke="#FFCC80" stroke-width="1"/>
+  <rect x="462" y="298" width="12" height="12" rx="2" fill="url(#classBGrad)"/>
+  <text x="482" y="305" font-size="12" font-weight="bold" fill="#BF360C">类别B（变色鸢尾）</text>
+  <text x="482" y="319" font-size="13" font-weight="bold" fill="#E65100">2 票</text>
+
+  <!-- 判决结果框 -->
+  <rect x="448" y="350" width="214" height="60" rx="8" fill="#E8F5E9" stroke="#81C784" stroke-width="2"/>
+  <text x="555" y="374" text-anchor="middle" font-size="13" font-weight="bold" fill="#2E7D32">🏆 分类结论</text>
+  <text x="555" y="396" text-anchor="middle" font-size="14" font-weight="bold" fill="#1B5E20">判定为 A（山鸢尾）</text>
+
+  <!-- ========== 底部 Callout 标注 ========== -->
+  <rect x="70" y="427" width="360" height="38" rx="8" fill="#FFF9C4" stroke="#F9A825" stroke-width="1.5"/>
+  <text x="250" y="442" text-anchor="middle" font-size="13" font-weight="bold" fill="#E65100">💡 K=5：3个A + 2个B</text>
+  <text x="250" y="458" text-anchor="middle" font-size="12" fill="#F57F17">多数票 → 判定为 类别A（山鸢尾）</text>
+
+</svg>

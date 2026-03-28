@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="530" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="3" stdDeviation="5" flood-color="#00000020"/>
+    </filter>
+  </defs>
+
+  <!-- 总背景 -->
+  <rect width="680" height="530" fill="#f8fafb" rx="12"/>
+
+  <!-- 标题 -->
+  <text x="340" y="30" text-anchor="middle" font-size="20" font-weight="700" fill="#1a237e">DataFrame 三大组成部分</text>
+  <line x1="80" y1="42" x2="600" y2="42" stroke="#c5cae9" stroke-width="1.5"/>
+
+  <!-- ====== 表格主体 ====== -->
+  <!-- 表格位置: x=170, y=105; 索引列宽72, 数据列各90; 行高48 -->
+  <!-- 列名行高44; 3行数据; 共4列(含索引列) -->
+
+  <!-- 表格外框阴影底座 -->
+  <rect x="170" y="105" width="342" height="236" rx="8" fill="white" stroke="#b0bec5" stroke-width="1.5" filter="url(#shadow)"/>
+
+  <!-- === 列名行（蓝色背景）=== -->
+  <!-- 左上角空格（索引列 header） -->
+  <rect x="170" y="105" width="72" height="44" rx="0" fill="#455a64"/>
+  <text x="206" y="132" text-anchor="middle" font-size="11" fill="#cfd8dc">index</text>
+
+  <!-- 列名1: 样本A -->
+  <rect x="242" y="105" width="90" height="44" fill="#1565c0"/>
+  <text x="287" y="132" text-anchor="middle" font-size="14" font-weight="700" fill="white">样本A</text>
+
+  <!-- 列名2: 样本B -->
+  <rect x="332" y="105" width="90" height="44" fill="#1565c0"/>
+  <text x="377" y="132" text-anchor="middle" font-size="14" font-weight="700" fill="white">样本B</text>
+
+  <!-- 列名3: 样本C -->
+  <rect x="422" y="105" width="90" height="44" fill="#1565c0"/>
+  <text x="467" y="132" text-anchor="middle" font-size="14" font-weight="700" fill="white">样本C</text>
+
+  <!-- === 行1: TP53 === -->
+  <rect x="170" y="149" width="72" height="48" fill="#2e7d32"/>
+  <text x="206" y="178" text-anchor="middle" font-size="13" font-weight="700" fill="white">TP53</text>
+
+  <rect x="242" y="149" width="90" height="48" fill="#fff8f8"/>
+  <text x="287" y="178" text-anchor="middle" font-size="15" font-weight="600" fill="#424242">5.2</text>
+
+  <rect x="332" y="149" width="90" height="48" fill="#fff8f8"/>
+  <text x="377" y="178" text-anchor="middle" font-size="15" font-weight="600" fill="#424242">3.1</text>
+
+  <rect x="422" y="149" width="90" height="48" fill="#fff8f8"/>
+  <text x="467" y="178" text-anchor="middle" font-size="15" font-weight="600" fill="#424242">8.7</text>
+
+  <!-- === 行2: BRCA1 === -->
+  <rect x="170" y="197" width="72" height="48" fill="#388e3c"/>
+  <text x="206" y="226" text-anchor="middle" font-size="13" font-weight="700" fill="white">BRCA1</text>
+
+  <rect x="242" y="197" width="90" height="48" fill="white"/>
+  <text x="287" y="226" text-anchor="middle" font-size="15" font-weight="600" fill="#424242">2.8</text>
+
+  <rect x="332" y="197" width="90" height="48" fill="white"/>
+  <text x="377" y="226" text-anchor="middle" font-size="15" font-weight="600" fill="#424242">6.4</text>
+
+  <rect x="422" y="197" width="90" height="48" fill="white"/>
+  <text x="467" y="226" text-anchor="middle" font-size="15" font-weight="600" fill="#424242">1.9</text>
+
+  <!-- === 行3: MYC === -->
+  <rect x="170" y="245" width="72" height="48" fill="#43a047"/>
+  <text x="206" y="274" text-anchor="middle" font-size="13" font-weight="700" fill="white">MYC</text>
+
+  <rect x="242" y="245" width="90" height="48" fill="#fff8f8"/>
+  <text x="287" y="274" text-anchor="middle" font-size="15" font-weight="600" fill="#424242">9.1</text>
+
+  <rect x="332" y="245" width="90" height="48" fill="#fff8f8"/>
+  <text x="377" y="274" text-anchor="middle" font-size="15" font-weight="600" fill="#424242">7.3</text>
+
+  <rect x="422" y="245" width="90" height="48" fill="#fff8f8"/>
+  <text x="467" y="274" text-anchor="middle" font-size="15" font-weight="600" fill="#424242">4.5</text>
+
+  <!-- 内部网格线 -->
+  <line x1="170" y1="197" x2="512" y2="197" stroke="#cfd8dc" stroke-width="1"/>
+  <line x1="170" y1="245" x2="512" y2="245" stroke="#cfd8dc" stroke-width="1"/>
+  <line x1="242" y1="105" x2="242" y2="341" stroke="#cfd8dc" stroke-width="1"/>
+  <line x1="332" y1="105" x2="332" y2="341" stroke="#cfd8dc" stroke-width="1"/>
+  <line x1="422" y1="105" x2="422" y2="341" stroke="#cfd8dc" stroke-width="1"/>
+
+  <!-- ====== 标注: df.columns（蓝色）- 顶部括号 + 标签 ====== -->
+  <!-- 标签背景：位于分隔线(y=42)之下，与表格之间留出足够空间 -->
+  <rect x="266" y="50" width="222" height="36" rx="8" fill="#E3F2FD" stroke="#1565c0" stroke-width="1.5"/>
+  <!-- 标签文字 -->
+  <text x="377" y="64" text-anchor="middle" font-size="12" font-weight="700" fill="#1565c0">df.columns</text>
+  <text x="377" y="80" text-anchor="middle" font-size="11" fill="#1976D2">（列名，样本名称）</text>
+  <!-- 标签连接线（从标签底部到括号中心） -->
+  <line x1="377" y1="86" x2="377" y2="96" stroke="#1565c0" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <!-- 括号横线 -->
+  <line x1="242" y1="96" x2="512" y2="96" stroke="#1565c0" stroke-width="2"/>
+  <!-- 括号左竖线 -->
+  <line x1="242" y1="96" x2="242" y2="104" stroke="#1565c0" stroke-width="2"/>
+  <!-- 括号右竖线 -->
+  <line x1="512" y1="96" x2="512" y2="104" stroke="#1565c0" stroke-width="2"/>
+
+  <!-- ====== 标注: df.index（绿色）- 左侧括号 + 标签 ====== -->
+  <!-- 括号：在行索引列左侧 -->
+  <!-- 括号竖线 -->
+  <line x1="158" y1="149" x2="158" y2="293" stroke="#2e7d32" stroke-width="2"/>
+  <!-- 括号上横线 -->
+  <line x1="158" y1="149" x2="166" y2="149" stroke="#2e7d32" stroke-width="2"/>
+  <!-- 括号下横线 -->
+  <line x1="158" y1="293" x2="166" y2="293" stroke="#2e7d32" stroke-width="2"/>
+
+  <!-- 标签背景 -->
+  <rect x="20" y="200" width="128" height="52" rx="8" fill="#E8F5E9" stroke="#2e7d32" stroke-width="1.5"/>
+  <!-- 标签文字 -->
+  <text x="84" y="218" text-anchor="middle" font-size="12" font-weight="700" fill="#2e7d32">df.index</text>
+  <text x="84" y="234" text-anchor="middle" font-size="11" fill="#388e3c">（行索引，</text>
+  <text x="84" y="247" text-anchor="middle" font-size="11" fill="#388e3c">基因名称）</text>
+  <!-- 标签连接线（从标签右边到括号竖线中点） -->
+  <line x1="148" y1="221" x2="158" y2="221" stroke="#2e7d32" stroke-width="1.5" stroke-dasharray="4,2"/>
+
+  <!-- ====== 标注: df.values（橙色）- 右侧连线 + 标签 ====== -->
+  <!-- 数据区域高亮边框 -->
+  <rect x="242" y="149" width="270" height="144" rx="0" fill="none" stroke="#FF9800" stroke-width="2" stroke-dasharray="6,3"/>
+
+  <!-- 标签背景 -->
+  <rect x="524" y="197" width="140" height="54" rx="8" fill="#FFF3E0" stroke="#FF9800" stroke-width="1.5"/>
+  <!-- 标签文字 -->
+  <text x="594" y="215" text-anchor="middle" font-size="12" font-weight="700" fill="#E65100">df.values</text>
+  <text x="594" y="231" text-anchor="middle" font-size="11" fill="#F57C00">（数据值，</text>
+  <text x="594" y="245" text-anchor="middle" font-size="11" fill="#F57C00">NumPy 数组）</text>
+  <!-- 标签连接线（从标签左边到数据区域右侧边界） -->
+  <line x1="524" y1="224" x2="512" y2="224" stroke="#FF9800" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <!-- 小圆点 -->
+  <circle cx="512" cy="224" r="3" fill="#FF9800"/>
+
+  <!-- ====== 底部说明框 ====== -->
+  <rect x="28" y="392" width="624" height="120" rx="8" fill="white" stroke="#e0e0e0" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="340" y="414" text-anchor="middle" font-size="13" font-weight="700" fill="#1a237e">DataFrame 核心特性</text>
+  <line x1="44" y1="420" x2="636" y2="420" stroke="#e8eaf6" stroke-width="1"/>
+
+  <circle cx="50" cy="440" r="4" fill="#1565c0"/>
+  <text x="62" y="444" font-size="12" fill="#424242">每列可以是不同的数据类型（数值、字符串、布尔等）</text>
+
+  <circle cx="50" cy="463" r="4" fill="#2e7d32"/>
+  <text x="62" y="467" font-size="12" fill="#424242">行索引（df.index）和列名（df.columns）让数据访问更直观</text>
+
+  <circle cx="50" cy="486" r="4" fill="#E65100"/>
+  <text x="62" y="490" font-size="12" fill="#424242">底层数据（df.values）本质是 NumPy 数组，运算高效</text>
+</svg>

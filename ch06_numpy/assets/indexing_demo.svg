@@ -1,0 +1,187 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="500" font-family="system-ui, -apple-system, sans-serif">
+
+  <!-- 总背景 -->
+  <rect width="680" height="500" fill="#f8f9fa" rx="12"/>
+
+  <!-- 标题 -->
+  <text x="340" y="30" text-anchor="middle" font-size="18" font-weight="700" fill="#1a237e">二维数组索引示意图</text>
+  <text x="340" y="48" text-anchor="middle" font-size="12" fill="#546e7a">蓝色=选整行  绿色=选整列  金色=单元格交叉点</text>
+  <line x1="20" y1="56" x2="660" y2="56" stroke="#c5cae9" stroke-width="1.5"/>
+
+  <!-- 分隔线 -->
+  <line x1="340" y1="62" x2="340" y2="360" stroke="#e0e0e0" stroke-width="1.5" stroke-dasharray="6,4"/>
+
+  <!-- ═══════════════════════════════════════════
+       左图：选整行 matrix[1, :]
+       网格从 x=24 开始，行标签宽40，4列各宽62
+       列: 64,126,188,250,312  总宽=64+4*62=312, x=24~336(裁到334)
+       行标题行: y=75, h=28
+       3行数据: y=103,h=44 / y=147,h=44 / y=191,h=44
+       ═══════════════════════════════════════════ -->
+
+  <!-- 左图标题 -->
+  <rect x="24" y="62" width="306" height="30" rx="6" fill="#E3F2FD" stroke="#1976d2" stroke-width="1.5"/>
+  <text x="177" y="82" text-anchor="middle" font-size="13" font-weight="700" fill="#0d47a1">选整行  matrix[1, :]</text>
+
+  <!-- 左图列标题 -->
+  <!-- 角格 -->
+  <rect x="24" y="97" width="40" height="28" fill="#eceff1" stroke="#b0bec5" stroke-width="1"/>
+  <text x="44" y="115" text-anchor="middle" font-size="10" fill="#78909c">行\列</text>
+
+  <!-- 列0 -->
+  <rect x="64" y="97" width="62" height="28" fill="#E3F2FD" stroke="#90caf9" stroke-width="1.5"/>
+  <text x="95" y="115" text-anchor="middle" font-size="11" font-weight="700" fill="#1565c0">列0</text>
+
+  <!-- 列1 -->
+  <rect x="126" y="97" width="62" height="28" fill="#E3F2FD" stroke="#90caf9" stroke-width="1.5"/>
+  <text x="157" y="115" text-anchor="middle" font-size="11" font-weight="700" fill="#1565c0">列1</text>
+
+  <!-- 列2 -->
+  <rect x="188" y="97" width="62" height="28" fill="#E3F2FD" stroke="#90caf9" stroke-width="1.5"/>
+  <text x="219" y="115" text-anchor="middle" font-size="11" font-weight="700" fill="#1565c0">列2</text>
+
+  <!-- 列3 -->
+  <rect x="250" y="97" width="62" height="28" fill="#E3F2FD" stroke="#90caf9" stroke-width="1.5"/>
+  <text x="281" y="115" text-anchor="middle" font-size="11" font-weight="700" fill="#1565c0">列3</text>
+
+  <!-- 行0 -->
+  <rect x="24" y="125" width="40" height="44" fill="#E8F5E9" stroke="#81c784" stroke-width="1.5"/>
+  <text x="44" y="152" text-anchor="middle" font-size="11" font-weight="700" fill="#2e7d32">行0</text>
+
+  <rect x="64"  y="125" width="62" height="44" fill="white" stroke="#b0bec5" stroke-width="1"/>
+  <text x="95"  y="152" text-anchor="middle" font-size="15" font-weight="700" fill="#424242">5.2</text>
+  <rect x="126" y="125" width="62" height="44" fill="white" stroke="#b0bec5" stroke-width="1"/>
+  <text x="157" y="152" text-anchor="middle" font-size="15" font-weight="700" fill="#424242">3.1</text>
+  <rect x="188" y="125" width="62" height="44" fill="white" stroke="#b0bec5" stroke-width="1"/>
+  <text x="219" y="152" text-anchor="middle" font-size="15" font-weight="700" fill="#424242">7.8</text>
+  <rect x="250" y="125" width="62" height="44" fill="white" stroke="#b0bec5" stroke-width="1"/>
+  <text x="281" y="152" text-anchor="middle" font-size="15" font-weight="700" fill="#424242">4.5</text>
+
+  <!-- 行1（整行蓝色高亮） -->
+  <rect x="24" y="169" width="40" height="44" fill="#1565c0" stroke="#0d47a1" stroke-width="2"/>
+  <text x="44" y="196" text-anchor="middle" font-size="11" font-weight="700" fill="white">行1</text>
+
+  <rect x="64"  y="169" width="62" height="44" fill="#bbdefb" stroke="#1565c0" stroke-width="2.5"/>
+  <text x="95"  y="196" text-anchor="middle" font-size="15" font-weight="700" fill="#0d47a1">1.0</text>
+  <rect x="126" y="169" width="62" height="44" fill="#bbdefb" stroke="#1565c0" stroke-width="2.5"/>
+  <text x="157" y="196" text-anchor="middle" font-size="15" font-weight="700" fill="#0d47a1">0.5</text>
+  <rect x="188" y="169" width="62" height="44" fill="#bbdefb" stroke="#1565c0" stroke-width="2.5"/>
+  <text x="219" y="196" text-anchor="middle" font-size="15" font-weight="700" fill="#0d47a1">2.3</text>
+  <rect x="250" y="169" width="62" height="44" fill="#bbdefb" stroke="#1565c0" stroke-width="2.5"/>
+  <text x="281" y="196" text-anchor="middle" font-size="15" font-weight="700" fill="#0d47a1">1.8</text>
+
+  <!-- 行2 -->
+  <rect x="24" y="213" width="40" height="44" fill="#E8F5E9" stroke="#81c784" stroke-width="1.5"/>
+  <text x="44" y="240" text-anchor="middle" font-size="11" font-weight="700" fill="#2e7d32">行2</text>
+
+  <rect x="64"  y="213" width="62" height="44" fill="white" stroke="#b0bec5" stroke-width="1"/>
+  <text x="95"  y="240" text-anchor="middle" font-size="15" font-weight="700" fill="#424242">9.1</text>
+  <rect x="126" y="213" width="62" height="44" fill="white" stroke="#b0bec5" stroke-width="1"/>
+  <text x="157" y="240" text-anchor="middle" font-size="15" font-weight="700" fill="#424242">8.7</text>
+  <rect x="188" y="213" width="62" height="44" fill="white" stroke="#b0bec5" stroke-width="1"/>
+  <text x="219" y="240" text-anchor="middle" font-size="15" font-weight="700" fill="#424242">6.5</text>
+  <rect x="250" y="213" width="62" height="44" fill="white" stroke="#b0bec5" stroke-width="1"/>
+  <text x="281" y="240" text-anchor="middle" font-size="15" font-weight="700" fill="#424242">7.2</text>
+
+  <!-- 外框 -->
+  <rect x="24" y="97" width="288" height="160" fill="none" stroke="#37474f" stroke-width="2" rx="2"/>
+
+  <!-- 左图结果 -->
+  <text x="168" y="280" text-anchor="middle" font-size="12" fill="#546e7a">→</text>
+  <rect x="26" y="267" width="284" height="30" rx="6" fill="#E3F2FD" stroke="#1565c0" stroke-width="1.5"/>
+  <text x="168" y="287" text-anchor="middle" font-size="13" font-weight="700" fill="#0d47a1">[1.0,  0.5,  2.3,  1.8]</text>
+  <text x="168" y="312" text-anchor="middle" font-size="11" fill="#546e7a">选整行 = 所有列的值</text>
+
+  <!-- ═══════════════════════════════════════════
+       右图：选整列 matrix[:, 1]
+       从 x=354 开始，行标签宽40，4列各宽62
+       ═══════════════════════════════════════════ -->
+
+  <!-- 右图标题 -->
+  <rect x="354" y="62" width="306" height="30" rx="6" fill="#E8F5E9" stroke="#43a047" stroke-width="1.5"/>
+  <text x="507" y="82" text-anchor="middle" font-size="13" font-weight="700" fill="#1b5e20">选整列  matrix[:, 1]</text>
+
+  <!-- 右图列标题 -->
+  <rect x="354" y="97" width="40" height="28" fill="#eceff1" stroke="#b0bec5" stroke-width="1"/>
+  <text x="374" y="115" text-anchor="middle" font-size="10" fill="#78909c">行\列</text>
+
+  <!-- 列0 -->
+  <rect x="394" y="97" width="62" height="28" fill="#E3F2FD" stroke="#90caf9" stroke-width="1.5"/>
+  <text x="425" y="115" text-anchor="middle" font-size="11" font-weight="700" fill="#1565c0">列0</text>
+
+  <!-- 列1 高亮 -->
+  <rect x="456" y="97" width="62" height="28" fill="#2e7d32" stroke="#1b5e20" stroke-width="2"/>
+  <text x="487" y="115" text-anchor="middle" font-size="11" font-weight="700" fill="white">列1</text>
+
+  <!-- 列2 -->
+  <rect x="518" y="97" width="62" height="28" fill="#E3F2FD" stroke="#90caf9" stroke-width="1.5"/>
+  <text x="549" y="115" text-anchor="middle" font-size="11" font-weight="700" fill="#1565c0">列2</text>
+
+  <!-- 列3 -->
+  <rect x="580" y="97" width="62" height="28" fill="#E3F2FD" stroke="#90caf9" stroke-width="1.5"/>
+  <text x="611" y="115" text-anchor="middle" font-size="11" font-weight="700" fill="#1565c0">列3</text>
+
+  <!-- 行0 -->
+  <rect x="354" y="125" width="40" height="44" fill="#E8F5E9" stroke="#81c784" stroke-width="1.5"/>
+  <text x="374" y="152" text-anchor="middle" font-size="11" font-weight="700" fill="#2e7d32">行0</text>
+
+  <rect x="394" y="125" width="62" height="44" fill="white" stroke="#b0bec5" stroke-width="1"/>
+  <text x="425" y="152" text-anchor="middle" font-size="15" font-weight="700" fill="#424242">5.2</text>
+  <rect x="456" y="125" width="62" height="44" fill="#c8e6c9" stroke="#2e7d32" stroke-width="2.5"/>
+  <text x="487" y="152" text-anchor="middle" font-size="15" font-weight="700" fill="#1b5e20">3.1</text>
+  <rect x="518" y="125" width="62" height="44" fill="white" stroke="#b0bec5" stroke-width="1"/>
+  <text x="549" y="152" text-anchor="middle" font-size="15" font-weight="700" fill="#424242">7.8</text>
+  <rect x="580" y="125" width="62" height="44" fill="white" stroke="#b0bec5" stroke-width="1"/>
+  <text x="611" y="152" text-anchor="middle" font-size="15" font-weight="700" fill="#424242">4.5</text>
+
+  <!-- 行1 -->
+  <rect x="354" y="169" width="40" height="44" fill="#E8F5E9" stroke="#81c784" stroke-width="1.5"/>
+  <text x="374" y="196" text-anchor="middle" font-size="11" font-weight="700" fill="#2e7d32">行1</text>
+
+  <rect x="394" y="169" width="62" height="44" fill="white" stroke="#b0bec5" stroke-width="1"/>
+  <text x="425" y="196" text-anchor="middle" font-size="15" font-weight="700" fill="#424242">1.0</text>
+  <rect x="456" y="169" width="62" height="44" fill="#c8e6c9" stroke="#2e7d32" stroke-width="2.5"/>
+  <text x="487" y="196" text-anchor="middle" font-size="15" font-weight="700" fill="#1b5e20">0.5</text>
+  <rect x="518" y="169" width="62" height="44" fill="white" stroke="#b0bec5" stroke-width="1"/>
+  <text x="549" y="196" text-anchor="middle" font-size="15" font-weight="700" fill="#424242">2.3</text>
+  <rect x="580" y="169" width="62" height="44" fill="white" stroke="#b0bec5" stroke-width="1"/>
+  <text x="611" y="196" text-anchor="middle" font-size="15" font-weight="700" fill="#424242">1.8</text>
+
+  <!-- 行2 -->
+  <rect x="354" y="213" width="40" height="44" fill="#E8F5E9" stroke="#81c784" stroke-width="1.5"/>
+  <text x="374" y="240" text-anchor="middle" font-size="11" font-weight="700" fill="#2e7d32">行2</text>
+
+  <rect x="394" y="213" width="62" height="44" fill="white" stroke="#b0bec5" stroke-width="1"/>
+  <text x="425" y="240" text-anchor="middle" font-size="15" font-weight="700" fill="#424242">9.1</text>
+  <rect x="456" y="213" width="62" height="44" fill="#c8e6c9" stroke="#2e7d32" stroke-width="2.5"/>
+  <text x="487" y="240" text-anchor="middle" font-size="15" font-weight="700" fill="#1b5e20">8.7</text>
+  <rect x="518" y="213" width="62" height="44" fill="white" stroke="#b0bec5" stroke-width="1"/>
+  <text x="549" y="240" text-anchor="middle" font-size="15" font-weight="700" fill="#424242">6.5</text>
+  <rect x="580" y="213" width="62" height="44" fill="white" stroke="#b0bec5" stroke-width="1"/>
+  <text x="611" y="240" text-anchor="middle" font-size="15" font-weight="700" fill="#424242">7.2</text>
+
+  <!-- 外框 -->
+  <rect x="354" y="97" width="288" height="160" fill="none" stroke="#37474f" stroke-width="2" rx="2"/>
+
+  <!-- 右图结果 -->
+  <rect x="356" y="267" width="284" height="30" rx="6" fill="#E8F5E9" stroke="#2e7d32" stroke-width="1.5"/>
+  <text x="498" y="287" text-anchor="middle" font-size="13" font-weight="700" fill="#1b5e20">[3.1,  0.5,  8.7]</text>
+  <text x="498" y="312" text-anchor="middle" font-size="11" fill="#546e7a">选整列 = 所有行的值</text>
+
+  <!-- ═══════════════════════════════════════════
+       底部：matrix[1, 1] = 0.5 交叉点示意
+       ═══════════════════════════════════════════ -->
+
+  <rect x="20" y="332" width="640" height="80" rx="8" fill="white" stroke="#e0e0e0" stroke-width="1.5"/>
+  <text x="340" y="353" text-anchor="middle" font-size="12" font-weight="600" fill="#546e7a">行列交叉 = 单个元素</text>
+
+  <!-- 金色小格示意 -->
+  <rect x="248" y="362" width="36" height="36" rx="4" fill="#FFF9C4" stroke="#FF9800" stroke-width="3"/>
+  <text x="266" y="385" text-anchor="middle" font-size="14" font-weight="700" fill="#E65100">0.5</text>
+  <!-- 箭头 -->
+  <text x="295" y="385" font-size="13" fill="#546e7a">←</text>
+  <!-- 说明 -->
+  <text x="310" y="371" font-size="13" font-weight="700" fill="#E65100">matrix[1, 1] = 0.5</text>
+  <text x="310" y="390" font-size="11" fill="#546e7a">行1 与 列1 的交叉点（单个元素）</text>
+
+</svg>

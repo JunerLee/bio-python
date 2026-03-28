@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="480" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="2" dy="2" stdDeviation="4" flood-color="#00000033"/>
+    </filter>
+    <linearGradient id="sidebarGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1e1e2e"/>
+      <stop offset="100%" stop-color="#252526"/>
+    </linearGradient>
+    <linearGradient id="terminalGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#1e1e1e"/>
+    </linearGradient>
+    <marker id="arrowOrange" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#FF9800"/>
+    </marker>
+    <marker id="arrowPurple" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#9C27B0"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#2196F3"/>
+    </marker>
+    <marker id="arrowPink" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#E91E63"/>
+    </marker>
+  </defs>
+
+  <!-- 外框 -->
+  <rect x="10" y="10" width="660" height="460" rx="12" fill="#2d2d2d" filter="url(#shadow)"/>
+
+  <!-- ① 标题栏/菜单栏 -->
+  <rect x="10" y="10" width="660" height="36" rx="12" fill="#3c3c3c"/>
+  <rect x="10" y="30" width="660" height="16" fill="#3c3c3c"/>
+  <!-- 红绿黄圆点 -->
+  <circle cx="34" cy="28" r="6" fill="#ff5f57"/>
+  <circle cx="54" cy="28" r="6" fill="#ffbd2e"/>
+  <circle cx="74" cy="28" r="6" fill="#28c840"/>
+  <!-- 菜单文字 -->
+  <text x="110" y="33" font-size="12" fill="#cccccc">文件</text>
+  <text x="148" y="33" font-size="12" fill="#cccccc">编辑</text>
+  <text x="186" y="33" font-size="12" fill="#cccccc">视图</text>
+  <text x="224" y="33" font-size="12" fill="#cccccc">运行</text>
+  <text x="262" y="33" font-size="12" fill="#cccccc">终端</text>
+  <text x="300" y="33" font-size="12" fill="#cccccc">帮助</text>
+  <!-- 文件名标签 -->
+  <rect x="360" y="14" width="110" height="22" rx="4" fill="#1e1e1e"/>
+  <circle cx="370" cy="25" r="4" fill="#4CAF50"/>
+  <text x="378" y="29" font-size="11" fill="#cccccc">hello.py</text>
+
+  <!-- ② 侧边栏活动条 -->
+  <rect x="10" y="46" width="44" height="390" fill="#333333"/>
+  <rect x="21" y="60" width="22" height="22" rx="4" fill="#4CAF50" opacity="0.8"/>
+  <text x="27" y="76" font-size="13" fill="white">📁</text>
+  <rect x="21" y="94" width="22" height="22" rx="4" fill="none"/>
+  <text x="27" y="110" font-size="13" fill="#888">🔍</text>
+  <rect x="21" y="128" width="22" height="22" rx="4" fill="none"/>
+  <text x="27" y="144" font-size="13" fill="#888">🔀</text>
+  <rect x="21" y="162" width="22" height="22" rx="4" fill="none"/>
+  <text x="27" y="178" font-size="13" fill="#888">🐛</text>
+
+  <!-- ③ 文件浏览器侧边栏 -->
+  <rect x="54" y="46" width="155" height="390" fill="url(#sidebarGrad)"/>
+  <rect x="54" y="46" width="155" height="28" fill="#252526"/>
+  <text x="64" y="64" font-size="11" fill="#bbbbbb" font-weight="bold" letter-spacing="1">资源管理器</text>
+  <!-- 文件树 -->
+  <text x="62" y="90" font-size="12" fill="#4CAF50">▾ 📁 bio-python-learn</text>
+  <rect x="66" y="95" width="2" height="100" fill="#444" rx="1"/>
+  <text x="80" y="110" font-size="11" fill="#569cd6">📄 hello.py</text>
+  <text x="80" y="128" font-size="11" fill="#cccccc">📄 pyproject.toml</text>
+  <text x="80" y="146" font-size="11" fill="#cccccc">📄 README.md</text>
+  <text x="80" y="164" font-size="11" fill="#cccccc">📁 ch01_hello_python</text>
+  <text x="80" y="182" font-size="11" fill="#aaaaaa">📁 ch02_data_types</text>
+  <text x="80" y="200" font-size="11" fill="#aaaaaa">📁 assets</text>
+  <rect x="54" y="101" width="155" height="16" fill="#37373d" opacity="0.8" rx="2"/>
+
+  <!-- ④ 编辑区 -->
+  <rect x="209" y="46" width="461" height="295" fill="#1e1e1e"/>
+  <!-- 行号区 -->
+  <rect x="209" y="46" width="38" height="295" fill="#1e1e1e"/>
+  <!-- 代码行号 -->
+  <text x="220" y="84" font-size="12" fill="#555" font-family="monospace">1</text>
+  <text x="220" y="105" font-size="12" fill="#555" font-family="monospace">2</text>
+  <text x="220" y="126" font-size="12" fill="#555" font-family="monospace">3</text>
+  <text x="220" y="147" font-size="12" fill="#555" font-family="monospace">4</text>
+  <text x="220" y="168" font-size="12" fill="#555" font-family="monospace">5</text>
+  <text x="220" y="189" font-size="12" fill="#555" font-family="monospace">6</text>
+  <text x="220" y="210" font-size="12" fill="#555" font-family="monospace">7</text>
+  <line x1="247" y1="46" x2="247" y2="341" stroke="#333" stroke-width="1"/>
+  <!-- 语法高亮代码 -->
+  <text x="255" y="84" font-size="13" fill="#6a9955" font-family="monospace"># 生物信息学第一个程序</text>
+  <text x="255" y="126" font-size="13" fill="#4ec9b0" font-family="monospace">gene_name</text>
+  <text x="360" y="126" font-size="13" fill="#d4d4d4" font-family="monospace"> = </text>
+  <text x="384" y="126" font-size="13" fill="#ce9178" font-family="monospace">"BRCA1"</text>
+  <rect x="248" y="132" width="300" height="18" fill="#264f78" opacity="0.4" rx="2"/>
+  <text x="255" y="147" font-size="13" fill="#dcdcaa" font-family="monospace">print</text>
+  <text x="293" y="147" font-size="13" fill="#d4d4d4" font-family="monospace">(</text>
+  <text x="302" y="147" font-size="13" fill="#ce9178" font-family="monospace">"Hello, Biology!"</text>
+  <text x="430" y="147" font-size="13" fill="#d4d4d4" font-family="monospace">)</text>
+  <text x="255" y="168" font-size="13" fill="#dcdcaa" font-family="monospace">print</text>
+  <text x="293" y="168" font-size="13" fill="#d4d4d4" font-family="monospace">(</text>
+  <text x="302" y="168" font-size="13" fill="#ce9178" font-family="monospace">"基因名:"</text>
+  <text x="363" y="168" font-size="13" fill="#d4d4d4" font-family="monospace">, gene_name)</text>
+  <text x="255" y="189" font-size="13" fill="#c586c0" font-family="monospace">for</text>
+  <text x="280" y="189" font-size="13" fill="#d4d4d4" font-family="monospace"> i </text>
+  <text x="300" y="189" font-size="13" fill="#c586c0" font-family="monospace">in</text>
+  <text x="319" y="189" font-size="13" fill="#dcdcaa" font-family="monospace"> range</text>
+  <text x="360" y="189" font-size="13" fill="#d4d4d4" font-family="monospace">(3):</text>
+  <text x="275" y="210" font-size="13" fill="#dcdcaa" font-family="monospace">    print</text>
+  <text x="335" y="210" font-size="13" fill="#d4d4d4" font-family="monospace">(i)</text>
+  <!-- 光标 -->
+  <rect x="255" y="218" width="2" height="14" fill="#aeafad">
+    <animate attributeName="opacity" values="1;0;1" dur="1.2s" repeatCount="indefinite"/>
+  </rect>
+  <!-- 迷你地图 -->
+  <rect x="628" y="46" width="42" height="295" fill="#252526"/>
+  <rect x="632" y="60" width="34" height="3" fill="#4ec9b0" opacity="0.4" rx="1"/>
+  <rect x="632" y="68" width="28" height="2" fill="#d4d4d4" opacity="0.3" rx="1"/>
+  <rect x="632" y="74" width="32" height="2" fill="#ce9178" opacity="0.4" rx="1"/>
+  <rect x="632" y="80" width="26" height="2" fill="#dcdcaa" opacity="0.4" rx="1"/>
+
+  <!-- ⑤ 终端面板 -->
+  <rect x="209" y="341" width="461" height="95" fill="url(#terminalGrad)"/>
+  <rect x="209" y="341" width="461" height="26" fill="#252526"/>
+  <rect x="215" y="345" width="60" height="18" rx="4" fill="#1e1e1e"/>
+  <text x="224" y="357" font-size="11" fill="#cccccc">终端</text>
+  <text x="285" y="357" font-size="11" fill="#888">输出</text>
+  <text x="320" y="357" font-size="11" fill="#888">调试控制台</text>
+  <text x="640" y="357" font-size="12" fill="#888">＋</text>
+  <!-- 终端内容 -->
+  <text x="222" y="378" font-size="12" fill="#4CAF50" font-family="monospace">PS</text>
+  <text x="238" y="378" font-size="12" fill="#569cd6" font-family="monospace"> C:\bio-python-learn</text>
+  <text x="222" y="396" font-size="12" fill="#888" font-family="monospace">$</text>
+  <text x="233" y="396" font-size="12" fill="#d4d4d4" font-family="monospace"> uv run hello.py</text>
+  <text x="222" y="414" font-size="12" fill="#ce9178" font-family="monospace">Hello, Biology!</text>
+  <text x="222" y="430" font-size="12" fill="#4CAF50" font-family="monospace">PS</text>
+  <text x="238" y="430" font-size="12" fill="#569cd6" font-family="monospace"> C:\bio-python-learn</text>
+  <text x="400" y="430" font-size="12" fill="#d4d4d4" font-family="monospace"> █</text>
+
+  <!-- 状态栏 -->
+  <rect x="10" y="436" width="660" height="20" rx="0" fill="#007acc"/>
+  <rect x="10" y="436" width="660" height="8" fill="#007acc"/>
+  <rect x="10" y="444" width="660" height="12" rx="0" fill="#007acc"/>
+  <rect x="10" y="448" width="660" height="18" rx="0" fill="#007acc"/>
+  <rect x="10" y="448" width="660" height="22" rx="8" fill="#007acc"/>
+  <rect x="10" y="436" width="660" height="34" rx="0" fill="none"/>
+  <rect x="10" y="436" width="660" height="34" fill="#007acc"/>
+  <rect x="10" y="455" width="660" height="15" fill="#007acc"/>
+  <text x="20" y="468" font-size="11" fill="white">Python 3.12  UTF-8  LF  ●  uv 虚拟环境已激活</text>
+  <text x="560" y="468" font-size="11" fill="white">第 4 行, 第 1 列</text>
+
+  <!-- ===== 画布内标注（所有坐标均在 10-670 x 10-470 范围内） ===== -->
+
+  <!-- ① 菜单栏标注 —— 标签在右侧空白区，箭头向左指向菜单栏 -->
+  <!-- 标签框 -->
+  <rect x="476" y="14" width="120" height="22" rx="6" fill="#FF9800" opacity="0.95" filter="url(#shadow)"/>
+  <text x="536" y="29" font-size="12" fill="white" font-weight="bold" text-anchor="middle">① 菜单栏 / 标题栏</text>
+  <!-- 箭头：从标签左侧 → 菜单文字区 -->
+  <line x1="476" y1="25" x2="340" y2="25" stroke="#FF9800" stroke-width="1.8" marker-end="url(#arrowOrange)" stroke-dasharray="4,3"/>
+
+  <!-- ② 文件浏览器标注 —— 标签在侧边栏下方，箭头向上指 -->
+  <!-- 标签框 -->
+  <rect x="54" y="248" width="120" height="22" rx="6" fill="#9C27B0" opacity="0.95" filter="url(#shadow)"/>
+  <text x="114" y="263" font-size="12" fill="white" font-weight="bold" text-anchor="middle">② 文件浏览器</text>
+  <!-- 箭头：从标签上方 → 侧边栏中部 -->
+  <line x1="114" y1="248" x2="114" y2="200" stroke="#9C27B0" stroke-width="1.8" marker-end="url(#arrowPurple)" stroke-dasharray="4,3"/>
+
+  <!-- ③ 代码编辑区标注 —— 标签在编辑区内右上角 -->
+  <!-- 标签框 -->
+  <rect x="460" y="56" width="120" height="22" rx="6" fill="#2196F3" opacity="0.92" filter="url(#shadow)"/>
+  <text x="520" y="71" font-size="12" fill="white" font-weight="bold" text-anchor="middle">③ 代码编辑区</text>
+  <!-- 箭头：从标签左侧 → 代码区左边 -->
+  <line x1="460" y1="67" x2="260" y2="67" stroke="#2196F3" stroke-width="1.8" marker-end="url(#arrowBlue)" stroke-dasharray="4,3"/>
+
+  <!-- ④ 集成终端标注 —— 标签在终端面板内右侧 -->
+  <!-- 标签框 -->
+  <rect x="467" y="350" width="110" height="22" rx="6" fill="#E91E63" opacity="0.92" filter="url(#shadow)"/>
+  <text x="522" y="365" font-size="12" fill="white" font-weight="bold" text-anchor="middle">④ 集成终端面板</text>
+  <!-- 箭头：从标签左侧 → 终端内容区 -->
+  <line x1="467" y1="361" x2="350" y2="390" stroke="#E91E63" stroke-width="1.8" marker-end="url(#arrowPink)" stroke-dasharray="4,3"/>
+</svg>

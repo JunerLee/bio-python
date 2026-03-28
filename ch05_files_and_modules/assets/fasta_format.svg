@@ -1,0 +1,190 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="500" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="2" dy="3" stdDeviation="4" flood-color="#00000022"/>
+    </filter>
+    <filter id="shadowLight" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="1" dy="1" stdDeviation="2" flood-color="#00000015"/>
+    </filter>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F5F9FF"/>
+      <stop offset="100%" stop-color="#EEF4EE"/>
+    </linearGradient>
+    <linearGradient id="codeGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1A1D2E"/>
+      <stop offset="100%" stop-color="#1E1E2E"/>
+    </linearGradient>
+    <marker id="arrowRed" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0 0, 9 3.5, 0 7" fill="#C62828"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0 0, 9 3.5, 0 7" fill="#1565C0"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0 0, 9 3.5, 0 7" fill="#2E7D32"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0 0, 9 3.5, 0 7" fill="#E65100"/>
+    </marker>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="680" height="500" rx="16" fill="url(#bgGrad)"/>
+  <rect width="680" height="500" rx="16" fill="none" stroke="#C8E6C9" stroke-width="2"/>
+
+  <!-- 标题 -->
+  <rect x="170" y="14" width="340" height="36" rx="18" fill="#37474F" filter="url(#shadow)"/>
+  <text x="340" y="37" font-size="15" font-weight="bold" fill="white" text-anchor="middle">FASTA 文件格式解析</text>
+
+  <!-- ===== FASTA 文件展示区（浅色背景） ===== -->
+  <!-- 外框 -->
+  <rect x="20" y="62" width="310" height="290" rx="10" fill="white" stroke="#CFD8DC" stroke-width="1.5" filter="url(#shadow)"/>
+  <!-- 标题栏（浅灰） -->
+  <rect x="20" y="62" width="310" height="30" rx="10" fill="#ECEFF1"/>
+  <rect x="20" y="82" width="310" height="10" fill="#ECEFF1"/>
+  <!-- 文件名 -->
+  <text x="175" y="81" font-size="11" fill="#546E7A" text-anchor="middle" font-family="monospace">brca1.fasta</text>
+  <!-- 小装饰点（浅色风格） -->
+  <circle cx="38" cy="77" r="5" fill="#EF9A9A"/>
+  <circle cx="54" cy="77" r="5" fill="#FFE082"/>
+  <circle cx="70" cy="77" r="5" fill="#A5D6A7"/>
+
+  <!-- 行号区域（浅灰底） -->
+  <rect x="20" y="92" width="34" height="260" fill="#F1F3F5"/>
+  <!-- 行号分隔线 -->
+  <line x1="54" y1="92" x2="54" y2="352" stroke="#CFD8DC" stroke-width="1"/>
+
+  <!-- 行号 (7行, 间距34px, 起始y=116) -->
+  <text x="37" y="116" font-size="11" fill="#90A4AE" text-anchor="middle" font-family="monospace">1</text>
+  <text x="37" y="150" font-size="11" fill="#90A4AE" text-anchor="middle" font-family="monospace">2</text>
+  <text x="37" y="184" font-size="11" fill="#90A4AE" text-anchor="middle" font-family="monospace">3</text>
+  <text x="37" y="218" font-size="11" fill="#90A4AE" text-anchor="middle" font-family="monospace">4</text>
+  <text x="37" y="252" font-size="11" fill="#90A4AE" text-anchor="middle" font-family="monospace">5</text>
+  <text x="37" y="286" font-size="11" fill="#90A4AE" text-anchor="middle" font-family="monospace">6</text>
+  <text x="37" y="320" font-size="11" fill="#90A4AE" text-anchor="middle" font-family="monospace">7</text>
+
+  <!-- 行1高亮：标题行1（淡红底） -->
+  <rect x="54" y="103" width="276" height="24" fill="#FFEBEE" rx="2"/>
+  <!-- 行1内容: >BRCA1_human Homo sapiens breast cancer 1 -->
+  <text x="60" y="119" font-size="12" fill="#C62828" font-family="monospace" font-weight="bold">&gt;</text>
+  <text x="70" y="119" font-size="12" fill="#1565C0" font-family="monospace" font-weight="bold">BRCA1_human</text>
+  <text x="152" y="119" font-size="12" fill="#2E7D32" font-family="monospace"> Homo sapiens breast</text>
+
+  <!-- 行2：描述续（淡红底，标题行连续） -->
+  <rect x="54" y="137" width="276" height="24" fill="#FFF8F8" rx="2"/>
+  <text x="60" y="153" font-size="12" fill="#2E7D32" font-family="monospace"> cancer 1</text>
+
+  <!-- 行3：序列1-1（淡黄底） -->
+  <rect x="54" y="171" width="276" height="24" fill="#FFFDE7" rx="2"/>
+  <text x="60" y="187" font-size="12" fill="#BF360C" font-family="monospace">ATGGATTTAACTGGTCTTGTTCC</text>
+
+  <!-- 行4：序列1-2（更淡黄底） -->
+  <rect x="54" y="205" width="276" height="24" fill="#FFFFF0" rx="2"/>
+  <text x="60" y="221" font-size="12" fill="#BF360C" font-family="monospace">TGCTCCCACTCATGATCTATAG</text>
+
+  <!-- 行5：标题行2（淡红底） -->
+  <rect x="54" y="239" width="276" height="24" fill="#FFEBEE" rx="2"/>
+  <text x="60" y="255" font-size="12" fill="#C62828" font-family="monospace" font-weight="bold">&gt;</text>
+  <text x="70" y="255" font-size="12" fill="#1565C0" font-family="monospace" font-weight="bold">TP53_mouse</text>
+  <text x="142" y="255" font-size="12" fill="#2E7D32" font-family="monospace"> Mus musculus tumor</text>
+
+  <!-- 行6：描述续（淡红底） -->
+  <rect x="54" y="273" width="276" height="24" fill="#FFF8F8" rx="2"/>
+  <text x="60" y="289" font-size="12" fill="#2E7D32" font-family="monospace"> protein p53</text>
+
+  <!-- 行7：序列2（淡黄底） -->
+  <rect x="54" y="307" width="276" height="24" fill="#FFFDE7" rx="2"/>
+  <text x="60" y="323" font-size="12" fill="#BF360C" font-family="monospace">ATGGAGGAGCCGCAGTCAGATCC</text>
+
+  <!-- 文件标签 -->
+  <rect x="30" y="362" width="290" height="22" rx="7" fill="#546E7A" opacity="0.85"/>
+  <text x="175" y="377" font-size="11" fill="white" text-anchor="middle">FASTA 文件内容（纯文本格式）</text>
+
+  <!-- ===== 右侧标注框 ===== -->
+
+  <!-- ——— 标注①：> 符号 ——— -->
+  <!--
+    从 ">" 字符中心 (x=63, y=115) 出发，
+    用二次贝塞尔曲线（控制点偏右上）弧向标注框①左侧 (x=408, y=114)
+  -->
+  <path d="M 63,112 Q 220,90 408,102"
+        stroke="#C62828" stroke-width="1.5" stroke-dasharray="5,3"
+        fill="none" opacity="0.85" marker-end="url(#arrowRed)"/>
+  <!-- 标注框① -->
+  <rect x="410" y="88" width="248" height="52" rx="8" fill="#FFEBEE" stroke="#EF5350" stroke-width="1.5" filter="url(#shadowLight)"/>
+  <text x="422" y="106" font-size="11" font-weight="bold" fill="#C62828">① 标题行标识符</text>
+  <text x="422" y="122" font-size="20" font-weight="bold" fill="#C62828" font-family="monospace">&gt;</text>
+  <text x="442" y="129" font-size="11" fill="#B71C1C">以 &gt; 开头 = 新序列的开始</text>
+
+  <!-- ——— 标注②：序列ID ——— -->
+  <!--
+    从 "BRCA1_human" 文字区右侧 (x=150, y=119) 出发，
+    用二次贝塞尔曲线向右下弧至标注框②左侧 (x=408, y=178)
+  -->
+  <path d="M 152,122 Q 290,145 408,175"
+        stroke="#1565C0" stroke-width="1.5" stroke-dasharray="5,3"
+        fill="none" opacity="0.85" marker-end="url(#arrowBlue)"/>
+  <!-- 标注框② -->
+  <rect x="410" y="152" width="248" height="52" rx="8" fill="#E3F2FD" stroke="#2196F3" stroke-width="1.5" filter="url(#shadowLight)"/>
+  <text x="422" y="170" font-size="11" font-weight="bold" fill="#1565C0">② 序列 ID（第一个空格前）</text>
+  <text x="422" y="186" font-size="12" font-weight="bold" fill="#1565C0" font-family="monospace">BRCA1_human</text>
+  <text x="422" y="198" font-size="10.5" fill="#1565C0">唯一标识符，不含空格</text>
+
+  <!-- ——— 标注③：描述信息 ——— -->
+  <!--
+    从描述文字区域 (x=152, y=153) 出发（行2 " cancer 1"），
+    用二次贝塞尔曲线斜向右下弧至标注框③左侧 (x=408, y=248)
+  -->
+  <path d="M 152,155 Q 290,205 408,245"
+        stroke="#2E7D32" stroke-width="1.5" stroke-dasharray="5,3"
+        fill="none" opacity="0.85" marker-end="url(#arrowGreen)"/>
+  <!-- 标注框③ -->
+  <rect x="410" y="224" width="248" height="52" rx="8" fill="#E8F5E9" stroke="#4CAF50" stroke-width="1.5" filter="url(#shadowLight)"/>
+  <text x="422" y="242" font-size="11" font-weight="bold" fill="#2E7D32">③ 描述信息（空格后）</text>
+  <text x="422" y="258" font-size="11.5" fill="#388E3C" font-family="monospace">Homo sapiens breast cancer 1</text>
+  <text x="422" y="271" font-size="10.5" fill="#2E7D32">物种名、基因功能等注释</text>
+
+  <!-- ——— 标注④：序列内容 ——— -->
+  <!-- 大括号：行3-4的右侧 -->
+  <line x1="332" y1="179" x2="342" y2="179" stroke="#E65100" stroke-width="2"/>
+  <line x1="342" y1="179" x2="342" y2="222" stroke="#E65100" stroke-width="2"/>
+  <line x1="332" y1="222" x2="342" y2="222" stroke="#E65100" stroke-width="2"/>
+  <!--
+    从大括号中点 (x=342, y=201) 出发，
+    用二次贝塞尔曲线平滑弧向右下至标注框④左侧 (x=408, y=326)
+  -->
+  <path d="M 342,201 Q 390,270 408,323"
+        stroke="#E65100" stroke-width="1.5" stroke-dasharray="5,3"
+        fill="none" opacity="0.85" marker-end="url(#arrowOrange)"/>
+  <!-- 标注框④ -->
+  <rect x="410" y="294" width="248" height="64" rx="8" fill="#FFF3E0" stroke="#FF9800" stroke-width="1.5" filter="url(#shadowLight)"/>
+  <text x="422" y="312" font-size="11" font-weight="bold" fill="#E65100">④ 序列内容（可跨多行）</text>
+  <text x="422" y="328" font-size="11.5" fill="#E65100" font-family="monospace">ATGGATTTAACTGGT...</text>
+  <text x="422" y="344" font-size="10.5" fill="#E65100">多行自动拼接为完整序列</text>
+  <text x="422" y="355" font-size="10.5" fill="#BF360C">读取时忽略换行，顺序合并</text>
+
+  <!-- ===== 底部代码示例（保持深色编辑器风格） ===== -->
+  <rect x="20" y="396" width="640" height="88" rx="10" fill="#1E1E2E" filter="url(#shadowLight)"/>
+  <rect x="20" y="396" width="640" height="24" rx="10" fill="#2D2D3F"/>
+  <rect x="20" y="408" width="640" height="12" fill="#2D2D3F"/>
+  <text x="340" y="413" font-size="11" fill="#AAA" text-anchor="middle">Python 读取示例</text>
+  <!-- 代码行 -->
+  <text x="36" y="436" font-size="12" fill="#C792EA" font-family="monospace">from</text>
+  <text x="70" y="436" font-size="12" fill="#EEFFFF" font-family="monospace">Bio</text>
+  <text x="93" y="436" font-size="12" fill="#C792EA" font-family="monospace">import</text>
+  <text x="141" y="436" font-size="12" fill="#EEFFFF" font-family="monospace">SeqIO</text>
+  <text x="36" y="456" font-size="12" fill="#C792EA" font-family="monospace">for</text>
+  <text x="60" y="456" font-size="12" fill="#EEFFFF" font-family="monospace">record</text>
+  <text x="104" y="456" font-size="12" fill="#C792EA" font-family="monospace">in</text>
+  <text x="122" y="456" font-size="12" fill="#82AAFF" font-family="monospace">SeqIO.parse</text>
+  <text x="210" y="456" font-size="12" fill="#EEFFFF" font-family="monospace">(</text>
+  <text x="218" y="456" font-size="12" fill="#C3E88D" font-family="monospace">"brca1.fasta"</text>
+  <text x="318" y="456" font-size="12" fill="#EEFFFF" font-family="monospace">,</text>
+  <text x="326" y="456" font-size="12" fill="#C3E88D" font-family="monospace">"fasta"</text>
+  <text x="378" y="456" font-size="12" fill="#EEFFFF" font-family="monospace">):</text>
+  <text x="36" y="476" font-size="12" fill="#EEFFFF" font-family="monospace">    </text>
+  <text x="60" y="476" font-size="12" fill="#82AAFF" font-family="monospace">print</text>
+  <text x="95" y="476" font-size="12" fill="#EEFFFF" font-family="monospace">(record.id, record.seq[:</text>
+  <text x="286" y="476" font-size="12" fill="#F78C6C" font-family="monospace">30</text>
+  <text x="299" y="476" font-size="12" fill="#EEFFFF" font-family="monospace">])</text>
+</svg>

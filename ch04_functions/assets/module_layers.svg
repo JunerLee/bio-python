@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="460" font-family="system-ui, -apple-system, sans-serif">
+
+  <!-- 背景 -->
+  <rect width="680" height="460" rx="12" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1.5"/>
+
+  <!-- 标题 -->
+  <rect x="160" y="14" width="360" height="34" rx="17" fill="#37474F"/>
+  <text x="340" y="36" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Python 模块层次结构</text>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- 最外层：标准库（绿色）  x=16, y=58, w=648, h=310   -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <rect x="16" y="58" width="648" height="310" rx="12" fill="#E8F5E9" stroke="#4CAF50" stroke-width="2.5"/>
+
+  <!-- 标准库：标题（仅出现一次） -->
+  <text x="38" y="82" font-size="14" font-weight="bold" fill="#2E7D32">① 标准库 Standard Library</text>
+  <text x="38" y="99" font-size="11" fill="#388E3C">Python 自带，无需安装</text>
+
+  <!-- 标准库 badges（右侧，上方区域，不与中间层重叠） -->
+  <!-- y=58 外层顶 → 中层 y=116 顶部，可用空间 y=58~116，badge 放 y=64 -->
+  <rect x="298" y="63" width="46" height="24" rx="6" fill="#4CAF50"/>
+  <text x="321" y="80" font-size="12" fill="white" text-anchor="middle" font-family="monospace, Courier New">math</text>
+
+  <rect x="352" y="63" width="58" height="24" rx="6" fill="#4CAF50"/>
+  <text x="381" y="80" font-size="12" fill="white" text-anchor="middle" font-family="monospace, Courier New">random</text>
+
+  <rect x="418" y="63" width="38" height="24" rx="6" fill="#4CAF50"/>
+  <text x="437" y="80" font-size="12" fill="white" text-anchor="middle" font-family="monospace, Courier New">os</text>
+
+  <rect x="464" y="63" width="36" height="24" rx="6" fill="#4CAF50"/>
+  <text x="482" y="80" font-size="12" fill="white" text-anchor="middle" font-family="monospace, Courier New">csv</text>
+
+  <rect x="508" y="63" width="40" height="24" rx="6" fill="#4CAF50"/>
+  <text x="528" y="80" font-size="12" fill="white" text-anchor="middle" font-family="monospace, Courier New">json</text>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- 中间层：第三方包（蓝色）  x=40, y=116, w=600, h=220 -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <rect x="40" y="116" width="600" height="220" rx="10" fill="#E3F2FD" stroke="#2196F3" stroke-width="2.5"/>
+
+  <!-- 第三方包：标题（仅出现一次） -->
+  <text x="62" y="140" font-size="14" font-weight="bold" fill="#1565C0">② 第三方包 Third-party</text>
+  <text x="62" y="157" font-size="11" fill="#1976D2">社区开发，`uv add` 安装</text>
+
+  <!-- 第三方包 badges（右侧，第二层顶部，不与内层重叠） -->
+  <!-- 中层顶 y=116 → 内层顶 y=178，可用 y=116~178，badge 放 y=122 -->
+  <rect x="318" y="121" width="58" height="24" rx="6" fill="#2196F3"/>
+  <text x="347" y="138" font-size="12" fill="white" text-anchor="middle" font-family="monospace, Courier New">numpy</text>
+
+  <rect x="384" y="121" width="58" height="24" rx="6" fill="#2196F3"/>
+  <text x="413" y="138" font-size="12" fill="white" text-anchor="middle" font-family="monospace, Courier New">pandas</text>
+
+  <rect x="450" y="121" width="82" height="24" rx="6" fill="#2196F3"/>
+  <text x="491" y="138" font-size="12" fill="white" text-anchor="middle" font-family="monospace, Courier New">matplotlib</text>
+
+  <rect x="540" y="121" width="82" height="24" rx="6" fill="#2196F3"/>
+  <text x="581" y="138" font-size="12" fill="white" text-anchor="middle" font-family="monospace, Courier New">biopython</text>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- 最内层：自写模块（橙色）  x=64, y=178, w=552, h=130 -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <rect x="64" y="178" width="552" height="130" rx="8" fill="#FFF3E0" stroke="#FF9800" stroke-width="2.5"/>
+
+  <!-- 自写模块：标题（仅出现一次） -->
+  <text x="86" y="202" font-size="14" font-weight="bold" fill="#E65100">③ 自写模块 Your Code</text>
+  <text x="86" y="219" font-size="11" fill="#F57C00">你自己的 .py 文件</text>
+
+  <!-- 自写模块 items（两个文件名，横向排列，居中显示） -->
+  <rect x="130" y="232" width="130" height="36" rx="6" fill="#FF9800"/>
+  <text x="195" y="249" font-size="12" font-weight="bold" fill="white" text-anchor="middle" font-family="monospace, Courier New">my_tools.py</text>
+  <text x="195" y="263" font-size="10" fill="#FFF8E1" text-anchor="middle">工具函数集合</text>
+
+  <rect x="420" y="232" width="130" height="36" rx="6" fill="#FF9800"/>
+  <text x="485" y="249" font-size="12" font-weight="bold" fill="white" text-anchor="middle" font-family="monospace, Courier New">gc_calc.py</text>
+  <text x="485" y="263" font-size="10" fill="#FFF8E1" text-anchor="middle">GC 计算模块</text>
+
+  <text x="340" y="292" font-size="11" fill="#E65100" text-anchor="middle">↑ 你在这里编写代码，import 使用上层功能</text>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- 底部：导入示例三列                                    -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <rect x="16" y="384" width="648" height="62" rx="8" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="1.5"/>
+  <text x="340" y="402" font-size="11" fill="#757575" text-anchor="middle" font-weight="bold">导入示例</text>
+
+  <!-- 左：标准库 -->
+  <rect x="30" y="410" width="186" height="28" rx="6" fill="#E8F5E9" stroke="#4CAF50" stroke-width="1"/>
+  <text x="72" y="424" font-size="11" fill="#4CAF50" text-anchor="middle" font-family="monospace, Courier New">import math</text>
+  <rect x="126" y="413" width="46" height="16" rx="4" fill="#4CAF50"/>
+  <text x="149" y="425" font-size="9" fill="white" text-anchor="middle">标准库</text>
+
+  <!-- 中：第三方 -->
+  <rect x="247" y="410" width="186" height="28" rx="6" fill="#E3F2FD" stroke="#2196F3" stroke-width="1"/>
+  <text x="292" y="424" font-size="11" fill="#1565C0" text-anchor="middle" font-family="monospace, Courier New">import numpy</text>
+  <rect x="344" y="413" width="46" height="16" rx="4" fill="#2196F3"/>
+  <text x="367" y="425" font-size="9" fill="white" text-anchor="middle">第三方</text>
+
+  <!-- 右：自写 -->
+  <rect x="464" y="410" width="186" height="28" rx="6" fill="#FFF3E0" stroke="#FF9800" stroke-width="1"/>
+  <text x="513" y="424" font-size="11" fill="#E65100" text-anchor="middle" font-family="monospace, Courier New">import my_tools</text>
+  <rect x="590" y="413" width="46" height="16" rx="4" fill="#FF9800"/>
+  <text x="613" y="425" font-size="9" fill="white" text-anchor="middle">自写</text>
+</svg>

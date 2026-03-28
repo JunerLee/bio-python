@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="370" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="2" dy="3" stdDeviation="4" flood-color="#00000022"/>
+    </filter>
+    <filter id="shadowLight" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="1" dy="1" stdDeviation="2" flood-color="#00000015"/>
+    </filter>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F5F9FF"/>
+      <stop offset="100%" stop-color="#EEF4FF"/>
+    </linearGradient>
+    <!-- 绿色箭头（demo.py） -->
+    <marker id="arrowGreen" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#43A047"/>
+    </marker>
+    <!-- 蓝色箭头（目录） -->
+    <marker id="arrowBlue" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#1E88E5"/>
+    </marker>
+    <!-- 橙色箭头（seq.fasta） -->
+    <marker id="arrowOrange" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#FB8C00"/>
+    </marker>
+    <!-- 灰色箭头（report.txt） -->
+    <marker id="arrowGray" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#9E9E9E"/>
+    </marker>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="680" height="370" rx="16" fill="url(#bgGrad)"/>
+  <rect width="680" height="370" rx="16" fill="none" stroke="#BBDEFB" stroke-width="2"/>
+
+  <!-- 标题 -->
+  <rect x="185" y="14" width="310" height="36" rx="18" fill="#37474F" filter="url(#shadow)"/>
+  <text x="340" y="37" font-size="15" font-weight="bold" fill="white" text-anchor="middle">项目目录结构</text>
+
+  <!-- ===== 左侧：文件树区域 ===== -->
+  <rect x="20" y="62" width="380" height="292" rx="10" fill="white" stroke="#E0E0E0" stroke-width="1.5" filter="url(#shadowLight)"/>
+
+  <!-- 树形结构标题行 -->
+  <rect x="20" y="62" width="380" height="32" rx="10" fill="#ECEFF1"/>
+  <rect x="20" y="82" width="380" height="12" fill="#ECEFF1"/>
+  <text x="30" y="83" font-size="12" fill="#546E7A">📂 文件树结构</text>
+
+  <!-- ——— 根目录 bio-python-learn/ ——— -->
+  <rect x="28" y="104" width="364" height="34" rx="8" fill="#E3F2FD" stroke="#90CAF9" stroke-width="1.5"/>
+  <text x="40" y="126" font-size="18">📁</text>
+  <text x="66" y="126" font-size="14" font-weight="bold" fill="#1565C0">bio-python-learn/</text>
+  <!-- CWD 徽章 -->
+  <rect x="232" y="110" width="152" height="22" rx="11" fill="#1565C0"/>
+  <text x="308" y="125" font-size="10.5" fill="white" text-anchor="middle" font-weight="bold">← 当前工作目录 (CWD)</text>
+
+  <!--
+    布局说明（Y 坐标）：
+      根目录行中心  y=121
+      demo.py       y=158  (文本基线 163)
+      data/         y=196  (文本基线 201)
+        seq.fasta   y=224  (文本基线 229)
+        result.csv  y=252  (文本基线 257)
+      output/       y=289  (文本基线 294)
+        report.txt  y=317  (文本基线 322)
+
+    竖主干线: x=55, 从根底部 y=138 → 最后一个子项中心 y=289
+    子项横线: x1=55 → x2=75, 接 emoji 起点 x=80
+    data/ 子竖线: x=107, y=209 → 252
+    output/ 子竖线: x=107, y=302 → 317
+  -->
+
+  <!-- 主干竖线：从根目录下方延伸到 output/ -->
+  <line x1="55" y1="138" x2="55" y2="289" stroke="#90CAF9" stroke-width="2"/>
+
+  <!-- ——— demo.py ——— -->
+  <line x1="55" y1="158" x2="76" y2="158" stroke="#90CAF9" stroke-width="2"/>
+  <text x="80" y="163" font-size="16">📄</text>
+  <text x="103" y="163" font-size="13" fill="#2E7D32" font-weight="bold">demo.py</text>
+
+  <!-- ——— data/ 文件夹 ——— -->
+  <line x1="55" y1="196" x2="76" y2="196" stroke="#90CAF9" stroke-width="2"/>
+  <text x="80" y="201" font-size="16">📁</text>
+  <text x="103" y="201" font-size="13" fill="#1565C0" font-weight="bold">data/</text>
+
+  <!-- data/ 子竖线 -->
+  <line x1="107" y1="209" x2="107" y2="252" stroke="#B0BEC5" stroke-width="1.5"/>
+
+  <!-- seq.fasta -->
+  <line x1="107" y1="224" x2="126" y2="224" stroke="#B0BEC5" stroke-width="1.5"/>
+  <text x="130" y="229" font-size="14">📄</text>
+  <text x="150" y="229" font-size="12.5" fill="#E65100">seq.fasta</text>
+
+  <!-- result.csv -->
+  <line x1="107" y1="252" x2="126" y2="252" stroke="#B0BEC5" stroke-width="1.5"/>
+  <text x="130" y="257" font-size="14">📄</text>
+  <text x="150" y="257" font-size="12.5" fill="#E65100">result.csv</text>
+
+  <!-- ——— output/ 文件夹 ——— -->
+  <line x1="55" y1="289" x2="76" y2="289" stroke="#90CAF9" stroke-width="2"/>
+  <text x="80" y="294" font-size="16">📁</text>
+  <text x="103" y="294" font-size="13" fill="#1565C0" font-weight="bold">output/</text>
+
+  <!-- output/ 子竖线 -->
+  <line x1="107" y1="302" x2="107" y2="317" stroke="#B0BEC5" stroke-width="1.5"/>
+
+  <!-- report.txt -->
+  <line x1="107" y1="317" x2="126" y2="317" stroke="#B0BEC5" stroke-width="1.5"/>
+  <text x="130" y="322" font-size="14">📄</text>
+  <text x="150" y="322" font-size="12.5" fill="#616161">report.txt</text>
+
+  <!-- ===== 右侧：注释区域 ===== -->
+  <!--
+    注释框左边缘 x=416，连接线从文件名末尾水平延伸到 x=414（留 2px 给箭头）
+    各行文本基线对应注释框垂直居中
+
+    注释①：demo.py  连接线 y=153（上移5px避开字母y的下降部），注释框 y=140→166（垂直中心 153）
+    注释②：data/    基线 201 → 注释框垂直中心 196
+    注释③：seq.fasta 基线 229 → 注释框垂直中心 243（框略低，留空间给大框）
+    注释④：output/  基线 294 → 注释框垂直中心 289
+    注释⑤：report   基线 322 → 注释框垂直中心 324
+  -->
+
+  <!-- 注释①：demo.py 是脚本（连接线上移至 y=153，避开字母 y 的下降部） -->
+  <!-- 文件名 "demo.py" 末尾大约 x=155，连虚线到 x=414 -->
+  <line x1="156" y1="153" x2="414" y2="153" stroke="#43A047" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrowGreen)"/>
+  <rect x="416" y="140" width="244" height="26" rx="8" fill="#E8F5E9" stroke="#4CAF50" stroke-width="1.2"/>
+  <text x="428" y="157" font-size="11.5" fill="#2E7D32">▶ 你的 Python 脚本，在此运行</text>
+
+  <!-- 注释②：data/ 存放数据 -->
+  <!-- "data/" 末尾 x≈130，但直接从文件树右边缘 x=160 拉虚线更整洁 -->
+  <line x1="161" y1="196" x2="414" y2="196" stroke="#1E88E5" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrowBlue)"/>
+  <rect x="416" y="183" width="244" height="26" rx="8" fill="#E3F2FD" stroke="#2196F3" stroke-width="1.2"/>
+  <text x="428" y="200" font-size="11.5" fill="#1565C0">📦 存放输入数据文件</text>
+
+  <!-- 注释③：seq.fasta → open() 用法大框 -->
+  <!-- 从 seq.fasta 文本末尾水平虚线到大框左侧；大框垂直中心在 y=243 -->
+  <line x1="210" y1="224" x2="414" y2="224" stroke="#FB8C00" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrowOrange)"/>
+  <rect x="416" y="210" width="244" height="62" rx="8" fill="#FFF3E0" stroke="#FF9800" stroke-width="1.5" filter="url(#shadowLight)"/>
+  <text x="428" y="228" font-size="11" font-weight="bold" fill="#E65100">open('data/seq.fasta')</text>
+  <text x="428" y="244" font-size="10.5" fill="#BF360C">↳ 相对路径，从 CWD 出发解析</text>
+  <text x="428" y="258" font-size="10.5" fill="#BF360C">等价于 bio-python-learn/data/seq.fasta</text>
+
+  <!-- 注释④：output/ 存放结果 -->
+  <line x1="161" y1="289" x2="414" y2="289" stroke="#1E88E5" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrowBlue)"/>
+  <rect x="416" y="276" width="244" height="26" rx="8" fill="#E3F2FD" stroke="#2196F3" stroke-width="1.2"/>
+  <text x="428" y="293" font-size="11.5" fill="#1565C0">📤 存放程序输出结果</text>
+
+  <!-- 注释⑤：report.txt -->
+  <line x1="210" y1="317" x2="414" y2="317" stroke="#9E9E9E" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrowGray)"/>
+  <rect x="416" y="304" width="244" height="26" rx="8" fill="#F5F5F5" stroke="#BDBDBD" stroke-width="1.2"/>
+  <text x="428" y="321" font-size="11.5" fill="#616161">分析报告、日志等输出文件</text>
+</svg>

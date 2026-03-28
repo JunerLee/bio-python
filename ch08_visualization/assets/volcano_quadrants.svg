@@ -1,0 +1,186 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="530" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="3" stdDeviation="5" flood-color="#00000020"/>
+    </filter>
+    <filter id="tagShadow">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-color="#00000025"/>
+    </filter>
+  </defs>
+
+  <!-- 总背景 -->
+  <rect width="680" height="530" fill="#f8f9fa" rx="12"/>
+
+  <!-- 标题 -->
+  <text x="340" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="#1a237e">火山图四象限示意图</text>
+  <text x="340" y="54" text-anchor="middle" font-size="13" fill="#546e7a">Volcano Plot — 差异表达基因可视化</text>
+  <line x1="60" y1="62" x2="620" y2="62" stroke="#c5cae9" stroke-width="1.5"/>
+
+  <!-- ====================================================== -->
+  <!-- 绘图区域: x=90, y=72, w=500, h=310                    -->
+  <!-- X轴: -3 ~ +3; 每单位 500/6 ≈ 83.3px; 0点 x=340      -->
+  <!-- Y轴: 0 ~ 7;   每单位 310/7 ≈ 44.3px; 0点 y=382       -->
+  <!-- 阈值: x=-1 → x=340-83.3=256.7≈257                    -->
+  <!--       x=+1 → x=340+83.3=423.3≈423                    -->
+  <!--       y=1.3 → y=382-1.3*44.3=382-57.6=324.4≈324      -->
+  <!-- ====================================================== -->
+
+  <!-- 象限半透明填充（先绘制，在点之前） -->
+  <!-- 不显著区（底部中央，灰色）: y:324~382, x:90~590 -->
+  <rect x="90" y="324" width="500" height="58" fill="#9e9e9e" opacity="0.10"/>
+
+  <!-- 显著但fold change小（中上，极浅灰）: x:257~423, y:72~324 -->
+  <rect x="257" y="72" width="166" height="252" fill="#9e9e9e" opacity="0.06"/>
+
+  <!-- 左上象限（显著下调，蓝色）: x:90~257, y:72~324 -->
+  <rect x="90" y="72" width="167" height="252" fill="#1e88e5" opacity="0.10"/>
+
+  <!-- 右上象限（显著上调，红色）: x:423~590, y:72~324 -->
+  <rect x="423" y="72" width="167" height="252" fill="#e53935" opacity="0.10"/>
+
+  <!-- 坐标区外框 -->
+  <rect x="90" y="72" width="500" height="310" rx="4" fill="none" stroke="#90a4ae" stroke-width="1.5"/>
+
+  <!-- 水平虚线：显著性阈值 p=0.05, y=324 -->
+  <line x1="90" y1="324" x2="590" y2="324" stroke="#9e9e9e" stroke-width="1.8" stroke-dasharray="8,4"/>
+
+  <!-- 垂直虚线：x=-1 (x=257) 和 x=+1 (x=423) -->
+  <line x1="257" y1="72" x2="257" y2="382" stroke="#1565c0" stroke-width="1.8" stroke-dasharray="8,4"/>
+  <line x1="423" y1="72" x2="423" y2="382" stroke="#e53935" stroke-width="1.8" stroke-dasharray="8,4"/>
+
+  <!-- X 轴 -->
+  <line x1="90" y1="382" x2="590" y2="382" stroke="#424242" stroke-width="2"/>
+  <line x1="90"  y1="382" x2="90"  y2="389" stroke="#424242" stroke-width="1.5"/>
+  <line x1="174" y1="382" x2="174" y2="389" stroke="#424242" stroke-width="1.5"/>
+  <line x1="257" y1="382" x2="257" y2="389" stroke="#424242" stroke-width="1.5"/>
+  <line x1="340" y1="382" x2="340" y2="389" stroke="#424242" stroke-width="1.5"/>
+  <line x1="423" y1="382" x2="423" y2="389" stroke="#424242" stroke-width="1.5"/>
+  <line x1="507" y1="382" x2="507" y2="389" stroke="#424242" stroke-width="1.5"/>
+  <line x1="590" y1="382" x2="590" y2="389" stroke="#424242" stroke-width="1.5"/>
+
+  <!-- X 轴数字 -->
+  <text x="90"  y="403" text-anchor="middle" font-size="12" fill="#424242">-3</text>
+  <text x="174" y="403" text-anchor="middle" font-size="12" fill="#424242">-2</text>
+  <text x="257" y="403" text-anchor="middle" font-size="12" fill="#1565c0" font-weight="700">-1</text>
+  <text x="340" y="403" text-anchor="middle" font-size="12" fill="#424242">0</text>
+  <text x="423" y="403" text-anchor="middle" font-size="12" fill="#c62828" font-weight="700">+1</text>
+  <text x="507" y="403" text-anchor="middle" font-size="12" fill="#424242">+2</text>
+  <text x="590" y="403" text-anchor="middle" font-size="12" fill="#424242">+3</text>
+
+  <!-- X 轴标签 -->
+  <text x="340" y="425" text-anchor="middle" font-size="13" font-weight="600" fill="#424242">log₂(Fold Change)</text>
+
+  <!-- Y 轴 -->
+  <line x1="90" y1="72" x2="90" y2="382" stroke="#424242" stroke-width="2"/>
+  <line x1="90" y1="382" x2="83" y2="382" stroke="#424242" stroke-width="1.5"/>
+  <line x1="90" y1="338" x2="83" y2="338" stroke="#424242" stroke-width="1.5"/>
+  <line x1="90" y1="294" x2="83" y2="294" stroke="#424242" stroke-width="1.5"/>
+  <line x1="90" y1="249" x2="83" y2="249" stroke="#424242" stroke-width="1.5"/>
+  <line x1="90" y1="205" x2="83" y2="205" stroke="#424242" stroke-width="1.5"/>
+  <line x1="90" y1="161" x2="83" y2="161" stroke="#424242" stroke-width="1.5"/>
+  <line x1="90" y1="116" x2="83" y2="116" stroke="#424242" stroke-width="1.5"/>
+  <line x1="90" y1="72"  x2="83" y2="72"  stroke="#424242" stroke-width="1.5"/>
+
+  <!-- Y 轴数字 -->
+  <text x="76" y="386" text-anchor="end" font-size="11" fill="#424242">0</text>
+  <text x="76" y="342" text-anchor="end" font-size="11" fill="#424242">1</text>
+  <text x="76" y="298" text-anchor="end" font-size="11" fill="#424242">2</text>
+  <text x="76" y="253" text-anchor="end" font-size="11" fill="#424242">3</text>
+  <text x="76" y="209" text-anchor="end" font-size="11" fill="#424242">4</text>
+  <text x="76" y="165" text-anchor="end" font-size="11" fill="#424242">5</text>
+  <text x="76" y="120" text-anchor="end" font-size="11" fill="#424242">6</text>
+
+  <!-- Y 轴标签（竖排） -->
+  <text x="24" y="227" text-anchor="middle" font-size="13" font-weight="600" fill="#424242"
+        transform="rotate(-90, 24, 227)">-log₁₀(p-value)</text>
+
+  <!-- ====== 散点（模拟火山形状）====== -->
+  <!-- 不显著区：灰色点，集中底部中间 -->
+  <circle cx="305" cy="372" r="3" fill="#90a4ae" opacity="0.7"/>
+  <circle cx="323" cy="365" r="3" fill="#90a4ae" opacity="0.7"/>
+  <circle cx="348" cy="370" r="3" fill="#90a4ae" opacity="0.7"/>
+  <circle cx="363" cy="376" r="3" fill="#90a4ae" opacity="0.7"/>
+  <circle cx="313" cy="355" r="3" fill="#90a4ae" opacity="0.7"/>
+  <circle cx="357" cy="358" r="3" fill="#90a4ae" opacity="0.7"/>
+  <circle cx="294" cy="362" r="3" fill="#90a4ae" opacity="0.7"/>
+  <circle cx="374" cy="351" r="3" fill="#90a4ae" opacity="0.7"/>
+  <circle cx="332" cy="346" r="3" fill="#90a4ae" opacity="0.7"/>
+  <circle cx="281" cy="368" r="3" fill="#90a4ae" opacity="0.7"/>
+  <circle cx="387" cy="364" r="3" fill="#90a4ae" opacity="0.7"/>
+  <circle cx="268" cy="356" r="3" fill="#90a4ae" opacity="0.65"/>
+  <circle cx="402" cy="349" r="3" fill="#90a4ae" opacity="0.65"/>
+  <circle cx="342" cy="339" r="2.5" fill="#90a4ae" opacity="0.6"/>
+  <circle cx="318" cy="341" r="2.5" fill="#90a4ae" opacity="0.6"/>
+  <circle cx="262" cy="337" r="2.5" fill="#90a4ae" opacity="0.55"/>
+  <circle cx="410" cy="334" r="2.5" fill="#90a4ae" opacity="0.55"/>
+
+  <!-- 右上象限：红色点（显著上调） -->
+  <circle cx="438" cy="310" r="4"   fill="#e53935" opacity="0.75"/>
+  <circle cx="454" cy="278" r="4"   fill="#e53935" opacity="0.75"/>
+  <circle cx="472" cy="250" r="4.5" fill="#e53935" opacity="0.85"/>
+  <circle cx="492" cy="214" r="4"   fill="#e53935" opacity="0.75"/>
+  <circle cx="514" cy="178" r="5"   fill="#e53935" opacity="0.9"/>
+  <circle cx="527" cy="147" r="4"   fill="#e53935" opacity="0.8"/>
+  <circle cx="545" cy="107" r="4.5" fill="#c62828" opacity="0.9"/>
+  <circle cx="432" cy="295" r="3.5" fill="#ef5350" opacity="0.7"/>
+  <circle cx="462" cy="229" r="3.5" fill="#ef5350" opacity="0.7"/>
+  <circle cx="507" cy="154" r="3.5" fill="#c62828" opacity="0.8"/>
+  <circle cx="560" cy="91"  r="5"   fill="#b71c1c" opacity="0.95"/>
+  <circle cx="450" cy="189" r="3"   fill="#ef5350" opacity="0.7"/>
+  <circle cx="480" cy="129" r="3.5" fill="#e53935" opacity="0.8"/>
+  <circle cx="562" cy="129" r="3"   fill="#c62828" opacity="0.75"/>
+  <circle cx="442" cy="259" r="3"   fill="#ef5350" opacity="0.65"/>
+
+  <!-- 左上象限：蓝色点（显著下调） -->
+  <circle cx="236" cy="306" r="4"   fill="#1e88e5" opacity="0.75"/>
+  <circle cx="217" cy="273" r="4"   fill="#1e88e5" opacity="0.75"/>
+  <circle cx="200" cy="241" r="4.5" fill="#1e88e5" opacity="0.85"/>
+  <circle cx="180" cy="200" r="4"   fill="#1e88e5" opacity="0.75"/>
+  <circle cx="160" cy="168" r="5"   fill="#1565c0" opacity="0.9"/>
+  <circle cx="140" cy="140" r="4"   fill="#1565c0" opacity="0.8"/>
+  <circle cx="120" cy="100" r="4.5" fill="#0d47a1" opacity="0.9"/>
+  <circle cx="241" cy="291" r="3.5" fill="#42a5f5" opacity="0.7"/>
+  <circle cx="222" cy="225" r="3.5" fill="#1e88e5" opacity="0.7"/>
+  <circle cx="172" cy="148" r="3.5" fill="#1565c0" opacity="0.8"/>
+  <circle cx="106" cy="88"  r="5"   fill="#0d47a1" opacity="0.95"/>
+  <circle cx="230" cy="185" r="3"   fill="#42a5f5" opacity="0.7"/>
+  <circle cx="190" cy="122" r="3.5" fill="#1565c0" opacity="0.8"/>
+  <circle cx="150" cy="80"  r="3"   fill="#0d47a1" opacity="0.75"/>
+  <circle cx="243" cy="252" r="3"   fill="#42a5f5" opacity="0.65"/>
+
+  <!-- ====== 象限标注标签（有背景色，放在各象限角落）====== -->
+  <!-- 左上：显著下调（蓝色，放在左上角不遮挡点） -->
+  <rect x="96" y="78" width="140" height="44" rx="8" fill="#1565c0" opacity="0.88" filter="url(#tagShadow)"/>
+  <text x="166" y="97"  text-anchor="middle" font-size="14" font-weight="700" fill="white">显著下调 ↓</text>
+  <text x="166" y="114" text-anchor="middle" font-size="11" fill="#bbdefb">（关注！下调基因）</text>
+
+  <!-- 右上：显著上调（红色，放在右上角不遮挡点） -->
+  <rect x="434" y="78" width="140" height="44" rx="8" fill="#c62828" opacity="0.88" filter="url(#tagShadow)"/>
+  <text x="504" y="97"  text-anchor="middle" font-size="14" font-weight="700" fill="white">显著上调 ↑</text>
+  <text x="504" y="114" text-anchor="middle" font-size="11" fill="#ffcdd2">（关注！上调基因）</text>
+
+  <!-- 下方中央：不显著（灰色，放在不显著区中央，有白色背景） -->
+  <rect x="265" y="330" width="150" height="30" rx="6" fill="white" stroke="#90a4ae" stroke-width="1" opacity="0.92"/>
+  <text x="340" y="350" text-anchor="middle" font-size="12" font-weight="600" fill="#546e7a">不显著（忽略）</text>
+
+  <!-- 显著性阈值标注（右侧，不遮挡绘图区） -->
+  <rect x="595" y="315" width="76" height="28" rx="6" fill="#fff8e1" stroke="#ffa000" stroke-width="1.2"/>
+  <text x="633" y="328" text-anchor="middle" font-size="10" fill="#e65100" font-weight="600">显著性阈值</text>
+  <text x="633" y="339" text-anchor="middle" font-size="9"  fill="#e65100">p = 0.05</text>
+
+  <!-- 引线从阈值标注到虚线 -->
+  <line x1="595" y1="324" x2="590" y2="324" stroke="#ffa000" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- ====== 底部说明框 ====== -->
+  <rect x="28" y="440" width="624" height="75" rx="8" fill="white" stroke="#e0e0e0" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="340" y="460" text-anchor="middle" font-size="12" font-weight="700" fill="#1a237e">筛选标准</text>
+  <line x1="44" y1="466" x2="636" y2="466" stroke="#e8eaf6" stroke-width="1"/>
+
+  <circle cx="50" cy="481" r="5" fill="#1565c0"/>
+  <text x="62" y="485" font-size="12" fill="#1565c0" font-weight="600">显著下调：</text>
+  <text x="140" y="485" font-size="12" fill="#424242">log₂FC &lt; -1 且 -log₁₀(p) &gt; 1.3（即 p &lt; 0.05）</text>
+
+  <circle cx="50" cy="502" r="5" fill="#c62828"/>
+  <text x="62" y="506" font-size="12" fill="#c62828" font-weight="600">显著上调：</text>
+  <text x="140" y="506" font-size="12" fill="#424242">log₂FC &gt; +1 且 -log₁₀(p) &gt; 1.3（即 p &lt; 0.05）</text>
+</svg>

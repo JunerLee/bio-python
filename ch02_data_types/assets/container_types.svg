@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="310" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-color="#00000018"/>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="680" height="310" rx="12" fill="#fafafa" stroke="#e0e0e0" stroke-width="1.5"/>
+
+  <!-- 标题 -->
+  <rect x="195" y="12" width="290" height="32" rx="16" fill="#455A64"/>
+  <text x="340" y="33" font-size="13" font-weight="bold" fill="white" text-anchor="middle">三种容器类型对比</text>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- 列1: list 列表（蓝色系）x=18，宽200 -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <rect x="18" y="56" width="200" height="234" rx="10" fill="#E3F2FD" stroke="#1976D2" stroke-width="2" filter="url(#shadow)"/>
+
+  <!-- 标题栏 -->
+  <rect x="18" y="56" width="200" height="42" rx="10" fill="#1976D2"/>
+  <!-- 圆角只留上方，下方覆盖 -->
+  <rect x="18" y="80" width="200" height="18" fill="#1976D2"/>
+  <text x="118" y="72" font-size="15" font-weight="bold" fill="white" text-anchor="middle">list 列表</text>
+  <text x="118" y="87" font-size="11" fill="#BBDEFB" text-anchor="middle">[ ] 方括号</text>
+
+  <!-- 数据项 -->
+  <!-- item 0 -->
+  <rect x="30" y="110" width="176" height="34" rx="6" fill="white" stroke="#90CAF9" stroke-width="1.5"/>
+  <rect x="30" y="110" width="38" height="34" rx="6" fill="#42A5F5"/>
+  <!-- 覆盖左边圆角只留右侧 -->
+  <rect x="52" y="110" width="16" height="34" fill="#42A5F5"/>
+  <text x="49" y="133" font-size="12" font-weight="bold" fill="white" text-anchor="middle" font-family="monospace">[0]</text>
+  <text x="140" y="133" font-size="13" fill="#0D47A1" text-anchor="middle" font-family="monospace" font-weight="bold">TP53</text>
+
+  <!-- item 1 -->
+  <rect x="30" y="152" width="176" height="34" rx="6" fill="white" stroke="#90CAF9" stroke-width="1.5"/>
+  <rect x="30" y="152" width="38" height="34" rx="6" fill="#42A5F5"/>
+  <rect x="52" y="152" width="16" height="34" fill="#42A5F5"/>
+  <text x="49" y="175" font-size="12" font-weight="bold" fill="white" text-anchor="middle" font-family="monospace">[1]</text>
+  <text x="140" y="175" font-size="13" fill="#0D47A1" text-anchor="middle" font-family="monospace" font-weight="bold">BRCA1</text>
+
+  <!-- item 2 -->
+  <rect x="30" y="194" width="176" height="34" rx="6" fill="white" stroke="#90CAF9" stroke-width="1.5"/>
+  <rect x="30" y="194" width="38" height="34" rx="6" fill="#42A5F5"/>
+  <rect x="52" y="194" width="16" height="34" fill="#42A5F5"/>
+  <text x="49" y="217" font-size="12" font-weight="bold" fill="white" text-anchor="middle" font-family="monospace">[2]</text>
+  <text x="140" y="217" font-size="13" fill="#0D47A1" text-anchor="middle" font-family="monospace" font-weight="bold">EGFR</text>
+
+  <!-- 属性标签 -->
+  <text x="118" y="248" font-size="10.5" fill="#1565C0" text-anchor="middle">✅ 可变 · 📍 按序号访问</text>
+  <text x="118" y="263" font-size="10.5" fill="#1565C0" text-anchor="middle">用途：有序集合</text>
+  <rect x="30" y="270" width="176" height="12" rx="6" fill="#BBDEFB"/>
+  <text x="118" y="280" font-size="9.5" fill="#1565C0" text-anchor="middle" font-family="monospace">genes = ["TP53", "BRCA1", "EGFR"]</text>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- 列2: dict 字典（绿色系）x=240，宽200 -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <rect x="240" y="56" width="200" height="234" rx="10" fill="#E8F5E9" stroke="#388E3C" stroke-width="2" filter="url(#shadow)"/>
+
+  <!-- 标题栏 -->
+  <rect x="240" y="56" width="200" height="42" rx="10" fill="#388E3C"/>
+  <rect x="240" y="80" width="200" height="18" fill="#388E3C"/>
+  <text x="340" y="72" font-size="15" font-weight="bold" fill="white" text-anchor="middle">dict 字典</text>
+  <text x="340" y="87" font-size="11" fill="#C8E6C9" text-anchor="middle">{ } 花括号</text>
+
+  <!-- 键值对 1: AUG → Met -->
+  <rect x="252" y="110" width="176" height="34" rx="6" fill="white" stroke="#A5D6A7" stroke-width="1.5"/>
+  <!-- key 区 -->
+  <rect x="252" y="110" width="68" height="34" rx="6" fill="#66BB6A"/>
+  <rect x="304" y="110" width="16" height="34" fill="#66BB6A"/>
+  <text x="287" y="133" font-size="12" font-weight="bold" fill="white" text-anchor="middle" font-family="monospace">"AUG"</text>
+  <!-- 箭头符号 -->
+  <text x="334" y="133" font-size="13" fill="#388E3C" text-anchor="middle">→</text>
+  <!-- value 区 -->
+  <text x="394" y="133" font-size="13" fill="#1B5E20" text-anchor="middle" font-family="monospace" font-weight="bold">"Met"</text>
+
+  <!-- 键值对 2: UUU → Phe -->
+  <rect x="252" y="152" width="176" height="34" rx="6" fill="white" stroke="#A5D6A7" stroke-width="1.5"/>
+  <rect x="252" y="152" width="68" height="34" rx="6" fill="#66BB6A"/>
+  <rect x="304" y="152" width="16" height="34" fill="#66BB6A"/>
+  <text x="287" y="175" font-size="12" font-weight="bold" fill="white" text-anchor="middle" font-family="monospace">"UUU"</text>
+  <text x="334" y="175" font-size="13" fill="#388E3C" text-anchor="middle">→</text>
+  <text x="394" y="175" font-size="13" fill="#1B5E20" text-anchor="middle" font-family="monospace" font-weight="bold">"Phe"</text>
+
+  <!-- 键值对 3: UAA → Stop -->
+  <rect x="252" y="194" width="176" height="34" rx="6" fill="white" stroke="#A5D6A7" stroke-width="1.5"/>
+  <rect x="252" y="194" width="68" height="34" rx="6" fill="#66BB6A"/>
+  <rect x="304" y="194" width="16" height="34" fill="#66BB6A"/>
+  <text x="287" y="217" font-size="12" font-weight="bold" fill="white" text-anchor="middle" font-family="monospace">"UAA"</text>
+  <text x="334" y="217" font-size="13" fill="#388E3C" text-anchor="middle">→</text>
+  <text x="394" y="217" font-size="13" fill="#1B5E20" text-anchor="middle" font-family="monospace" font-weight="bold">"Stop"</text>
+
+  <!-- 属性标签 -->
+  <text x="340" y="248" font-size="10.5" fill="#2E7D32" text-anchor="middle">✅ 可变 · 📍 按键名访问</text>
+  <text x="340" y="263" font-size="10.5" fill="#2E7D32" text-anchor="middle">用途：键值映射</text>
+  <rect x="252" y="270" width="176" height="12" rx="6" fill="#C8E6C9"/>
+  <text x="340" y="280" font-size="9.5" fill="#2E7D32" text-anchor="middle" font-family="monospace">{"AUG":"Met", "UUU":"Phe"...}</text>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- 列3: tuple 元组（紫色系）x=462，宽200 -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <rect x="462" y="56" width="200" height="234" rx="10" fill="#F3E5F5" stroke="#7B1FA2" stroke-width="2" filter="url(#shadow)"/>
+
+  <!-- 标题栏 -->
+  <rect x="462" y="56" width="200" height="42" rx="10" fill="#7B1FA2"/>
+  <rect x="462" y="80" width="200" height="18" fill="#7B1FA2"/>
+  <text x="562" y="72" font-size="15" font-weight="bold" fill="white" text-anchor="middle">tuple 元组</text>
+  <text x="562" y="87" font-size="11" fill="#E1BEE7" text-anchor="middle">( ) 圆括号</text>
+
+  <!-- item 0 -->
+  <rect x="474" y="110" width="176" height="34" rx="6" fill="white" stroke="#CE93D8" stroke-width="1.5"/>
+  <rect x="474" y="110" width="38" height="34" rx="6" fill="#AB47BC"/>
+  <rect x="496" y="110" width="16" height="34" fill="#AB47BC"/>
+  <text x="493" y="133" font-size="12" font-weight="bold" fill="white" text-anchor="middle" font-family="monospace">(0)</text>
+  <text x="584" y="133" font-size="13" fill="#4A148C" text-anchor="middle" font-family="monospace" font-weight="bold">chr1</text>
+
+  <!-- item 1 -->
+  <rect x="474" y="152" width="176" height="34" rx="6" fill="white" stroke="#CE93D8" stroke-width="1.5"/>
+  <rect x="474" y="152" width="38" height="34" rx="6" fill="#AB47BC"/>
+  <rect x="496" y="152" width="16" height="34" fill="#AB47BC"/>
+  <text x="493" y="175" font-size="12" font-weight="bold" fill="white" text-anchor="middle" font-family="monospace">(1)</text>
+  <text x="584" y="175" font-size="13" fill="#4A148C" text-anchor="middle" font-family="monospace" font-weight="bold">1000</text>
+
+  <!-- item 2 -->
+  <rect x="474" y="194" width="176" height="34" rx="6" fill="white" stroke="#CE93D8" stroke-width="1.5"/>
+  <rect x="474" y="194" width="38" height="34" rx="6" fill="#AB47BC"/>
+  <rect x="496" y="194" width="16" height="34" fill="#AB47BC"/>
+  <text x="493" y="217" font-size="12" font-weight="bold" fill="white" text-anchor="middle" font-family="monospace">(2)</text>
+  <text x="584" y="217" font-size="13" fill="#4A148C" text-anchor="middle" font-family="monospace" font-weight="bold">2000</text>
+
+  <!-- 属性标签 -->
+  <text x="562" y="248" font-size="10.5" fill="#6A1B9A" text-anchor="middle">❌ 不可变 · 📍 按序号访问</text>
+  <text x="562" y="263" font-size="10.5" fill="#6A1B9A" text-anchor="middle">用途：固定记录</text>
+  <rect x="474" y="270" width="176" height="12" rx="6" fill="#E1BEE7"/>
+  <text x="562" y="280" font-size="9.5" fill="#6A1B9A" text-anchor="middle" font-family="monospace">coord = ("chr1", 1000, 2000)</text>
+</svg>

@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="380" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#388E3C"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1565C0"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#E65100"/>
+    </marker>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="680" height="380" rx="12" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1.5"/>
+
+  <!-- 标题 -->
+  <rect x="170" y="14" width="340" height="34" rx="17" fill="#37474F"/>
+  <text x="340" y="36" font-size="14" font-weight="bold" fill="white" text-anchor="middle">函数 ≈ 酶：输入 → 处理 → 输出</text>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- 上方行：Python 层                        -->
+  <!-- ═══════════════════════════════════════ -->
+
+  <!-- 绿色框：参数（输入） -->
+  <rect x="16" y="62" width="170" height="100" rx="8" fill="#E8F5E9" stroke="#4CAF50" stroke-width="2"/>
+  <rect x="16" y="62" width="170" height="30" rx="8" fill="#4CAF50"/>
+  <rect x="16" y="80" width="170" height="12" rx="0" fill="#4CAF50"/>
+  <text x="101" y="82" font-size="12" font-weight="bold" fill="white" text-anchor="middle">参数（输入）</text>
+  <text x="101" y="110" font-size="12" fill="#1B5E20" text-anchor="middle" font-family="monospace, Courier New">dna_seq =</text>
+  <text x="101" y="130" font-size="14" font-weight="bold" fill="#2E7D32" text-anchor="middle" font-family="monospace, Courier New">"ATGCGT"</text>
+  <text x="101" y="150" font-size="10" fill="#558B2F" text-anchor="middle">传入函数的值</text>
+
+  <!-- 箭头1：参数 → 函数体 -->
+  <line x1="188" y1="112" x2="220" y2="112" stroke="#388E3C" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
+
+  <!-- 蓝色框：函数体（处理） -->
+  <rect x="222" y="54" width="236" height="116" rx="8" fill="#E3F2FD" stroke="#2196F3" stroke-width="2"/>
+  <rect x="222" y="54" width="236" height="30" rx="8" fill="#2196F3"/>
+  <rect x="222" y="72" width="236" height="12" rx="0" fill="#2196F3"/>
+  <text x="340" y="74" font-size="13" font-weight="bold" fill="white" text-anchor="middle" font-family="monospace, Courier New">transcribe()</text>
+  <text x="340" y="100" font-size="11" fill="#1565C0" text-anchor="middle">函数体（处理）</text>
+  <rect x="234" y="106" width="212" height="26" rx="6" fill="#BBDEFB" stroke="#90CAF9" stroke-width="1"/>
+  <text x="340" y="123" font-size="12" fill="#0D47A1" text-anchor="middle" font-family="monospace, Courier New">dna_seq.replace("T","U")</text>
+  <text x="340" y="154" font-size="10" fill="#1565C0" text-anchor="middle">将 T 碱基逐一替换为 U</text>
+
+  <!-- 箭头2：函数体 → 返回值 -->
+  <line x1="460" y1="112" x2="492" y2="112" stroke="#E65100" stroke-width="2.5" marker-end="url(#arrowOrange)"/>
+
+  <!-- 橙色框：返回值（输出） -->
+  <rect x="494" y="62" width="170" height="100" rx="8" fill="#FFF3E0" stroke="#FF9800" stroke-width="2"/>
+  <rect x="494" y="62" width="170" height="30" rx="8" fill="#FF9800"/>
+  <rect x="494" y="80" width="170" height="12" rx="0" fill="#FF9800"/>
+  <text x="579" y="82" font-size="12" font-weight="bold" fill="white" text-anchor="middle">返回值（输出）</text>
+  <text x="579" y="120" font-size="14" font-weight="bold" fill="#E65100" text-anchor="middle" font-family="monospace, Courier New">"AUGCGU"</text>
+  <text x="579" y="142" font-size="11" fill="#BF360C" text-anchor="middle">return 返回</text>
+  <text x="579" y="156" font-size="10" fill="#E64A19" text-anchor="middle">转录后的 RNA 链</text>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- 下方行：生物学类比                        -->
+  <!-- ═══════════════════════════════════════ -->
+
+  <!-- 绿色框：底物（颜色与上方参数框一致） -->
+  <rect x="16" y="192" width="170" height="88" rx="8" fill="#E8F5E9" stroke="#4CAF50" stroke-width="2"/>
+  <rect x="16" y="192" width="170" height="30" rx="8" fill="#4CAF50"/>
+  <rect x="16" y="210" width="170" height="12" rx="0" fill="#4CAF50"/>
+  <text x="101" y="212" font-size="12" font-weight="bold" fill="white" text-anchor="middle">底物</text>
+  <text x="101" y="240" font-size="13" font-weight="bold" fill="#2E7D32" text-anchor="middle" font-family="monospace, Courier New">DNA 模板链</text>
+  <text x="101" y="262" font-size="10" fill="#558B2F" text-anchor="middle">进入酶的活性位点</text>
+
+  <!-- 箭头3：底物 → 酶 -->
+  <line x1="188" y1="236" x2="220" y2="236" stroke="#388E3C" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
+
+  <!-- 蓝色框：酶（颜色与上方函数体框一致） -->
+  <rect x="222" y="184" width="236" height="104" rx="8" fill="#E3F2FD" stroke="#2196F3" stroke-width="2"/>
+  <rect x="222" y="184" width="236" height="30" rx="8" fill="#2196F3"/>
+  <rect x="222" y="202" width="236" height="12" rx="0" fill="#2196F3"/>
+  <text x="340" y="204" font-size="13" font-weight="bold" fill="white" text-anchor="middle">酶</text>
+  <text x="340" y="230" font-size="13" font-weight="bold" fill="#1565C0" text-anchor="middle">RNA 聚合酶</text>
+  <text x="340" y="250" font-size="11" fill="#1976D2" text-anchor="middle">RNA Polymerase</text>
+  <text x="340" y="270" font-size="10" fill="#1565C0" text-anchor="middle">识别 T → 转录为 U</text>
+
+  <!-- 箭头4：酶 → 产物 -->
+  <line x1="460" y1="236" x2="492" y2="236" stroke="#E65100" stroke-width="2.5" marker-end="url(#arrowOrange)"/>
+
+  <!-- 橙色框：产物（颜色与上方返回值框一致） -->
+  <rect x="494" y="192" width="170" height="88" rx="8" fill="#FFF3E0" stroke="#FF9800" stroke-width="2"/>
+  <rect x="494" y="192" width="170" height="30" rx="8" fill="#FF9800"/>
+  <rect x="494" y="210" width="170" height="12" rx="0" fill="#FF9800"/>
+  <text x="579" y="212" font-size="12" font-weight="bold" fill="white" text-anchor="middle">产物</text>
+  <text x="579" y="242" font-size="13" font-weight="bold" fill="#E65100" text-anchor="middle">mRNA</text>
+  <text x="579" y="262" font-size="10" fill="#BF360C" text-anchor="middle">从酶中释放的转录产物</text>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- 底部代码示例                              -->
+  <!-- ═══════════════════════════════════════ -->
+  <rect x="16" y="300" width="648" height="46" rx="8" fill="#1E1E1E"/>
+  <!-- 注释行 -->
+  <text x="32" y="320" font-size="12" fill="#6A9955" font-family="monospace, Courier New"># 调用示例：</text>
+  <!-- 代码行 -->
+  <text x="32" y="337" font-size="12" font-family="monospace, Courier New">
+    <tspan fill="#9CDCFE">rna</tspan>
+    <tspan fill="#D4D4D4"> = </tspan>
+    <tspan fill="#DCDCAA">transcribe</tspan>
+    <tspan fill="#D4D4D4">(</tspan>
+    <tspan fill="#CE9178">"ATGCGT"</tspan>
+    <tspan fill="#D4D4D4">)  </tspan>
+    <tspan fill="#6A9955"># 返回 "AUGCGU"</tspan>
+  </text>
+</svg>
