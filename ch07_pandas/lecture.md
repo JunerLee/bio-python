@@ -235,7 +235,7 @@ df.dropna()
 # 按 "分组" 列分组，计算每组样本A的平均表达量
 df.groupby('分组')['样本A'].mean()
 # cancer    7.10
-# normal    2.55
+# normal    3.20
 
 # 一次性统计所有数值列的平均值
 df.groupby('分组').mean(numeric_only=True)

@@ -46,7 +46,7 @@ print(sample_info)
 # 任务：找出满足以下条件的基因：
 #   cancer 组平均表达量 > normal 组平均表达量的 2 倍
 #
-# 预期结果：应该能找到 MYC、EGFR、VEGFA、CDK4 等基因
+# 预期结果：应该能找到 TP53、MYC、EGFR、VEGFA、CDK4 等基因
 #
 # 提示（按步骤思考）：
 #   步骤1：分别拿到 cancer 组和 normal 组的样本列名列表

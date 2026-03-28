@@ -86,16 +86,20 @@ with open("data.txt", "r") as f:
 ### 读文件的三种方法
 
 ```python
+# 方法1：一次性读取全部内容（适合小文件）
 with open("data.txt", "r") as f:
-    # 方法1：一次性读取全部内容（适合小文件）
     content = f.read()
 
-    # 方法2：逐行读取（适合处理大文件）
+# 方法2：逐行读取（适合处理大文件）
+with open("data.txt", "r") as f:
     line = f.readline()
 
-    # 方法3：读取所有行，返回列表
+# 方法3：读取所有行，返回列表
+with open("data.txt", "r") as f:
     lines = f.readlines()  # ["第一行\n", "第二行\n", ...]
 ```
+
+> ⚠️ **注意**：每次 `f.read()` 会把文件指针移到末尾，之后再调用 `f.readline()` 就读不到内容了。所以三种方法需要分别打开文件，不能放在同一个 `with` 块里依次调用。
 
 > **实际最常用的方式**：直接遍历文件对象，逐行处理，内存友好。
 
@@ -191,8 +195,8 @@ def parse_fasta(filepath):
         for line in f:
             line = line.strip()
             if line.startswith(">"):
-                # 标题行：提取序列名称（去掉 >，取第一个空格前的部分作为ID）
-                current_name = line[1:].split()[0]
+                # 标题行：提取序列名称（去掉 > 后保留完整描述）
+                current_name = line[1:].strip()
                 sequences[current_name] = ""
             else:
                 # 序列行：拼接到当前序列

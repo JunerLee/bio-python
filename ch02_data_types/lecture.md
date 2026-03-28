@@ -128,7 +128,7 @@ gc = (seq.count("G") + seq.count("C")) / len(seq) * 100
 
 # 在字符串前加 f，大括号里放变量或表达式
 print(f"序列长度: {len(seq)} bp")         # 序列长度: 13 bp
-print(f"GC含量: {gc:.2f}%")               # GC含量: 46.15%
+print(f"GC含量: {gc:.2f}%")               # GC含量: 53.85%
 print(f"前3个碱基: {seq[:3]}")             # 前3个碱基: ATG
 ```
 

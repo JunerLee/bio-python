@@ -248,7 +248,7 @@ centered = matrix - gene_means
 expr = np.array([5.2, 3.1, 7.8, 4.5, 1.2])
 
 np.mean(expr)    # 或 expr.mean()   -- 均值: 4.36
-np.std(expr)     # 或 expr.std()    -- 标准差: 2.18
+np.std(expr)     # 或 expr.std()    -- 标准差: 2.20
 np.min(expr)     # 或 expr.min()    -- 最小值: 1.2
 np.max(expr)     # 或 expr.max()    -- 最大值: 7.8
 np.sum(expr)     # 或 expr.sum()    -- 求和: 21.8
