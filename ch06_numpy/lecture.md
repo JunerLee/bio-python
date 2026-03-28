@@ -278,7 +278,7 @@ matrix.mean(axis=0)  # [5.1, 4.1, 5.53, 4.5]  -- 4个值，对应4个样本
 matrix.mean(axis=1)  # [5.15, 1.4, 7.875]      -- 3个值，对应3个基因
 
 # 不指定 axis：对所有元素计算
-matrix.mean()        # 4.475  -- 全矩阵均值
+matrix.mean()        # 4.81   -- 全矩阵均值
 ```
 
 ![axis 压缩方向示意](assets/axis_compress.svg)

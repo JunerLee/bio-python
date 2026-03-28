@@ -95,7 +95,7 @@ if ph > 7:
 ```python
 base = "A"
 
-# and：两个条件都满足
+# or：满足其中一个即可
 if base == "A" or base == "G":
     print("嘌呤")
 
@@ -277,10 +277,10 @@ print(f"GC 含量：{gc_content:.1%}")    # GC 含量：66.7%
 
 ```mermaid
 flowchart TD
-    A[开始] --> B[取出列表中的下一个元素]
-    B --> C{还有元素吗?}
-    C -- 是 --> D[执行循环体代码]
-    D --> B
+    A[开始] --> C{还有元素吗?}
+    C -- 是 --> B[取出下一个元素]
+    B --> D[执行循环体代码]
+    D --> C
     C -- 否 --> E[结束]
 ```
 
@@ -308,7 +308,7 @@ while concentration > 1.0:
 列表推导式是 Python 最优雅的特性之一，一行代码完成"对每个元素做处理并收集结果"：
 
 ```python
-# 传统写法：4行
+# 传统写法：3行
 result = []
 for base in "ATCG":
     result.append(base.lower())
@@ -418,11 +418,11 @@ print(f"GC 含量：{(count_g + count_c) / total:.1%}")
 
 ```
 序列长度：18 bp
-A: 3 (16.7%)
-T: 3 (16.7%)
+A: 4 (22.2%)
+T: 4 (22.2%)
 G: 5 (27.8%)
-C: 7 (38.9%)
-GC 含量：66.7%
+C: 5 (27.8%)
+GC 含量：55.6%
 ```
 
 > 这个例子综合运用了 `for` 循环、`if/elif/else` 判断、计数器变量和 f-string 格式化，是本章知识的一次完整实战。

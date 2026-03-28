@@ -1,7 +1,7 @@
 """
 第8章 练习题：数据可视化实战
 ============================
-通过绑制生信经典图形，练习 Matplotlib 和 Seaborn 的核心操作。
+通过绘制生信经典图形，练习 Matplotlib 和 Seaborn 的核心操作。
 
 注意：本脚本使用 Agg 后端，无需 GUI 环境即可保存图片。
 """
@@ -36,7 +36,7 @@ plt.rcParams['axes.unicode_minus'] = False
 每个基因对应两根柱子，一根代表 Cancer 组，一根代表 Normal 组。
 
 【任务】
-用下面提供的模拟数据，绑制一张分组柱状图：
+用下面提供的模拟数据，绘制一张分组柱状图：
 - X 轴：5个基因名称
 - Y 轴：平均表达量（FPKM）
 - 每个基因有两根柱子：Cancer（红色）和 Normal（蓝色）
@@ -68,7 +68,7 @@ normal_mean = np.array([6.8, 11.5, 7.2, 3.9, 49.8])
   # Cancer 组的柱子位置：x - width/2（左移半个柱宽）
   # Normal 组的柱子位置：x + width/2（右移半个柱宽）
 
-步骤3：绑制柱状图
+步骤3：绘制柱状图
   fig, ax = plt.subplots(figsize=(10, 6))
   # ax.bar(Cancer位置, cancer_mean, width, label=..., color=...)
   # ax.bar(Normal位置, normal_mean, width, label=..., color=...)
@@ -116,7 +116,7 @@ normal_mean = np.array([6.8, 11.5, 7.2, 3.9, 49.8])
 满足两个条件的基因会被标记为红色（上调）或蓝色（下调）。
 
 【任务】
-用下面提供的模拟数据，绑制一张火山图：
+用下面提供的模拟数据，绘制一张火山图：
 1. 所有基因画成灰色散点
 2. 显著上调基因（log2FC > 1 且 pvalue < 0.05）标记为红色
 3. 显著下调基因（log2FC < -1 且 pvalue < 0.05）标记为蓝色
@@ -167,7 +167,7 @@ print(f"\n总基因数: {n_genes}")
   # 不显著的基因
   not_sig = ~(up | down)
 
-步骤3：绑制散点图（分三批画，颜色不同）
+步骤3：绘制散点图（分三批画，颜色不同）
   fig, ax = plt.subplots(figsize=(8, 6))
   # ax.scatter(不显著基因的x, 不显著基因的y, color='gray', alpha=0.5, s=20)
   # ax.scatter(上调基因的x, 上调基因的y, color='red', alpha=0.7, s=30)

@@ -16,8 +16,11 @@
 import matplotlib
 matplotlib.use('Agg')
 
+from pathlib import Path
 import numpy as np
 import pandas as pd
+
+OUTPUT_DIR = Path(__file__).parent
 import matplotlib.pyplot as plt
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
@@ -99,7 +102,7 @@ ax.legend(title='Species')
 ax.grid(True, alpha=0.3)
 
 plt.tight_layout()
-plt.savefig('/Users/juner/CODE/bio-python/ch09_ml_intro/iris_scatter.png', dpi=150)
+plt.savefig(OUTPUT_DIR / 'iris_scatter.png', dpi=150)
 plt.close()
 print("散点图已保存: iris_scatter.png")
 print("观察：setosa 与其他两个品种明显分开，versicolor 和 virginica 有部分重叠")
@@ -231,7 +234,7 @@ disp_dt.plot(ax=axes[1], cmap='Greens', colorbar=False)
 axes[1].set_title('Decision Tree Confusion Matrix')
 
 plt.tight_layout()
-plt.savefig('/Users/juner/CODE/bio-python/ch09_ml_intro/confusion_matrix.png', dpi=150)
+plt.savefig(OUTPUT_DIR / 'confusion_matrix.png', dpi=150)
 plt.close()
 print("混淆矩阵已保存: confusion_matrix.png")
 

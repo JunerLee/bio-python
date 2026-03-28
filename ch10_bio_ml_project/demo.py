@@ -1,5 +1,5 @@
 """
-第10章 毕业项目：乳腺癌基因表达分类
+第10章 毕业项目：乳腺癌肿瘤诊断分类
 
 完整的机器学习项目流程演示：
     1. 数据加载与探索（EDA）
@@ -106,6 +106,7 @@ def plot_correlation_heatmap(df: pd.DataFrame, target: pd.Series) -> None:
     plt.figure(figsize=(16, 14))
     sns.heatmap(
         corr_matrix,
+        annot=True,
         cmap="RdBu_r",
         center=0,
         vmin=-1,
@@ -326,7 +327,7 @@ def main() -> None:
     print("\n" + "*" * 60)
     print("  项目总结")
     print("*" * 60)
-    print(f"  数据集:     Breast Cancer Wisconsin (569 例)")
+    print(f"  数据集:     Breast Cancer Wisconsin (569 例，形态学特征)")
     print(f"  选用特征:   {len(selected_features)} 个（基于相关性选择）")
     print(f"  最佳模型:   {best_name}")
     print(f"  交叉验证:   {cv_results[best_name]:.4f}")
