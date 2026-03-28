@@ -91,9 +91,11 @@ def exercise_1_nn_vs_rf() -> None:
     if results:
         best = max(results, key=lambda k: results[k].mean())
         print(f"\n  结论: {best} 在本数据集上表现更好")
-    print(f"  思考: 对于样本量较小（569例）的结构化数据，")
-    print(f"        神经网络不一定比传统方法更优。")
-    print(f"        深度学习的优势更多体现在大规模非结构化数据上。")
+        print(f"  思考: 对于样本量较小（569例）的结构化数据，")
+        print(f"        神经网络不一定比传统方法更优。")
+        print(f"        深度学习的优势更多体现在大规模非结构化数据上。")
+    else:
+        print("\n  （请先完成上方 TODO，填入模型和交叉验证代码）")
 
 
 # ============================================================
@@ -157,8 +159,11 @@ def exercise_2_pca_visualization() -> None:
 
     pass  # TODO: 在这里绘制散点图并保存
 
-    print(f"\n  观察: 两类样本在 PC1 方向上有明显分离，")
-    print(f"        说明线性方法（如逻辑回归）就能取得不错的分类效果。")
+    if X_pca is not None:
+        print(f"\n  观察: 两类样本在 PC1 方向上有明显分离，")
+        print(f"        说明线性方法（如逻辑回归）就能取得不错的分类效果。")
+    else:
+        print("\n  （请先完成上方 TODO，填入 PCA 降维和散点图代码）")
 
 
 # ============================================================
@@ -174,7 +179,8 @@ def main() -> None:
     exercise_2_pca_visualization()
 
     print("\n" + "*" * 60)
-    print("  所有练习完成！")
+    print("  所有练习运行结束，请检查输出是否符合预期。")
+    print("  如果看到'请先完成 TODO'的提示，说明练习尚未完成。")
     print("*" * 60)
 
 
