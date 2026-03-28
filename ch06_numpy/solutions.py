@@ -1,0 +1,130 @@
+"""
+第6章 练习题：NumPy 实战
+========================
+通过真实的生信场景练习 NumPy 核心操作。
+"""
+
+import numpy as np
+
+# ============================================================
+# 练习数据（模拟 5个基因 × 6个样本 的表达矩阵）
+# ============================================================
+# 行：基因，列：样本
+gene_names = ["TP53", "BRCA1", "EGFR", "MYC", "GAPDH"]
+sample_names = ["S1", "S2", "S3", "S4", "S5", "S6"]
+
+expr_matrix = np.array([
+    [ 8.2,  7.5,  9.1,  7.8,  8.0,  8.4],  # TP53   -- 表达稳定
+    [ 2.1, 12.3,  1.8, 15.0,  3.2, 11.7],  # BRCA1  -- 表达波动大
+    [22.5, 20.1, 25.3, 18.7, 23.6, 21.0],  # EGFR   -- 高表达，较稳定
+    [ 1.0, 18.5,  0.5, 20.2,  2.3, 16.8],  # MYC    -- 表达波动非常大
+    [50.2, 48.7, 51.3, 49.5, 50.8, 49.1],  # GAPDH  -- 管家基因，极稳定
+])
+
+print("基因表达矩阵 (5基因 × 6样本):")
+print(expr_matrix)
+print(f"形状: {expr_matrix.shape}")
+print()
+
+
+# ============================================================
+# 练习1：计算变异系数（CV），筛选高变异基因
+# ============================================================
+"""
+【背景】
+在生信分析中，变异系数（Coefficient of Variation, CV）用于衡量基因
+表达的波动程度。CV = 标准差 / 均值。
+
+CV 值高的基因在不同样本间表达差异大，可能具有生物学意义（如肿瘤标志物）。
+CV 值低的基因表达稳定，常用作内参（如 GAPDH）。
+
+【任务】
+1. 计算每个基因的均值和标准差（提示：使用 axis=1）
+2. 计算每个基因的 CV 值（CV = std / mean）
+3. 筛选出 CV > 0.5 的高变异基因
+4. 打印结果：每个基因的名称、均值、标准差、CV值
+5. 单独打印高变异基因的名称
+
+【提示】
+- 均值：expr_matrix.mean(axis=?)
+- 标准差：expr_matrix.std(axis=?)
+- CV 就是两个数组的逐元素除法
+- 布尔索引：np.array(gene_names)[cv > 0.5]
+
+【预期输出格式】
+  基因     均值    标准差    CV
+  TP53     8.17    0.51    0.06
+  BRCA1    ...     ...     ...
+  ...
+
+  高变异基因: ['BRCA1', 'MYC']
+"""
+
+# ----- 参考答案 -----
+gene_means = expr_matrix.mean(axis=1)
+gene_stds = expr_matrix.std(axis=1)
+cv_values = gene_stds / gene_means
+high_var_genes = np.array(gene_names)[cv_values > 0.5]
+
+print("  基因     均值    标准差    CV")
+for gene_name, mean_val, std_val, cv_val in zip(
+    gene_names, gene_means, gene_stds, cv_values
+):
+    print(f"  {gene_name:<6} {mean_val:>6.2f}  {std_val:>7.2f}  {cv_val:>5.2f}")
+
+print()
+print("  高变异基因:", high_var_genes.tolist())
+
+
+
+# ============================================================
+# 练习2：Z-score 标准化
+# ============================================================
+"""
+【背景】
+Z-score 标准化是生信分析中最常用的数据预处理方法之一。
+它将每个基因的表达量转换为"距离均值几个标准差"的度量。
+
+公式：Z = (x - mean) / std
+
+标准化后：
+- 均值变为 0
+- 标准差变为 1
+- 不同量级的基因可以放在一起比较
+
+这在绘制热图（heatmap）之前几乎是必做的步骤。
+
+【任务】
+1. 对表达矩阵做按行（按基因）Z-score 标准化
+   - 每行减去该行的均值
+   - 再除以该行的标准差
+2. 验证标准化结果：每行的均值应该接近 0，标准差应该接近 1
+3. 打印标准化后的矩阵（保留2位小数）
+
+【提示】
+- 计算每行均值时需要 keepdims=True，这样形状从 (5,) 变成 (5,1)，
+  才能利用广播机制和原矩阵做减法
+  例如：row_means = expr_matrix.mean(axis=1, keepdims=True)
+- 标准差同理：row_stds = expr_matrix.std(axis=1, keepdims=True)
+- 然后直接用数组运算：z_matrix = (expr_matrix - row_means) / row_stds
+
+【预期输出格式】
+  Z-score 标准化后的矩阵:
+  [[ 0.07 -1.32  1.85 -0.73 -0.33  0.46]
+   [-1.03  0.85 -1.08  1.35 -0.83  0.74]
+   ...]
+
+  验证（每行均值应≈0）: [ 0.  0.  0.  0.  0.]
+  验证（每行标准差应≈1）: [1. 1. 1. 1. 1.]
+"""
+
+# ----- 参考答案 -----
+row_means = expr_matrix.mean(axis=1, keepdims=True)
+row_stds = expr_matrix.std(axis=1, keepdims=True)
+z_matrix = (expr_matrix - row_means) / row_stds
+
+print("\nZ-score 标准化后的矩阵:")
+print(np.round(z_matrix, 2))
+print()
+print("验证（每行均值应≈0）:", np.round(z_matrix.mean(axis=1), 10))
+print("验证（每行标准差应≈1）:", np.round(z_matrix.std(axis=1), 10))

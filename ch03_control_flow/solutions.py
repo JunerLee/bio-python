@@ -1,0 +1,115 @@
+"""
+第3章 练习题：条件判断与循环
+============================
+请独立完成以下练习，巩固本章知识。
+"""
+
+# ============================================================
+# 练习1：判断序列是 DNA 还是 RNA
+# ============================================================
+# 背景知识：
+#   - DNA 含有碱基 T（胸腺嘧啶），不含 U
+#   - RNA 含有碱基 U（尿嘧啶），不含 T
+#   - 如果同时含有 T 和 U，视为无效序列
+#
+# 任务：
+#   给定一条序列 seq，判断它是 "DNA"、"RNA" 还是 "无效序列"，
+#   并用 print() 输出结果。
+#
+# 提示：
+#   - 可以用 "T" in seq 来判断序列中是否包含某个字符
+#   - 需要考虑3种情况：只有T → DNA，只有U → RNA，其他 → 无效
+
+seq1 = "ATGCGCTA"
+seq2 = "AUGCGCUA"
+seq3 = "AUTGCGCA"
+
+for seq in [seq1, seq2, seq3]:
+    has_t = "T" in seq
+    has_u = "U" in seq
+
+    if has_t and not has_u:
+        seq_type = "DNA"
+    elif has_u and not has_t:
+        seq_type = "RNA"
+    else:
+        seq_type = "无效序列"
+
+    print(f"{seq} → {seq_type}")
+
+# 预期输出：
+# ATGCGCTA → DNA
+# AUGCGCUA → RNA
+# AUTGCGCA → 无效序列
+
+
+# ============================================================
+# 练习2：批量计算多条 DNA 序列的 GC 含量
+# ============================================================
+# 任务：
+#   给定一个包含多条 DNA 序列的字典（基因名 → 序列），
+#   用 for 循环计算每条序列的 GC 含量，
+#   并找出 GC 含量最高的基因。
+#
+# 提示：
+#   - 计算单条序列 GC 含量的方法在 demo.py 中已经演示过
+#   - 可以用一个变量记录"当前最高 GC 含量"和对应的基因名
+#   - 每次算出一个新的 GC 含量，就和"当前最高"比较
+
+sequences = {
+    "GeneA": "ATGCGCTATGCAATCG",
+    "GeneB": "GGCGCCGGCGCCGGCG",
+    "GeneC": "AAATTTAAATTTAAAT",
+    "GeneD": "ATGCATGCATGCATGC",
+}
+
+highest_gc_gene = ""
+highest_gc = -1.0
+
+for gene_name, sequence in sequences.items():
+    gc_count = sequence.count("G") + sequence.count("C")
+    gc_content = gc_count / len(sequence) * 100
+    print(f"{gene_name}: GC含量 = {gc_content:.2f}%")
+
+    if gc_content > highest_gc:
+        highest_gc = gc_content
+        highest_gc_gene = gene_name
+
+print(f"GC含量最高的基因是：{highest_gc_gene}（{highest_gc:.2f}%）")
+
+# 预期输出（格式参考，数值自己计算）：
+# GeneA: GC含量 = XX.XX%
+# GeneB: GC含量 = XX.XX%
+# GeneC: GC含量 = XX.XX%
+# GeneD: GC含量 = XX.XX%
+# GC含量最高的基因是：GeneB（XX.XX%）
+
+
+# ============================================================
+# 练习3（挑战）：用列表推导式生成反向互补序列
+# ============================================================
+# 背景知识：
+#   反向互补序列是生物信息学中的基本操作。
+#   步骤：1) 取互补碱基  2) 反转序列
+#   例如：ATGC → 互补 TACG → 反转 GCAT
+#
+# 任务：
+#   用列表推导式 + 字符串反转，一步生成反向互补序列。
+#
+# 提示：
+#   - 互补配对字典：{"A": "T", "T": "A", "G": "C", "C": "G"}
+#   - 列表推导式生成互补序列的方法见 demo.py
+#   - 字符串反转可以用切片 [::-1]
+#   - 把列表变成字符串用 "".join(列表)
+
+dna = "ATGCGCTA"
+
+complement_map = {"A": "T", "T": "A", "G": "C", "C": "G"}
+reverse_complement = "".join([complement_map[base] for base in dna])[::-1]
+
+print(f"原始序列：    {dna}")
+print(f"反向互补序列：{reverse_complement}")
+
+# 预期输出：
+# 原始序列：    ATGCGCTA
+# 反向互补序列：TAGCGCAT

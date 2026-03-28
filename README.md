@@ -39,7 +39,8 @@
 chXX_章节名/
 ├── lecture.md      # 讲义（概念讲解 + 配图）
 ├── demo.py         # 可运行的代码演示
-├── exercises.py    # 练习题（动手试试！）
+├── exercises.py    # 学生版练习题（保留 TODO）
+├── solutions.py    # 教师版参考答案（可直接运行核对）
 └── assets/         # 配图（SVG 格式）
 ```
 
@@ -74,15 +75,25 @@ uv sync
 3. ✏️ 打开 `exercises.py`，动手尝试完成练习
 4. 🔍 遇到问题？回头看讲义对应部分，或者在代码里加 `print()` 调试
 
+> `solutions.py` 是教师版参考答案，建议先独立完成 `exercises.py`，再对照答案检查。
+
 ## 运行示例
 
 ```bash
 # 运行第 1 章演示
 uv run python ch01_hello_python/demo.py
 
+# 运行第 1 章教师版参考答案
+uv run python ch01_hello_python/solutions.py
+
 # 运行第 10 章毕业项目
 uv run python ch10_bio_ml_project/demo.py
 ```
+
+## 关于运行产物
+
+运行 `demo.py` 或 `solutions.py` 时，部分章节会生成 PNG、CSV、FASTA 或文本报告文件。
+这些文件只是本地运行产物，不需要提交到仓库，`.gitignore` 已经默认忽略它们。
 
 ---
 

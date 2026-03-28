@@ -18,3 +18,16 @@ Thumbs.db
 # Environment
 .env
 .env.local
+
+# Local tool state
+.claude/
+
+# Generated tutorial outputs
+ch05_files_and_modules/analysis_report.txt
+ch05_files_and_modules/example_sequences.fasta
+ch05_files_and_modules/exercise_sequences.fasta
+ch05_files_and_modules/gc_results.csv
+ch07_pandas/upregulated_genes.csv
+ch08_visualization/*.png
+ch09_ml_intro/*.png
+ch10_bio_ml_project/*.png
