@@ -38,7 +38,7 @@ plt.rcParams['axes.unicode_minus'] = False
 【任务】
 用下面提供的模拟数据，绘制一张分组柱状图：
 - X 轴：5个基因名称
-- Y 轴：平均表达量（FPKM）
+- Y 轴：平均表达量（TPM）
 - 每个基因有两根柱子：Cancer（红色）和 Normal（蓝色）
 - 添加标题、轴标签、图例
 - 保存为 "exercise1_grouped_bar.png"
@@ -80,7 +80,7 @@ normal_mean = np.array([6.8, 11.5, 7.2, 3.9, 49.8])
   # ax.legend()
 
 步骤5：保存
-  fig.savefig(os.path.join(SAVE_DIR, "exercise1_grouped_bar.png"),
+  plt.savefig(os.path.join(SAVE_DIR, "exercise1_grouped_bar.png"),
               dpi=150, bbox_inches='tight')
   plt.close(fig)
 
@@ -101,12 +101,12 @@ ax.set_xticks(x)
 ax.set_xticklabels(gene_names)
 ax.set_title("Cancer vs Normal Gene Expression", fontsize=14)
 ax.set_xlabel("Gene", fontsize=12)
-ax.set_ylabel("Mean Expression (FPKM)", fontsize=12)
+ax.set_ylabel("Mean Expression (TPM)", fontsize=12)
 ax.legend()
 ax.grid(axis="y", alpha=0.3)
 
 exercise1_path = os.path.join(SAVE_DIR, "exercise1_grouped_bar.png")
-fig.savefig(exercise1_path, dpi=150, bbox_inches="tight")
+plt.savefig(exercise1_path, dpi=150, bbox_inches="tight")
 plt.close(fig)
 print(f"练习1图片已保存: {exercise1_path}")
 
@@ -245,6 +245,6 @@ ax.legend()
 ax.grid(alpha=0.2)
 
 exercise2_path = os.path.join(SAVE_DIR, "exercise2_volcano_plot.png")
-fig.savefig(exercise2_path, dpi=150, bbox_inches="tight")
+plt.savefig(exercise2_path, dpi=150, bbox_inches="tight")
 plt.close(fig)
 print(f"练习2图片已保存: {exercise2_path}")

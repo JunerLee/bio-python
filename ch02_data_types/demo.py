@@ -18,7 +18,7 @@ chromosome_num = 23                # 人类单倍体染色体数目
 base_pairs = 3_200_000_000         # 人类基因组大约有32亿个碱基对
 
 print("=== 整数 int ===")
-print(f"人类染色体数目: {chromosome_num}")
+print(f"人类单倍体染色体数目: {chromosome_num}")
 print(f"基因组碱基对数: {base_pairs}")
 print(f"类型: {type(chromosome_num)}")
 print()

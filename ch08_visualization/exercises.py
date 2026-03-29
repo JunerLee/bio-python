@@ -38,7 +38,7 @@ plt.rcParams['axes.unicode_minus'] = False
 【任务】
 用下面提供的模拟数据，绘制一张分组柱状图：
 - X 轴：5个基因名称
-- Y 轴：平均表达量（FPKM）
+- Y 轴：平均表达量（TPM）
 - 每个基因有两根柱子：Cancer（红色）和 Normal（蓝色）
 - 添加标题、轴标签、图例
 - 保存为 "exercise1_grouped_bar.png"
@@ -80,7 +80,7 @@ normal_mean = np.array([6.8, 11.5, 7.2, 3.9, 49.8])
   # ax.legend()
 
 步骤5：保存
-  fig.savefig(os.path.join(SAVE_DIR, "exercise1_grouped_bar.png"),
+  plt.savefig(os.path.join(SAVE_DIR, "exercise1_grouped_bar.png"),
               dpi=150, bbox_inches='tight')
   plt.close(fig)
 
@@ -191,5 +191,4 @@ print(f"\n总基因数: {n_genes}")
 """
 
 # ----- 在下方编写你的代码 -----
-
 

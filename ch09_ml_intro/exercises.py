@@ -11,6 +11,7 @@ matplotlib.use('Agg')
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from pathlib import Path
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
@@ -153,9 +154,10 @@ else:
 # plt.xticks(k_values)
 # plt.grid(True, alpha=0.3)
 # plt.tight_layout()
-# plt.savefig('/Users/juner/CODE/bio-python/ch09_ml_intro/knn_k_values.png', dpi=150)
+# plot_path = Path(__file__).with_name("knn_k_values.png")
+# plt.savefig(plot_path, dpi=150)
 # plt.close()
-# print("折线图已保存: knn_k_values.png")
+# print(f"折线图已保存: {plot_path}")
 
 print("\n" + "=" * 60)
 print("思考题：")

@@ -174,7 +174,19 @@ graph TD
     D --> G["返回 RNA"]
 ```
 
+下面给出一个**自包含**的示例，展示多个函数如何协作完成一次综合分析：
+
 ```python
+def calc_gc(seq):
+    return round((seq.count("G") + seq.count("C")) / len(seq) * 100, 2)
+
+def complement(seq):
+    base_map = {"A": "T", "T": "A", "G": "C", "C": "G"}
+    return "".join(base_map[base] for base in seq)
+
+def transcribe(seq):
+    return seq.replace("T", "U")
+
 def analyze_sequence(seq):
     """对 DNA 序列进行综合分析"""
     gc = calc_gc(seq)

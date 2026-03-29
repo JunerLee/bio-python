@@ -15,7 +15,7 @@ Python 中一切皆"对象"，每个对象都有自己的**类型（type）**。
 存放**没有小数点**的数字。
 
 ```python
-chromosome_num = 23          # 人类染色体数目
+chromosome_num = 23          # 人类单倍体染色体数目
 base_pairs = 3_200_000_000   # 人类基因组碱基对数量（下划线提高可读性）
 print(type(chromosome_num))  # <class 'int'>
 ```

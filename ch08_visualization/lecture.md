@@ -211,7 +211,7 @@ ax.plot(x, y, color='steelblue', linewidth=2, marker='o', label='TP53')
 # 标题和轴标签
 ax.set_title("TP53 表达量随时间变化", fontsize=14)
 ax.set_xlabel("时间 (小时)", fontsize=12)
-ax.set_ylabel("表达量 (FPKM)", fontsize=12)
+ax.set_ylabel("表达量 (TPM)", fontsize=12)
 
 # 图例
 ax.legend(fontsize=10)

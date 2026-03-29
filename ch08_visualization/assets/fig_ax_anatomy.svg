@@ -46,7 +46,7 @@
 
   <!-- Y 轴标签（竖排，在ax左侧） -->
   <text x="152" y="222" text-anchor="middle" font-size="12" font-weight="600" fill="#546e7a"
-        transform="rotate(-90, 152, 222)">表达量（FPKM）</text>
+        transform="rotate(-90, 152, 222)">表达量（TPM）</text>
 
   <!-- X 轴标签（底部，在ax下方） -->
   <text x="335" y="376" text-anchor="middle" font-size="12" font-weight="600" fill="#546e7a">时间点（天）</text>

@@ -43,7 +43,7 @@ print("=" * 60)
 print("演示1：折线图 -- 基因表达量随时间变化")
 print("=" * 60)
 
-# 模拟数据：5个时间点（小时），TP53 的表达量（FPKM）
+# 模拟数据：5个时间点（小时），TP53 的表达量（TPM）
 time_points = np.array([0, 6, 12, 24, 48])
 tp53_expr = np.array([5.2, 8.1, 12.5, 15.3, 14.8])    # 处理组：先上升后平台
 tp53_ctrl = np.array([5.0, 5.3, 4.8, 5.1, 5.2])        # 对照组：基本不变
@@ -60,7 +60,7 @@ ax.plot(time_points, tp53_ctrl, marker='s', color='#3498db',
 # 美化图表
 ax.set_title("TP53 Expression Over Time", fontsize=14)
 ax.set_xlabel("Time (hours)", fontsize=12)
-ax.set_ylabel("Expression (FPKM)", fontsize=12)
+ax.set_ylabel("Expression (TPM)", fontsize=12)
 ax.legend(fontsize=10)
 ax.grid(True, alpha=0.3)
 
@@ -100,8 +100,8 @@ ax.plot(x_line, p(x_line), color='#e74c3c', linewidth=2,
 
 # 美化
 ax.set_title("TP53 vs MDM2 Expression Correlation", fontsize=14)
-ax.set_xlabel("TP53 Expression (FPKM)", fontsize=12)
-ax.set_ylabel("MDM2 Expression (FPKM)", fontsize=12)
+ax.set_xlabel("TP53 Expression (TPM)", fontsize=12)
+ax.set_ylabel("MDM2 Expression (TPM)", fontsize=12)
 ax.legend(fontsize=11)
 ax.grid(True, alpha=0.3)
 
@@ -142,7 +142,7 @@ ax.axhline(y=10, color='gray', linestyle='--', alpha=0.7, label='Threshold = 10'
 # 美化
 ax.set_title("TP53 Expression Across Patients", fontsize=14)
 ax.set_xlabel("Sample", fontsize=12)
-ax.set_ylabel("Expression (FPKM)", fontsize=12)
+ax.set_ylabel("Expression (TPM)", fontsize=12)
 ax.legend(fontsize=10)
 
 save_figure(fig, "demo3_bar_plot.png")
@@ -213,7 +213,7 @@ axes[0, 0].plot(time_points, tp53_ctrl, marker='s', color='#3498db',
                 linestyle='--', label='Control')
 axes[0, 0].set_title("A. Expression Over Time", fontsize=12)
 axes[0, 0].set_xlabel("Time (h)")
-axes[0, 0].set_ylabel("FPKM")
+axes[0, 0].set_ylabel("TPM")
 axes[0, 0].legend(fontsize=9)
 axes[0, 0].grid(True, alpha=0.3)
 
@@ -221,15 +221,15 @@ axes[0, 0].grid(True, alpha=0.3)
 axes[0, 1].scatter(tp53_values, mdm2_values, color='#2ecc71', alpha=0.7,
                    edgecolors='white', s=50)
 axes[0, 1].set_title("B. TP53 vs MDM2 Correlation", fontsize=12)
-axes[0, 1].set_xlabel("TP53 (FPKM)")
-axes[0, 1].set_ylabel("MDM2 (FPKM)")
+axes[0, 1].set_xlabel("TP53 (TPM)")
+axes[0, 1].set_ylabel("MDM2 (TPM)")
 axes[0, 1].grid(True, alpha=0.3)
 
 # --- 子图3 (左下)：柱状图 ---
 bar_colors = ['#e74c3c' if v > 10 else '#3498db' for v in tp53_expression]
 axes[1, 0].bar(samples, tp53_expression, color=bar_colors, edgecolor='white')
 axes[1, 0].set_title("C. TP53 Across Patients", fontsize=12)
-axes[1, 0].set_ylabel("FPKM")
+axes[1, 0].set_ylabel("TPM")
 axes[1, 0].tick_params(axis='x', rotation=30)
 
 # --- 子图4 (右下)：箱线图 ---
@@ -244,7 +244,7 @@ sns.boxplot(data=boxplot_data, x='Group', y='Expression', hue='Group',
             ax=axes[1, 1], legend=False,
             palette={'Tumor': '#e74c3c', 'Normal': '#3498db'})
 axes[1, 1].set_title("D. Expression Distribution", fontsize=12)
-axes[1, 1].set_ylabel("FPKM")
+axes[1, 1].set_ylabel("TPM")
 
 # 自动调整子图间距，避免标签重叠
 fig.tight_layout()
