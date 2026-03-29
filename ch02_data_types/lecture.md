@@ -189,26 +189,13 @@ count = int(3.7)          # 3
 
 > **常见场景**：从文件读取数据时，所有内容默认是字符串，需要转换成数字才能做数学运算。
 
-#### 类型转换关系图
+#### 类型转换速查表
 
-```mermaid
-graph LR
-    STR["str 字符串"] -->|"int('23')"| INT["int 整数"]
-    INT -->|"str(23)"| STR
-    STR -->|"float('0.42')"| FLOAT["float 浮点数"]
-    FLOAT -->|"str(3.14)"| STR
-    INT -->|"float(3)"| FLOAT
-    FLOAT -->|"int(3.7) 截断"| INT
-    INT -->|"bool(1)"| BOOL["bool 布尔值"]
-    BOOL -->|"int(True)=1"| INT
-
-    style STR fill:#e8f5e9,stroke:#388e3c
-    style INT fill:#fff3e0,stroke:#f57c00
-    style FLOAT fill:#fff3e0,stroke:#f57c00
-    style BOOL fill:#fce4ec,stroke:#c62828
-```
+![类型转换速查表](assets/type_conversion.svg)
 
 > **注意**：`int("3.7")` 会报错！必须先 `float("3.7")` 再 `int()`，即 `int(float("3.7"))`。
+>
+> **补充**：字符串转 `bool` 时，只有空字符串 `""` 会变成 `False`；像 `"0"`、`"False"` 这样的非空字符串，转换结果仍然是 `True`。
 
 ---
 
